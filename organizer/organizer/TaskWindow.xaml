@@ -1,0 +1,64 @@
+﻿<Window x:Class="organizer.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:organizer"
+        mc:Ignorable="d"
+        Title="TaskWindow" Height="540.033" Width="734.485">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "20" />
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
+
+        <!-- title -->
+        <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task Title" Margin = "0"  
+         HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+
+        <!-- 3 colums: task list, done, notes -->
+
+
+        <Grid Grid.Row = "1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "20" />
+                <RowDefinition Height = "*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width = "*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0"  
+                HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            <TextBlock Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  
+                HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Notes"  
+                HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+
+            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0">
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            </StackPanel>
+            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1">
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            </StackPanel>
+            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2">
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
