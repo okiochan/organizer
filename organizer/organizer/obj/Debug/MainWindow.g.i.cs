@@ -74,10 +74,7 @@ namespace organizer {
         internal System.Windows.Controls.Button butActive;
         internal System.Windows.Controls.Button butDone;
         internal System.Windows.Controls.Button butRecycle;
-        internal System.Windows.Controls.StackPanel panel1;
-        internal System.Windows.Controls.StackPanel panel3;
-        internal System.Windows.Controls.StackPanel panel4;
-        internal System.Windows.Controls.StackPanel panel2;
+        internal System.Windows.Controls.StackPanel panelTasks;
     }
 }
 

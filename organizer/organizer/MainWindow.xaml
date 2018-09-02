@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
         Title="MainWindow" Height="490" Width="700.61">
-    <StackPanel>
+    <StackPanel Height="Auto">
         <TextBlock Text="Main page" Background="Bisque" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- left col -->
-            <StackPanel Grid.Column="0" Margin="0 0 10 0" >
+            <StackPanel Grid.Column="0" Margin="0 0 10 0">
                 <TextBlock Background="AliceBlue" Text="List" FontWeight="Bold"  FontSize="15" />
                 <Button Margin="0 10" x:Name="butActive" Click="butActive_Click">active</Button>
                 <Button Margin="0 10" x:Name="butDone" Click="butDone_Click">done</Button>
@@ -23,30 +23,27 @@
             </StackPanel>
 
             <!-- right col -->
-            <StackPanel Grid.Column="1" Margin="0 0 10 0">
+            <StackPanel Grid.Column="1" Margin="0 0 10 0" >
                 <TextBlock Text="Tasks" Background="AliceBlue" FontWeight="Bold"  FontSize="15"/>
 
                 <!-- add here tasks -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="0" Margin="0 0 10 0" x:Name="panel1">
+                <StackPanel Orientation="Vertical" x:Name="panelTasks">
+                    
+                    <!-- EXAMPLE!!! -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
                     </StackPanel>
-
-                    <StackPanel Grid.Column="1" Margin="0 0 10 0" x:Name="panel2">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
                     </StackPanel>
-
-                    <StackPanel Grid.Column="2" Margin="0 0 10 0" x:Name="panel3">
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="3" Margin="0 0 10 0" x:Name="panel4">
-                    </StackPanel>
-                </Grid>
+                    
+                </StackPanel>
                 
             </StackPanel>
         </Grid>
