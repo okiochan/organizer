@@ -1,0 +1,13 @@
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\bin\Debug\organizer.exe
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\bin\Debug\organizer.pdb
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.csprojResolveAssemblyReference.cache
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\MainWindow.g.cs
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\App.g.cs
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer_MarkupCompile.cache
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer_MarkupCompile.lref
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\MainWindow.baml
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.g.resources
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.Properties.Resources.resources
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.csproj.GenerateResource.Cache
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.exe
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.pdb

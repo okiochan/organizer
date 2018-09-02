@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="490" Width="700.61">
+    <StackPanel>
+        <TextBlock Text="Main page" Background="Bisque" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- left col -->
+            <StackPanel Grid.Column="0" Margin="0 0 10 0" >
+                <TextBlock Background="AliceBlue" Text="List" FontWeight="Bold"  FontSize="15" />
+                <Button Margin="0 10" x:Name="butActive" Click="butActive_Click">active</Button>
+                <Button Margin="0 10" x:Name="butDone" Click="butDone_Click">done</Button>
+                <Button Margin="0 10" x:Name="butRecycle" Click="butRecycle_Click">recycle</Button>
+            </StackPanel>
+
+            <!-- right col -->
+            <StackPanel Grid.Column="1" Margin="0 0 10 0">
+                <TextBlock Text="Tasks" Background="AliceBlue" FontWeight="Bold"  FontSize="15"/>
+
+                <!-- add here tasks -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="0 0 10 0" x:Name="panel1">
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Margin="0 0 10 0" x:Name="panel2">
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Margin="0 0 10 0" x:Name="panel3">
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="3" Margin="0 0 10 0" x:Name="panel4">
+                    </StackPanel>
+                </Grid>
+                
+            </StackPanel>
+        </Grid>
+    </StackPanel>
 </Window>
