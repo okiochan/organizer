@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="500" Width="700">
+
+    <Grid  Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Main page" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20" Margin= "0 10 0 10"/>
+
+        <Grid Grid.Row="1" Background="AliceBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- left col -->
+            <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 10 0" Background="LightYellow">
+                <TextBlock  HorizontalAlignment="Center" Text="Tasks" FontWeight="Bold"  FontSize="15"/>
+                <Button Margin="10 10 " x:Name="butActive">active</Button>
+                <Button Margin="10 10" x:Name="butDone" >done</Button>
+                <Button Margin="10 10" x:Name="butRecycle">recycle</Button>
+            </StackPanel>
+
+            <!-- right col -->
+            <StackPanel Grid.Row="0" Grid.Column="1" Margin="0 0 10 0" >
+                <TextBlock  HorizontalAlignment="Center" Text="Active tasks list" Background="AliceBlue" FontWeight="Bold"  FontSize="15" x:Name="txtBlockTasksList"/>
+
+                <!-- add here tasks -->
+                <StackPanel Orientation="Vertical" x:Name="panelTasks">
+
+                    <!-- EXAMPLE!!! -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
+        
+   
 </Window>
