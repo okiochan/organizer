@@ -2,9 +2,10 @@
 
 namespace organizer {
     public class TaskFolder {
-        int id;
-        List<Task> tasks;
-        List<Note> notes;
-        Status status;
+        public int id;
+        public List<Task> tasks;
+        public List<Note> notes;
+        public Status status;
+        public string name;
     }
 }

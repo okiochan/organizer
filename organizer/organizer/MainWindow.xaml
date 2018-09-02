@@ -28,6 +28,7 @@
             <!-- left col -->
             <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 10 0" Background="LightYellow">
                 <TextBlock  HorizontalAlignment="Center" Text="Tasks" FontWeight="Bold"  FontSize="15"/>
+                <Button Margin="10 10 " x:Name="butAddTask" Click="butAddTask_Click">add task</Button>
                 <Button Margin="10 10 " x:Name="butActive">active</Button>
                 <Button Margin="10 10" x:Name="butDone" >done</Button>
                 <Button Margin="10 10" x:Name="butRecycle">recycle</Button>

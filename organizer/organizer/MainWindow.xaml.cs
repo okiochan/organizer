@@ -19,9 +19,24 @@ namespace organizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<TaskFolder> tasks;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        //masha add
+        private void butAddTask_Click(object sender, RoutedEventArgs e) {
+
+            TaskFolder tf = new TaskFolder();
+            DialogAddFolderTask wind = new DialogAddFolderTask();
+            if (wind.ShowDialog() == true) {
+                tf.name = wind.getTaskTitle;
+            } else {
+                MessageBox.Show("Folder dialog not opened =(");
+            }
+
         }
 
         private void butActive_Click(object sender, RoutedEventArgs e) {
@@ -35,5 +50,7 @@ namespace organizer
         private void butRecycle_Click(object sender, RoutedEventArgs e) {
 
         }
+
+        
     }
 }

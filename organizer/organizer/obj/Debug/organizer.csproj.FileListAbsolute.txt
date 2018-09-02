@@ -11,3 +11,7 @@ D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.Prop
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.csproj.GenerateResource.Cache
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.exe
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\organizer.pdb
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\TaskWindow.g.cs
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\TaskWindow.baml
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\DialogAddFolderTask.g.cs
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\DialogAddFolderTask.baml
