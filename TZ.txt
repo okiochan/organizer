@@ -6,18 +6,31 @@ MAIN PAGE:
 - task displayed as box with it's name
 - colors : yellow, green (done) , red (one ore more tasks failed deadline in COL 1 !)
 
-MAIN TASK:
-- deadline : time or data, may be "endless"
-- text "what to do"
-- list of it's tasks
-- list of tasks sorted by:
+enum Status {
+    TODO, WIP, DONE
+}
+
+class TaskFolder {
+    int id;
+    List<Task> tasks;
+    List<Note> notes;
+    Status status;
+}
+
+class Task {
+    
+    - list of tasks sorted by:
     1) priority
     2) deadline
     
-    TASKS OF THE MAIN TASK:
-    - text "what to do"
-    - deadline : time or data
-    - priority: from 1 to 5
+    String text;
+    Priority prio;
+    Status status;
+    DateTime deadline;
+    int id;
+}
+
+
     
 
 
