@@ -1,0 +1,44 @@
+                                    WHAT WE NEED
+
+MAIN PAGE:
+- can add "task"
+- can delete "task"
+- task displayed as box with it's name
+- colors : yellow, green (done) , red (one ore more tasks failed deadline in COL 1 !)
+
+MAIN TASK:
+- deadline : time or data, may be "endless"
+- text "what to do"
+- list of it's tasks
+- list of tasks sorted by:
+    1) priority
+    2) deadline
+    
+    TASKS OF THE MAIN TASK:
+    - text "what to do"
+    - deadline : time or data
+    - priority: from 1 to 5
+    
+
+
+TASK PAGE:
+    - button  "back"
+    - can CLICK on column and:
+        - button "add task" (task should be added to it's "main task" list
+        - button "delete task" (task should be deleted from it's "main task" list
+    - should be distance between tasks
+    
+    column 1: "tasks"
+        - tasks list
+        - button "task done"
+        - when task done program shoud fix the time when task done
+        
+    col 2: "done tasks"
+        - button near the task "add time" (time spent on the task)
+        - color: green (task made before deadline) or red (otherwise)
+    
+    col 3: "notes"
+        - add text field
+        
+
+        
