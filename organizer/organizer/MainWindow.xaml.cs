@@ -23,5 +23,17 @@ namespace organizer
         {
             InitializeComponent();
         }
+
+        private void butActive_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void butDone_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void butRecycle_Click(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
