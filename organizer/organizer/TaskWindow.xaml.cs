@@ -19,5 +19,15 @@ namespace organizer {
         public TaskWindow() {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            TextBlock btn = (TextBlock)sender;
+            DragDrop.DoDragDrop(btn, btn, DragDropEffects.Copy);
+        }
+
+        private void Button_Drop(object sender, DragEventArgs e) {
+            Button btn = (Button)sender;
+            btn.Content = e.Data.ToString();
+        }
     }
 }

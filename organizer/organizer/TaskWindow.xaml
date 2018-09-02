@@ -32,15 +32,15 @@
                 <ColumnDefinition Width = "*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0"  
+            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0" MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  
+            <TextBlock Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Notes"  
+            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
             <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0">
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
                 <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
                 <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
                 <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
