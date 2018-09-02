@@ -1,0 +1,7 @@
+
+*.exe
+*.manifest
+*.cache
+*.suo
+*.lref
+**/obj/**
