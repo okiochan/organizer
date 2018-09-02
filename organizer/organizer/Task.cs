@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace organizer {
     public class Task {
         int id;
-        List<Task> tasks;
-        List<Note> notes;
+        String text;
+        Priority prio;
         Status status;
+        DateTime deadline;
     }
 }
