@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Database.cs" />
+    <Compile Include="DialogAddFolderTask.xaml.cs">
+      <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Note.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Status.cs" />
@@ -64,6 +66,10 @@
     <Compile Include="TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="DialogAddFolderTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
