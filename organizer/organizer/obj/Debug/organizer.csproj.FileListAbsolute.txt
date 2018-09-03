@@ -15,3 +15,5 @@ D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\TaskWindow.g.c
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\TaskWindow.baml
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\DialogAddFolderTask.g.cs
 D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\DialogAddFolderTask.baml
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\FolderLook.g.cs
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\organizer\obj\Debug\FolderLook.baml

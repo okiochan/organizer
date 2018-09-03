@@ -21,7 +21,7 @@ namespace organizer
     {
         private List<TaskFolder> tasks;
         private List<System.Windows.Controls.StackPanel> spList;
-        private int butCnt=0;
+        private int tasksCnt=0;
         
         public MainWindow()
         {
@@ -29,14 +29,29 @@ namespace organizer
             prepeareData();
         }
 
-        //masha add
-        private void prepSpList() {
-            if (butCnt % 5 == 0) {
+        //TaskFolder preparation
+        private void addTaskFolder(String tfName) {
+
+            TaskFolder tf = new TaskFolder();
+            tf.name = tfName;
+            tf.status = Status.TODO;
+            tasks.Add(tf);
+            
+            FolderLook pageFL = new FolderLook();
+            pageFL.txtBoxTitle.Text = tfName;
+
+            System.Windows.Controls.Frame myFrame = new System.Windows.Controls.Frame();
+            myFrame.Margin = new Thickness(10, 10, 10, 10);
+            myFrame.Navigate(pageFL);
+
+            if (tasksCnt % 5 == 0) {
                 System.Windows.Controls.StackPanel sp = new StackPanel();
                 sp.Orientation = System.Windows.Controls.Orientation.Horizontal;
                 spList.Add(sp);
                 panelTasks.Children.Add(sp);
             }
+            spList[spList.Count - 1].Children.Add(myFrame);
+            tasksCnt++;
         }
 
         //masha add
@@ -44,46 +59,28 @@ namespace organizer
             tasks = new List<TaskFolder>();
             spList = new List<System.Windows.Controls.StackPanel>();
 
-            TaskFolder tf = new TaskFolder();
-            tf.name = "fsdfsdf";
-            tf.status = Status.TODO;
-            tasks.Add(tf); tasks.Add(tf); tasks.Add(tf); tasks.Add(tf); tasks.Add(tf); tasks.Add(tf);
             //read tasks
-            
-            //display tasks
-            foreach(var t in tasks) {
-                prepSpList();
-                System.Windows.Controls.Button butt = new Button();
-                butt.Content = t.name;
-                butt.Name = "but" + butCnt.ToString();
-                butCnt++;
-                spList[spList.Count - 1].Children.Add(butt);
-            }
+
+            addTaskFolder("fsdfsdf");
+            addTaskFolder("fffffffffff");
+            addTaskFolder("yyyyyyyyyyyyyy");
+            addTaskFolder("jjjjjjjjjjjjjj");
+            addTaskFolder("fgkjhkgfjfgjkhj");
+            addTaskFolder("yyyyyyyyyyyyyy");
+            addTaskFolder("aaaaaaaaaaaaaaa");
+            addTaskFolder("dfgfgdfgdf");
         }
         
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
-
-            TaskFolder tf = new TaskFolder();
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
-                tf.name = wind.getTaskTitle;
-                tf.status = Status.TODO;
-                tasks.Add(tf);
-
-                prepSpList();
-                System.Windows.Controls.Button butt = new Button();
-                butt.Content = tf.name;
-                butt.Name = "but" + butCnt.ToString();
-                butCnt++;
-                spList[spList.Count - 1].Children.Add(butt);
-
+                String name = wind.getTaskTitle;
+                addTaskFolder(name);
             } else {
                 MessageBox.Show("Folder dialog not opened =(");
             }
-
             mainWindow.UpdateLayout();
-
         }
 
         private void butActive_Click(object sender, RoutedEventArgs e) {

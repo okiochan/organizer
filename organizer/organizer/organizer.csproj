@@ -58,6 +58,9 @@
     <Compile Include="DialogAddFolderTask.xaml.cs">
       <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FolderLook.xaml.cs">
+      <DependentUpon>FolderLook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Note.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Status.cs" />
@@ -67,6 +70,10 @@
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="DialogAddFolderTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FolderLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
