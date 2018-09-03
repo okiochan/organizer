@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="MainWindow" Height="500" Width="700" Name="mainWindow">
 
     <Grid  Background="Bisque">
         <Grid.RowDefinitions>
@@ -39,23 +39,7 @@
                 <TextBlock  HorizontalAlignment="Center" Text="Active tasks list" Background="AliceBlue" FontWeight="Bold"  FontSize="15" x:Name="txtBlockTasksList"/>
 
                 <!-- add here tasks -->
-                <StackPanel Orientation="Vertical" x:Name="panelTasks">
-
-                    <!-- EXAMPLE!!! -->
-                    <StackPanel Orientation="Horizontal">
-                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                    </StackPanel>
-
-                </StackPanel>
+                <StackPanel Orientation="Vertical" x:Name="panelTasks"></StackPanel>
 
             </StackPanel>
 
