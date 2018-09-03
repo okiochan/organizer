@@ -1,25 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace organizer
-{
+namespace organizer {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<System.Windows.Controls.StackPanel> spList;
+        private List<StackPanel> spList;
         private int tasksCnt=0;
         private List<TaskFolder> allFolders;
         private Database db;
@@ -36,13 +26,13 @@ namespace organizer
             FolderLook pageFL = new FolderLook();
             pageFL.txtBoxTitle.Text = tfName;
 
-            System.Windows.Controls.Frame myFrame = new System.Windows.Controls.Frame();
+            Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
             myFrame.Navigate(pageFL);
 
             if (tasksCnt % 5 == 0) {
-                System.Windows.Controls.StackPanel sp = new StackPanel();
-                sp.Orientation = System.Windows.Controls.Orientation.Horizontal;
+                StackPanel sp = new StackPanel();
+                sp.Orientation = Orientation.Horizontal;
                 spList.Add(sp);
                 panelTasks.Children.Add(sp);
             }
@@ -59,7 +49,7 @@ namespace organizer
 
         //masha add
         private void prepeareData() {
-            spList = new List<System.Windows.Controls.StackPanel>();
+            spList = new List<StackPanel>();
 
             //read tasks
             db = new Database(@"..\..\..\db\tasks.db");
