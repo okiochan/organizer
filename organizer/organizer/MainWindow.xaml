@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700" Name="mainWindow">
+        Title="MainWindow" Height="600" Width="1500" Name="mainWindow">
 
     <Grid  Background="Bisque">
         <Grid.RowDefinitions>
@@ -22,7 +22,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
 
             <!-- left col -->
@@ -39,7 +39,8 @@
                 <TextBlock  HorizontalAlignment="Center" Text="Active tasks list" Background="AliceBlue" FontWeight="Bold"  FontSize="15" x:Name="txtBlockTasksList"/>
 
                 <!-- add here tasks -->
-                <StackPanel Orientation="Vertical" x:Name="panelTasks"></StackPanel>
+                <StackPanel Orientation="Vertical" x:Name="panelTasks" >
+                </StackPanel>
 
             </StackPanel>
 

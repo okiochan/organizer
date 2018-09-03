@@ -1,0 +1,26 @@
+﻿<Page x:Class="organizer.FolderLook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:organizer"
+      mc:Ignorable="d" 
+      d:DesignHeight="200" d:DesignWidth="200"
+      Title="FolderLook">
+
+    <Grid Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="5" Background="LightSkyBlue">go to</Button>
+            <Button Margin="5" Background="LightGreen">mark as done</Button>
+            <Button Margin="5" Background="LightPink">delete</Button>
+        </StackPanel>
+
+        <TextBox  Name="txtBoxTitle" Grid.Row="1" Background="Bisque" FontSize="20" Height="160" Width="200"> Title of the task....</TextBox>
+    </Grid>
+    
+</Page>
