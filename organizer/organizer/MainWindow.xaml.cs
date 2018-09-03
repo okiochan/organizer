@@ -19,10 +19,11 @@ namespace organizer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<TaskFolder> tasks;
         private List<System.Windows.Controls.StackPanel> spList;
         private int tasksCnt=0;
-        
+        private List<TaskFolder> allFolders;
+        private Database db;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,11 +32,6 @@ namespace organizer
 
         //TaskFolder preparation
         private void addTaskFolder(String tfName) {
-
-            TaskFolder tf = new TaskFolder();
-            tf.text = tfName;
-            tf.status = Status.TODO;
-            tasks.Add(tf);
             
             FolderLook pageFL = new FolderLook();
             pageFL.txtBoxTitle.Text = tfName;
@@ -54,21 +50,24 @@ namespace organizer
             tasksCnt++;
         }
 
+        private void addFolderToDB(String tfName) {
+            TaskFolder tf = new TaskFolder();
+            tf.text = tfName;
+            tf.status = Status.TODO;
+            allFolders.Add(tf);
+        }
+
         //masha add
         private void prepeareData() {
-            tasks = new List<TaskFolder>();
             spList = new List<System.Windows.Controls.StackPanel>();
 
             //read tasks
-
-            addTaskFolder("fsdfsdf");
-            addTaskFolder("fffffffffff");
-            addTaskFolder("yyyyyyyyyyyyyy");
-            addTaskFolder("jjjjjjjjjjjjjj");
-            addTaskFolder("fgkjhkgfjfgjkhj");
-            addTaskFolder("yyyyyyyyyyyyyy");
-            addTaskFolder("aaaaaaaaaaaaaaa");
-            addTaskFolder("dfgfgdfgdf");
+            db = new Database(@"..\..\..\db\tasks.db");
+            allFolders = db.ReadAll();
+            
+            foreach(var t in allFolders) {
+                addTaskFolder(t.text);
+            }
         }
         
         //masha add
@@ -76,6 +75,7 @@ namespace organizer
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
                 String name = wind.getTaskTitle;
+                addFolderToDB(name);
                 addTaskFolder(name);
             } else {
                 MessageBox.Show("Folder dialog not opened =(");
