@@ -2,7 +2,7 @@
 
 namespace organizer {
     public class Note {
-        int id;
-        String text;
+        public int id;
+        public String text;
     }
 }
