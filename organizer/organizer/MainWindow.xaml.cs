@@ -33,7 +33,7 @@ namespace organizer
         private void addTaskFolder(String tfName) {
 
             TaskFolder tf = new TaskFolder();
-            tf.name = tfName;
+            tf.text = tfName;
             tf.status = Status.TODO;
             tasks.Add(tf);
             
