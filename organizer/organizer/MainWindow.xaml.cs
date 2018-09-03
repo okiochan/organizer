@@ -73,27 +73,14 @@ namespace organizer
         
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
-
-            TaskFolder tf = new TaskFolder();
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
-                //tf.name = wind.getTaskTitle;
-                //tf.status = Status.TODO;
-                //tasks.Add(tf);
-
-                //prepSpList();
-                //System.Windows.Controls.Button butt = new Button();
-                //butt.Content = tf.name;
-                //butt.Name = "but" + butCnt.ToString();
-                //butCnt++;
-                //spList[spList.Count - 1].Children.Add(butt);
-
+                String name = wind.getTaskTitle;
+                addTaskFolder(name);
             } else {
                 MessageBox.Show("Folder dialog not opened =(");
             }
-
             mainWindow.UpdateLayout();
-
         }
 
         private void butActive_Click(object sender, RoutedEventArgs e) {
