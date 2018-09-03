@@ -5,4 +5,5 @@
 *.suo
 *.lref
 *.pdb
-organizer/organizer/obj/**
+organizer/organizer/obj/
+organizer/organizer/bin/
