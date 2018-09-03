@@ -2,10 +2,10 @@
 
 namespace organizer {
     public class Task {
-        int id;
-        String text;
-        Priority prio;
-        Status status;
-        DateTime deadline;
+        public int id;
+        public String text;
+        public Priority prio;
+        public Status status;
+        public DateTime deadline;
     }
 }

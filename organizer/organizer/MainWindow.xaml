@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="MainWindow" Height="500" Width="700" Name="mainWindow">
 
     <Grid  Background="Bisque">
         <Grid.RowDefinitions>
@@ -28,6 +28,7 @@
             <!-- left col -->
             <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 10 0" Background="LightYellow">
                 <TextBlock  HorizontalAlignment="Center" Text="Tasks" FontWeight="Bold"  FontSize="15"/>
+                <Button Margin="10 10 " x:Name="butAddTask" Click="butAddTask_Click">add task</Button>
                 <Button Margin="10 10 " x:Name="butActive">active</Button>
                 <Button Margin="10 10" x:Name="butDone" >done</Button>
                 <Button Margin="10 10" x:Name="butRecycle">recycle</Button>
@@ -38,23 +39,7 @@
                 <TextBlock  HorizontalAlignment="Center" Text="Active tasks list" Background="AliceBlue" FontWeight="Bold"  FontSize="15" x:Name="txtBlockTasksList"/>
 
                 <!-- add here tasks -->
-                <StackPanel Orientation="Vertical" x:Name="panelTasks">
-
-                    <!-- EXAMPLE!!! -->
-                    <StackPanel Orientation="Horizontal">
-                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Margin="0 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                        <Button Margin="10 10">acsdfsdfsdfsdfsdftive</Button>
-                    </StackPanel>
-
-                </StackPanel>
+                <StackPanel Orientation="Vertical" x:Name="panelTasks"></StackPanel>
 
             </StackPanel>
 
