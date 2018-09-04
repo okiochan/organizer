@@ -11,7 +11,6 @@ namespace organizer {
     {
         private List<StackPanel> spList;
         private int tasksCnt=0;
-        private List<TaskFolder> allFolders;
         private Database db;
 
         public MainWindow()
@@ -31,11 +30,10 @@ namespace organizer {
         }
 
         //TaskFolder preparation
-        private void addTaskFolder(String tfName) {
+        private void addTaskFolder(TaskFolder tf) {
             
-            FolderLook pageFL = new FolderLook();
-            pageFL.txtBoxTitle.Text = tfName;
-
+            FolderLook pageFL = new FolderLook(tf);
+            
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
             myFrame.Navigate(pageFL);
@@ -50,12 +48,13 @@ namespace organizer {
             tasksCnt++;
         }
 
-        private void addFolderToDB(String tfName) {
-            TaskFolder tf = new TaskFolder();
-            tf.text = tfName;
-            tf.status = Status.TODO;
-            allFolders.Add(tf);
-        }
+        //do what says Dinash
+        //private void addFolderToDB(String tfName) {
+        //    TaskFolder tf = new TaskFolder();
+        //    tf.text = tfName;
+        //    tf.status = Status.TODO;
+        //    allFolders.Add(tf);
+        //}
 
         //masha add
         private void prepeareData() {
@@ -63,10 +62,10 @@ namespace organizer {
 
             //read tasks
             db = new Database(@"..\..\..\db\tasks.db");
-            allFolders = db.ReadAll();
+            List<TaskFolder> allFolders = db.ReadAll();
             
             foreach(var t in allFolders) {
-                addTaskFolder(t.text);
+                addTaskFolder(t);
             }
         }
         
@@ -74,9 +73,11 @@ namespace organizer {
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
-                String name = wind.getTaskTitle;
-                addFolderToDB(name);
-                addTaskFolder(name);
+                
+                TaskFolder tf = new TaskFolder();
+                tf.text = wind.getTaskTitle;
+                //addFolderToDB(name);
+                addTaskFolder(tf);
             } else {
                 MessageBox.Show("Folder dialog not opened =(");
             }

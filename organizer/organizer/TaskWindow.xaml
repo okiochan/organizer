@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="TaskWindow" Height="540.033" Width="734.485">
 
-    <Grid>
+    <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
-            <RowDefinition Height = "20" />
+            <RowDefinition Height = "30" />
             <RowDefinition Height = "*" />
         </Grid.RowDefinitions>
 
         <!-- title -->
-        <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task Title" Margin = "0"  
+        <TextBlock FontWeight="Bold"  FontSize="20" Text = "Task Title" Margin = "0"  
          HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
         <!-- 3 colums: task list, done, notes -->
@@ -22,7 +22,7 @@
 
         <Grid Grid.Row = "1">
             <Grid.RowDefinitions>
-                <RowDefinition Height = "20" />
+                <RowDefinition Height = "30" />
                 <RowDefinition Height = "*" />
             </Grid.RowDefinitions>
 
@@ -32,30 +32,24 @@
                 <ColumnDefinition Width = "*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0" MouseDown="Button_Click" 
+            <StackPanel Orientation="Horizontal"  Grid.Row = "0" Grid.Column = "0" HorizontalAlignment = "Center">
+                <TextBlock FontWeight="Bold" Text = "Task List" Padding="5" MouseDown="Button_Click"  />
+                <Button Margin="15 5" Background="Azure">add new task</Button>
+            </StackPanel>
+
+            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
-                HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 
+            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0">
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            <StackPanel Background="AliceBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
+                <Button Background="PapayaWhip" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1">
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            <StackPanel Background="PowderBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
+                <Button Background="AliceBlue" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2">
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
-                <Button Content = "Button" Margin = "10" Width = "120" Height = "30" />
+            <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2" Name="panelRight">
+                <Button Background="SeaShell" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
 
         </Grid>

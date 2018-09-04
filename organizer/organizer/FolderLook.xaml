@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <Button Margin="5" Background="LightSkyBlue">go to</Button>
+            <Button Margin="5" Background="LightSkyBlue" Name="butGoTo" Click="butGoTo_Click"  >go to</Button>
             <Button Margin="5" Background="LightGreen">mark as done</Button>
             <Button Margin="5" Background="LightPink">delete</Button>
         </StackPanel>
