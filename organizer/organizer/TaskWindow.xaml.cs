@@ -33,13 +33,15 @@ namespace organizer {
 
             //add Drop!
             foreach (var t in tf.tasks) {
-                Button but = new Button();
+                Label but = new Label();
                 but.Content = t.text;
                 but.Name = "but" + cnt.ToString();
                 but.Margin = new Thickness(10, 0, 0, 0);
                 but.Height = 30;
-                //but.Drop = "Button_Drop";
-                //but.AllowDrop = true;
+                but.Drop += Button_Drop;
+                but.MouseDown += Button_MouseDown;
+                but.AllowDrop = true;
+                //but.Click += Button_Click;
 
                 if (t.status == Status.DONE) {
                     panelMiddle.Children.Add(but);
@@ -65,8 +67,14 @@ namespace organizer {
         }
 
         private void Button_Drop(object sender, DragEventArgs e) {
-            Button btn = (Button)sender;
-            btn.Content = e.Data.ToString();
+            Label lbl = (Label)sender;
+            String text = (String)e.Data.GetData(DataFormats.Text);
+            lbl.Content = text;
+        }
+
+        private void Button_MouseDown(object sender, MouseButtonEventArgs e) {
+            Label src = (Label)sender;
+            DragDrop.DoDragDrop(src, src.Content, DragDropEffects.Copy);
         }
 
 
