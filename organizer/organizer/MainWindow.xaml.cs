@@ -18,6 +18,16 @@ namespace organizer {
         {
             InitializeComponent();
             prepeareData();
+
+
+            // usage example
+            // db = new Database(@"..\..\..\db\tasks.db");
+            // db.CreateNewTaskFolder("a new task");
+            // var allFolders = db.ReadAll();
+            // var lastTaskFolder = allFolders[allFolders.Count - 1];
+            // db.CreateNewNote("a new note", lastTaskFolder);
+            // db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now,lastTaskFolder);
+            // allFolders = db.ReadAll(); // update folders
         }
 
         //TaskFolder preparation

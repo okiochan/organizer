@@ -1,30 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SQLite;
 using System.IO;
 
+/* usage example
+db = new Database(@"..\..\..\db\tasks.db");
+db.CreateNewTaskFolder("a new task");
+var allFolders = db.ReadAll();
+var lastTaskFolder = allFolders[allFolders.Count - 1]; // add note and task to last folder
+db.CreateNewNote("a new note", lastTaskFolder);
+db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now, lastTaskFolder);
+allFolders = db.ReadAll(); // update folders
+*/
+
 namespace organizer {
-    public class Database {
+    public class Database : IDisposable {
         private SQLiteConnection db;
+        private string path;
         public Database(string path) {
-            if (!File.Exists(path))
-                throw new Exception("Can't find the database at specified path");
-            
-            db = new SQLiteConnection("Data Source=" + path + ";");
-            db.Open();
+            this.path = path;
         }
 
         // Read all task folders structure into a list
         public List<TaskFolder> ReadAll() {
+            OpenIfClosed();
+            
+            // read folders
             Dictionary<int, TaskFolder> allFolders = ReadTaskFolder();
             ReadAllTasks(allFolders);
             ReadAllNotes(allFolders);
+            
+            // convert to list
             List<TaskFolder> res = new List<TaskFolder>();
             foreach (KeyValuePair<int, TaskFolder> item in allFolders) {
                 res.Add(item.Value);
             }
+
+            CloseIfOpened();
             return res;
+        }
+
+        public void CreateNewTaskFolder(string text) {
+            OpenIfClosed();
+            string query = "INSERT INTO `TaskFolder`(`text`,`status`) VALUES (@text,0)";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", text);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void CreateNewTask(string text, Priority prio, Status status, DateTime deadline, TaskFolder owner) {
+            OpenIfClosed();
+            string query = "INSERT INTO `Task`(`text`,`prio`,`status`,`deadline`,`owner`) VALUES (@text,@prio,@status,@deadline,@owner)";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", text);
+            command.Parameters.AddWithValue("@prio", (int)prio);
+            command.Parameters.AddWithValue("@status", (int)status);
+            command.Parameters.AddWithValue("@deadline", null);
+            command.Parameters.AddWithValue("@owner", owner.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void CreateNewNote(string text, TaskFolder owner) {
+            OpenIfClosed();
+            string query = "INSERT INTO `Note`(`text`,`owner`) VALUES (@text,@owner)";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", text);
+            command.Parameters.AddWithValue("@owner", owner.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
         }
 
         private Dictionary<int, TaskFolder> ReadTaskFolder() {
@@ -82,6 +127,25 @@ namespace organizer {
                 int owner = reader.GetInt32(2);
                 taskFolder[owner].notes.Add(note);
             }
+        }
+
+        private void OpenIfClosed() {
+            if(db == null) {
+                if (!File.Exists(path))
+                    throw new Exception("Can't find the database at specified path");
+                db = new SQLiteConnection("Data Source=" + path + ";");
+                db.Open();
+            }
+        }
+        private void CloseIfOpened() {
+            if(db != null) {
+                db.Close();
+                db = null;
+            }
+        }
+
+        public void Dispose() {
+            CloseIfOpened();
         }
     }
 }
