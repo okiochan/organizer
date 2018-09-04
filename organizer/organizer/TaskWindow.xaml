@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TaskWindow" Height="540.033" Width="734.485">
 
-    <Grid Background="Bisque">
+    <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
             <RowDefinition Height = "30" />
             <RowDefinition Height = "*" />
@@ -34,7 +34,7 @@
 
             <StackPanel Orientation="Horizontal"  Grid.Row = "0" Grid.Column = "0" HorizontalAlignment = "Center">
                 <TextBlock FontWeight="Bold" Text = "Task List" Padding="5" MouseDown="Button_Click"  />
-                <Button Padding="5" >add new task</Button>
+                <Button Margin="15 5" Background="Azure">add new task</Button>
             </StackPanel>
 
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
@@ -43,11 +43,13 @@
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
             <StackPanel Background="AliceBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
-                <Button Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
+                <Button Background="PapayaWhip" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
-            <StackPanel Background="LightBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
+            <StackPanel Background="PowderBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
+                <Button Background="AliceBlue" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
             <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2" Name="panelRight">
+                <Button Background="SeaShell" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
 
         </Grid>

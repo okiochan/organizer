@@ -36,7 +36,7 @@ namespace organizer {
                 Button but = new Button();
                 but.Content = t.text;
                 but.Name = "but" + cnt.ToString();
-                but.Margin = new Thickness(10, 0, 0, 0);
+                but.Margin = new Thickness(10);
                 but.Height = 30;
                 //but.Drop = "Button_Drop";
                 //but.AllowDrop = true;
