@@ -32,8 +32,11 @@
                 <ColumnDefinition Width = "*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0" MouseDown="Button_Click" 
-                HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            <StackPanel Orientation="Horizontal"  Grid.Row = "0" Grid.Column = "0" HorizontalAlignment = "Center">
+                <TextBlock FontWeight="Bold" Text = "Task List" Margin = "0" MouseDown="Button_Click"  />
+                <Button Margin="15 0">+</Button>
+            </StackPanel>
+
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 

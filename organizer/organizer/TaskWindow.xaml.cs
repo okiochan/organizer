@@ -38,8 +38,8 @@ namespace organizer {
                 but.Name = "but" + cnt.ToString();
                 but.Margin = new Thickness(10, 0, 0, 0);
                 but.Height = 30;
-                // but.Drop = "Button_Drop";
-                // but.AllowDrop = true;
+                //but.Drop = "Button_Drop";
+                //but.AllowDrop = true;
 
                 if (t.status == Status.DONE) {
                     panelMiddle.Children.Add(but);
