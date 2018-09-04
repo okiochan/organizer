@@ -50,14 +50,11 @@ namespace organizer {
             }
 
             foreach (var n in tf.notes) {
-                Button but = new Button();
-                but.Content = n.text;
-                but.Name = "butNote" + cnt.ToString();
-                but.Margin = new Thickness(10, 0, 0, 0);
-                but.Height = 30;
-                // but.Drop = "Button_Drop";
-                // but.AllowDrop = true;
-                panelRight.Children.Add(but);
+                TextBox tb = new TextBox();
+                tb.Name = "txtBox" + cnt.ToString();
+                tb.Text = n.text;
+                tb.Margin = new Thickness(10, 10, 10, 10);
+                panelRight.Children.Add(tb);
                 cnt++;
             }
         }

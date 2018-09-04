@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="TaskWindow" Height="540.033" Width="734.485">
 
-    <Grid>
+    <Grid Background="Bisque">
         <Grid.RowDefinitions>
-            <RowDefinition Height = "20" />
+            <RowDefinition Height = "30" />
             <RowDefinition Height = "*" />
         </Grid.RowDefinitions>
 
         <!-- title -->
-        <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task Title" Margin = "0"  
+        <TextBlock FontWeight="Bold"  FontSize="20" Text = "Task Title" Margin = "0"  
          HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
         <!-- 3 colums: task list, done, notes -->
@@ -32,19 +32,19 @@
                 <ColumnDefinition Width = "*" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0" MouseDown="Button_Click" 
+            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "0" Text = "Task List" Margin = "0" MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
+            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
-            <TextBlock Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 
+            <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "2" Text = "Notes"  MouseDown="Button_Click" 
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
+            <StackPanel Background="AliceBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
                 <Button Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
+            <StackPanel Background="LightBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
             </StackPanel>
-            <StackPanel Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2" Name="panelRight">
+            <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2" Name="panelRight">
             </StackPanel>
 
         </Grid>
