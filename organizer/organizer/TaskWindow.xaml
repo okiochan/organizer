@@ -22,7 +22,7 @@
 
         <Grid Grid.Row = "1">
             <Grid.RowDefinitions>
-                <RowDefinition Height = "20" />
+                <RowDefinition Height = "30" />
                 <RowDefinition Height = "*" />
             </Grid.RowDefinitions>
 
@@ -33,8 +33,8 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Orientation="Horizontal"  Grid.Row = "0" Grid.Column = "0" HorizontalAlignment = "Center">
-                <TextBlock FontWeight="Bold" Text = "Task List" Margin = "0" MouseDown="Button_Click"  />
-                <Button Margin="15 0">+</Button>
+                <TextBlock FontWeight="Bold" Text = "Task List" Padding="5" MouseDown="Button_Click"  />
+                <Button Padding="5" >add new task</Button>
             </StackPanel>
 
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 
