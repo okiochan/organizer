@@ -1,57 +1,22 @@
-                                    WHAT WE NEED
 
-MAIN PAGE:
-- can add "task"
-- can delete "task"
-- task displayed as box with it's name
-- colors : yellow, green (done) , red (one ore more tasks failed deadline in COL 1 !)
+create page done
+create page recycle
 
-enum Status {
-    TODO, WIP, DONE
-}
 
-class TaskFolder {
-    int id;
-    List<Task> tasks;
-    List<Note> notes;
-    Status status;
-}
+add scrolls to active page
+add scrolls to done page
+add scrolls to recycle page
+add scrolls to task page
 
-class Task {
+
+main page:
+    when delete -> move to page recycle
+    when done -> move to page done
     
-    - list of tasks sorted by:
-    1) priority
-    2) deadline
-    
-    String text;
-    Priority prio;
-    Status status;
-    DateTime deadline;
-    int id;
-}
-
+task page:
+    make drop  to col done
+    add but add note
 
     
-
-
-TASK PAGE:
-    - button  "back"
-    - can CLICK on column and:
-        - button "add task" (task should be added to it's "main task" list
-        - button "delete task" (task should be deleted from it's "main task" list
-    - should be distance between tasks
     
-    column 1: "tasks"
-        - tasks list
-        - button "task done"
-        - when task done program shoud fix the time when task done
-        
-    col 2: "done tasks"
-        - button near the task "add time" (time spent on the task)
-        - color: green (task made before deadline) or red (otherwise)
     
-    col 3: "notes"
-        - add text field
-        
-
-        

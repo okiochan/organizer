@@ -7,45 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1500" Name="mainWindow">
 
-    <Grid  Background="Bisque">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid  Background="Bisque">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <TextBlock Text="Main page" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20" Margin= "0 10 0 10"/>
+            <TextBlock Text="Main page" FontWeight="Bold" HorizontalAlignment="Center" FontSize="20" Margin= "0 10 0 10"/>
 
-        <Grid Grid.Row="1" Background="AliceBlue">
+            <Grid Grid.Row="1" Background="AliceBlue">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- left col -->
-            <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 10 0" Background="LightYellow">
-                <TextBlock  HorizontalAlignment="Center" Text="Tasks" FontWeight="Bold"  FontSize="15"/>
-                <Button Margin="10 10 " x:Name="butAddTask" Click="butAddTask_Click">add task</Button>
-                <Button Margin="10 10 " x:Name="butActive">active</Button>
-                <Button Margin="10 10" x:Name="butDone" >done</Button>
-                <Button Margin="10 10" x:Name="butRecycle">recycle</Button>
-            </StackPanel>
-
-            <!-- right col -->
-            <StackPanel Grid.Row="0" Grid.Column="1" Margin="0 0 10 0" >
-                <TextBlock  HorizontalAlignment="Center" Text="Active tasks list" Background="AliceBlue" FontWeight="Bold"  FontSize="15" x:Name="txtBlockTasksList"/>
-
-                <!-- add here tasks -->
-                <StackPanel Orientation="Vertical" x:Name="panelTasks" >
+                <!-- left col -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Margin="0 0 10 0" Background="LightYellow">
+                    <TextBlock  HorizontalAlignment="Center" Text="Tasks" FontWeight="Bold"  FontSize="15"/>
+                    <Button Margin="10 10 " x:Name="butActive" Click="butActive_Click">active</Button>
+                    <Button Margin="10 10" x:Name="butDone" Click="butDone_Click">done</Button>
+                    <Button Margin="10 10" x:Name="butRecycle" Click="butRecycle_Click">recycle</Button>
                 </StackPanel>
 
-            </StackPanel>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Frame Name="mainFrame" Source="ActivePage.xaml" ></Frame>
+                </Grid>
+                
+            </Grid>
 
         </Grid>
-
     </Grid>
+
 
 </Window>

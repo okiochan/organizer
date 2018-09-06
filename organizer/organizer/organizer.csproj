@@ -55,22 +55,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActivePage.xaml.cs">
+      <DependentUpon>ActivePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DialogAddFolderTask.xaml.cs">
       <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DonePage.xaml.cs">
+      <DependentUpon>DonePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="FolderLook.xaml.cs">
       <DependentUpon>FolderLook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Note.cs" />
     <Compile Include="Priority.cs" />
+    <Compile Include="RecyclePage.xaml.cs">
+      <DependentUpon>RecyclePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskFolder.cs" />
     <Compile Include="TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ActivePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DialogAddFolderTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DonePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -90,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RecyclePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TaskWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
