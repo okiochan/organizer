@@ -34,7 +34,7 @@
 
             <StackPanel Orientation="Horizontal"  Grid.Row = "0" Grid.Column = "0" HorizontalAlignment = "Center">
                 <TextBlock FontWeight="Bold" Text = "Task List" Padding="5" MouseDown="Button_Click"  />
-                <Button Margin="15 5" Background="Azure">add new task</Button>
+                <Button Margin="15 5" Background="Azure" Name="butAddTask" Click="butAddTask_Click">add new task</Button>
             </StackPanel>
 
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Done" Margin = "0"  MouseDown="Button_Click" 

@@ -77,6 +77,12 @@ namespace organizer {
             DragDrop.DoDragDrop(src, src.Content, DragDropEffects.Copy);
         }
 
+        private void butAddTask_Click(object sender, RoutedEventArgs e) {
+            DialogAddTask d = new DialogAddTask(tf);
 
+            if (d.ShowDialog() == false) {
+                MessageBox.Show("Info not saved =(");
+            }
+        }
     }
 }
