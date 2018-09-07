@@ -20,7 +20,7 @@
 
             <TextBlock Text="choose priority" TextAlignment="Center" FontSize="15"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
-                <Button Width="50" Name="butLow" Margin="10 0" Background="Yellow" Click="butLow_Click" >low</Button>
+                <Button Width="50" Name="butLow" Margin="10 0" Background="Yellow" Click="butLow_Click">low</Button>
                 <Button Width="50" Name="butMid" Margin="10 0" Background="Orange" Click="butMid_Click">middle</Button>
                 <Button Width="50" Name="butHight" Margin="10 0" Background="Red" Click="butHight_Click">hight</Button>
             </StackPanel>

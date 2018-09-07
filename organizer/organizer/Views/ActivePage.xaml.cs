@@ -88,7 +88,7 @@ namespace organizer {
                 //addFolderToDB(name);
                 addTaskFolder(tf);
             } else {
-                MessageBox.Show("Folder dialog not opened =(");
+                MessageBox.Show("Info not saved =(");
             }
             
         }
