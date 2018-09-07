@@ -1,4 +1,5 @@
-﻿using System;
+﻿using organizer.Codes;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
@@ -13,7 +14,7 @@ db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now, lastTask
 allFolders = db.ReadAll(); // update folders
 */
 
-namespace organizer {
+namespace organizer.Codes {
     public class Database : IDisposable {
         private SQLiteConnection db;
         private string path;
@@ -56,7 +57,11 @@ namespace organizer {
             command.Parameters.AddWithValue("@text", text);
             command.Parameters.AddWithValue("@prio", (int)prio);
             command.Parameters.AddWithValue("@status", (int)status);
-            command.Parameters.AddWithValue("@deadline", null);
+            if(DateTime.MinValue.Equals(deadline)) {
+                command.Parameters.AddWithValue("@deadline", null);
+            } else {
+                command.Parameters.AddWithValue("@deadline", DateTimeHelper.ToString(deadline));
+            }
             command.Parameters.AddWithValue("@owner", owner.id);
             command.ExecuteNonQuery();
             CloseIfOpened();
@@ -106,7 +111,11 @@ namespace organizer {
                 task.text = reader.GetString(1);
                 task.prio = (Priority)reader.GetInt32(2);
                 task.status = (Status)reader.GetInt32(3);
-                task.deadline = DateTime.Now; // TODO: add deadline reading
+                if(reader.IsDBNull(4)) {
+                    task.deadline = DateTime.MinValue;
+                } else {
+                    task.deadline = DateTimeHelper.FromString(reader.GetString(4));
+                }
                 int owner = reader.GetInt32(5);
                 taskFolder[owner].tasks.Add(task);
             }
