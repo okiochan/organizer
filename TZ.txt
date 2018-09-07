@@ -1,12 +1,12 @@
 
-create page done
-create page recycle
-
-
 add scrolls to active page
 add scrolls to done page
 add scrolls to recycle page
 add scrolls to task page
+
+add "start" to task
+add "pause" to task
+
 
 
 main page:
@@ -17,6 +17,12 @@ task page:
     make drop  to col done
     add but add note
 
+    
+    ask Ilya
+    -how to set up ID for task and taskFolder?
+    -how to read from DB?
+    -how to save to DB?
+    -how to add tsk to task folder?
     
     
     

@@ -62,6 +62,9 @@
     <Compile Include="DialogAddFolderTask.xaml.cs">
       <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogAddTask.xaml.cs">
+      <DependentUpon>DialogAddTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DonePage.xaml.cs">
       <DependentUpon>DonePage.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DialogAddFolderTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogAddTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
