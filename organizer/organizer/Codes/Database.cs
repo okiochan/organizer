@@ -5,17 +5,24 @@ using System.Data.SQLite;
 using System.IO;
 
 /* usage example
-db = new Database(@"..\..\..\db\tasks.db");
-db.CreateNewTaskFolder("a new task");
-var allFolders = db.ReadAll();
+Database.GetInstance().CreateNewTaskFolder("a new task");
+var allFolders = Database.GetInstance().ReadAll();
 var lastTaskFolder = allFolders[allFolders.Count - 1]; // add note and task to last folder
-db.CreateNewNote("a new note", lastTaskFolder);
-db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now, lastTaskFolder);
-allFolders = db.ReadAll(); // update folders
+Database.GetInstance().CreateNewNote("a new note", lastTaskFolder);
+Database.GetInstance().CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now, lastTaskFolder);
+allFolders = Database.GetInstance().ReadAll(); // update folders
 */
 
 namespace organizer.Codes {
     public class Database : IDisposable {
+        private static Database instance = null;
+        public static Database GetInstance() {
+            if(instance == null) {
+                instance = OpenFromDefaultPath();
+            }
+            return instance;
+        }
+
         private SQLiteConnection db;
         private string path;
         public Database(string path) {
@@ -155,6 +162,19 @@ namespace organizer.Codes {
 
         public void Dispose() {
             CloseIfOpened();
+        }
+
+        private static Database OpenFromDefaultPath() {
+            string[] paths = {
+                @"..\..\..\db\tasks.db",
+                @".\tasks.db"
+            };
+            foreach (var path in paths) {
+                if(File.Exists(path)) {
+                    return new Database(path);
+                }
+            }
+            throw new Exception("Cannot find database in default paths");
         }
     }
 }
