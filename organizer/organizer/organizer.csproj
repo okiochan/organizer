@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Codes\DateTimeHelper.cs" />
     <Compile Include="Views\ActivePage.xaml.cs">
       <DependentUpon>ActivePage.xaml</DependentUpon>
     </Compile>

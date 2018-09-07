@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace organizer {
+namespace organizer.Codes {
     public class TaskFolder {
         public int id;
         public string text;

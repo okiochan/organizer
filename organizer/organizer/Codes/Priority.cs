@@ -1,4 +1,4 @@
-﻿namespace organizer {
+﻿namespace organizer.Codes {
     public enum Priority {
         LOW,MID,HIGH
     }
