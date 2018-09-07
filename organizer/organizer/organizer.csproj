@@ -51,74 +51,74 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="Views\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\ActivePage.xaml.cs">
+    <Compile Include="ActivePage.xaml.cs">
       <DependentUpon>ActivePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Code\Database.cs" />
-    <Compile Include="Views\DialogAddFolderTask.xaml.cs">
+    <Compile Include="Database.cs" />
+    <Compile Include="DialogAddFolderTask.xaml.cs">
       <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DialogAddTask.xaml.cs">
+    <Compile Include="DialogAddTask.xaml.cs">
       <DependentUpon>DialogAddTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DonePage.xaml.cs">
+    <Compile Include="DonePage.xaml.cs">
       <DependentUpon>DonePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FolderLook.xaml.cs">
+    <Compile Include="FolderLook.xaml.cs">
       <DependentUpon>FolderLook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Code\Note.cs" />
-    <Compile Include="Code\Priority.cs" />
-    <Compile Include="Views\RecyclePage.xaml.cs">
+    <Compile Include="Note.cs" />
+    <Compile Include="Priority.cs" />
+    <Compile Include="RecyclePage.xaml.cs">
       <DependentUpon>RecyclePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Code\Status.cs" />
-    <Compile Include="Code\Task.cs" />
-    <Compile Include="Code\TaskFolder.cs" />
-    <Compile Include="Views\TaskWindow.xaml.cs">
+    <Compile Include="Status.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskFolder.cs" />
+    <Compile Include="TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ActivePage.xaml">
+    <Page Include="ActivePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddFolderTask.xaml">
+    <Page Include="DialogAddFolderTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddTask.xaml">
+    <Page Include="DialogAddTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DonePage.xaml">
+    <Page Include="DonePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FolderLook.xaml">
+    <Page Include="FolderLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Views\App.xaml.cs">
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\RecyclePage.xaml">
+    <Page Include="RecyclePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskWindow.xaml">
+    <Page Include="TaskWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +146,5 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
