@@ -24,22 +24,32 @@ namespace organizer {
 
         public ActivePage() {
             InitializeComponent();
-            prepeareData();
 
-            // usage example
-            // db = new Database(@"..\..\..\db\tasks.db");
-            // db.CreateNewTaskFolder("a new task");
-            // var allFolders = db.ReadAll();
-            // var lastTaskFolder = allFolders[allFolders.Count - 1];
-            // db.CreateNewNote("a new note", lastTaskFolder);
-            // db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now,lastTaskFolder);
-            // allFolders = db.ReadAll(); // update folders
+            //read tasks
+            db = new Database(@"..\..\..\db\tasks.db");
+            spList = new List<StackPanel>();
+        }
+
+        //can I keep it public????????????????
+        public void Repaint() {
+            foreach (var sp in spList) {
+                sp.Children.Clear();
+            }
+            spList.Clear();
+            tasksCnt = 0;
+
+            List<TaskFolder> allFolders = db.ReadAll();
+            foreach (var t in allFolders) {
+                if (t.status == Status.TODO) {
+                    addTaskFolder(t);
+                }
+            }
         }
 
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tf);
+            FolderLook pageFL = new FolderLook(tf,this);
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
@@ -55,43 +65,24 @@ namespace organizer {
             tasksCnt++;
         }
         
-        //do what says Dinash
-        //private void addFolderToDB(String tfName) {
-        //    TaskFolder tf = new TaskFolder();
-        //    tf.text = tfName;
-        //    tf.status = Status.TODO;
-        //    allFolders.Add(tf);
-        //}
-
-        //masha add
-        private void prepeareData() {
-            spList = new List<StackPanel>();
-
-            //read tasks
-            db = new Database(@"..\..\..\db\tasks.db");
-            List<TaskFolder> allFolders = db.ReadAll();
-
-            foreach (var t in allFolders) {
-                if (t.status == Status.TODO) {
-                    addTaskFolder(t);
-                }
-            }
+        private void addFolderToDB(String tfName) {
+            db.CreateNewTaskFolder(tfName);
+            Repaint();
         }
 
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
-
-                TaskFolder tf = new TaskFolder();
-                tf.text = wind.getTaskTitle;
-                //addFolderToDB(name);
-                addTaskFolder(tf);
+                addFolderToDB(wind.getTaskTitle);
             } else {
                 MessageBox.Show("Info not saved =(");
             }
             
         }
 
+        private void activePage_Loaded(object sender, RoutedEventArgs e) {
+            Repaint();
+        }
     }
 }

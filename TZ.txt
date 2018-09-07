@@ -9,7 +9,7 @@ add "pause" to task
 
 
 
-main page:
+main page: WAIT UNTIL YLYA MAKE CHANGES!
     when delete -> move to page recycle
     when done -> move to page done
     

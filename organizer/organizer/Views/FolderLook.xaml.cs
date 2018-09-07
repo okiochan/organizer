@@ -22,22 +22,30 @@ namespace organizer
     public partial class FolderLook : Page
     {
         private TaskFolder tf;
+        private ActivePage ap;
 
-        public FolderLook(TaskFolder tf)
+        public FolderLook(TaskFolder tf, ActivePage ap)
         {
             InitializeComponent();
-
             this.tf = tf;
-            prepData();
-        }
-
-        private void prepData() {
-            txtBoxTitle.Text = tf.text;
+            this.ap = ap;
         }
 
         private void butGoTo_Click(object sender, RoutedEventArgs e) {
             TaskWindow win2 = new TaskWindow(tf);
             win2.Show();
+        }
+
+        private void butDone_Click(object sender, RoutedEventArgs e) {
+            ap.Repaint();
+        }
+
+        private void butDelete_Click(object sender, RoutedEventArgs e) {
+            ap.Repaint();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e) {
+            txtBoxTitle.Text = tf.text;
         }
     }
 }
