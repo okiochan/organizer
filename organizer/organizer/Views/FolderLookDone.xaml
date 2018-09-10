@@ -5,10 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:organizer.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="FolderLookDone">
+      d:DesignHeight="80" d:DesignWidth="250"
+      Title="FolderLookDone" Loaded="Page_Loaded">
+    
+    
+    <Grid Background="LightGoldenrodYellow">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <Grid>
-        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="5" Background="LightGreen" Name="butView" Click="butView_Click">view</Button>
+            <Button Margin="5" Background="LightPink" Name="butDelete" Click="butDelete_Click">delete</Button>
+        </StackPanel>
+
+        <TextBox Name="txtBoxTitle" Grid.Row="1" Background="Bisque" FontSize="20" Height="40" Width="250" TextWrapping="Wrap" >Title of the task....</TextBox>
     </Grid>
+    
 </Page>

@@ -15,7 +15,6 @@ namespace organizer {
 
         public ActivePage() {
             InitializeComponent();
-
             spList = new List<StackPanel>();
         }
         
@@ -25,7 +24,7 @@ namespace organizer {
             }
             spList.Clear();
             tasksCnt = 0;
-
+            
             List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
             foreach (var tf in allFolders) {
                 if (tf.status == Status.TODO) {
@@ -37,7 +36,7 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tasksCnt, tf.text);
+            FolderLook pageFL = new FolderLook(tf);
             //EVENT ADD
             pageFL.ButtonClickedHandler += EventButApplyClicked;
 

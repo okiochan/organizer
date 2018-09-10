@@ -1,4 +1,6 @@
 
+RP
+    add FLR
 
 
 add scrolls to active page
@@ -11,9 +13,7 @@ add "pause" to task
 
 
 
-main page:
-    when delete -> move to page recycle
-    when done -> move to page done
+
     
 task page:
     make drop  to col done
