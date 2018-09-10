@@ -55,11 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Codes\DateTimeHelper.cs" />
+    <Compile Include="Codes\Database\DatabaseNote.cs" />
+    <Compile Include="Codes\Database\DatabaseTask.cs" />
+    <Compile Include="Codes\Database\DatabaseTaskFolder.cs" />
+    <Compile Include="Codes\Database\DateTimeHelper.cs" />
     <Compile Include="Views\ActivePage.xaml.cs">
       <DependentUpon>ActivePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Codes\Database.cs" />
+    <Compile Include="Codes\Database\Database.cs" />
     <Compile Include="Views\DialogAddFolder.xaml.cs">
       <DependentUpon>DialogAddFolder.xaml</DependentUpon>
     </Compile>
