@@ -34,6 +34,8 @@ namespace organizer {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
+            panelRight.Children.Clear();
+            cnt = 0;
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();

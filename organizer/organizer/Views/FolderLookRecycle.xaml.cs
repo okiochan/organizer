@@ -10,46 +10,43 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace organizer.Views
-{
+namespace organizer.Views {
     /// <summary>
-    /// Interaction logic for FolderLookDone.xaml
+    /// Interaction logic for FolderLookRecycle.xaml
     /// </summary>
-    public partial class FolderLookDone : Page
-    {
+    public partial class FolderLookRecycle : Window {
+
         private TaskFolder tf;
-        public FolderLookDone(TaskFolder tf)
-        {
+
+        public FolderLookRecycle(TaskFolder tf) {
             InitializeComponent();
             this.tf = tf;
         }
-        
-        private void butDelete_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TRASH);
+
+        private void butRestore_Click(object sender, RoutedEventArgs e) {
+            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TODO);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) {
-            txtBoxTitle.Text = tf.text;
+        private void butDelete_Click(object sender, RoutedEventArgs e) {
+            Database.GetInstance().DeleteTaskFolder(tf);
+            OnButtonClickedEvent(EventArgs.Empty);
         }
 
-        private void butView_Click(object sender, RoutedEventArgs e) {
-            TaskView tv = new TaskView(tf);
-            tv.Show();
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            txtBoxTitle.Text = tf.text;
         }
 
         //EVENTS--------------------------
 
-        public event EventHandler HandlerButDeleteClicked;
+        public event EventHandler HandlerButClicked;
         protected virtual void OnButtonClickedEvent(EventArgs e) {
-            EventHandler handler = HandlerButDeleteClicked;
+            EventHandler handler = HandlerButClicked;
             if (handler != null) {
                 handler(this, e);
             }
         }
-        
     }
 }

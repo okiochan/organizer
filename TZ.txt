@@ -1,6 +1,8 @@
 
-RP
-    add FLR
+
+
+RPage
+    add FLRecycle
 
 
 add scrolls to active page
