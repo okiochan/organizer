@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -49,8 +50,8 @@ namespace organizer {
                 timeM += Int32.Parse(txtBoxM.Text);
             }
 
-            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
-            Database.GetInstance().CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
+            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
+            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;

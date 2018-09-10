@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Windows;
 
@@ -26,7 +27,7 @@ namespace organizer {
                 title = "unnown title";
             }
 
-            Database.GetInstance().CreateNewTaskFolder(title);
+            DatabaseTaskFolder.CreateNewTaskFolder(title);
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
         }

@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 // Date Time functions
-namespace organizer.Codes {
+namespace organizer.Codes.Database {
     public static class DateTimeHelper {
 
         // to write to the database

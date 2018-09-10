@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -26,7 +27,7 @@ namespace organizer {
             spList.Clear();
             tasksCnt = 0;
 
-            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
+            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
             foreach (var tf in allFolders) {
                 if (tf.status == Status.TODO) {
                     addTaskFolder(tf);

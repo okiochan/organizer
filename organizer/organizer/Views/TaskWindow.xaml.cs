@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -34,7 +35,7 @@ namespace organizer {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
-            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
+            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
             TaskFolder tf = allFolders[tfId];
 
             foreach (var t in tf.tasks) {
