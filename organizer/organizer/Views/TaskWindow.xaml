@@ -43,13 +43,13 @@
                 HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
             <StackPanel Background="AliceBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
-                <Button Background="PapayaWhip" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
+                <Label  Background="PapayaWhip" BorderBrush="DarkSalmon" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
             <StackPanel Background="PowderBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelMiddle">
-                <Button Background="AliceBlue" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
+                <Label  Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
             <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "2" Name="panelRight">
-                <Button Background="SeaShell" Content = "Example" Margin = "10" Width = "120" Height = "30" Drop="Button_Drop" AllowDrop="True" />
+                <Label  Background="SeaShell" BorderBrush="DarkKhaki" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
             </StackPanel>
 
         </Grid>

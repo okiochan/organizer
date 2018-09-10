@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace organizer {
     /// <summary>
@@ -15,12 +16,9 @@ namespace organizer {
 
         private int tfId;
         private int cnt=0;
-        private Database db;
 
         public TaskWindow( int tfId) {
             InitializeComponent();
-
-            db = new Database(@"..\..\..\db\tasks.db");
             this.tfId = tfId;
         }
 
@@ -36,20 +34,26 @@ namespace organizer {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
-            List<TaskFolder> allFolders = db.ReadAll();
+            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
             TaskFolder tf = allFolders[tfId];
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
                 labe.Content = t.text;
                 labe.Name = "labe" + cnt.ToString();
+                labe.Background = Brushes.PapayaWhip;
+                labe.BorderBrush = Brushes.DarkSalmon;
+                labe.BorderThickness = new Thickness(2);
                 labe.Margin = new Thickness(10);
                 labe.Height = 30;
+
                 labe.Drop += Button_Drop;
                 labe.MouseDown += Button_MouseDown;
                 labe.AllowDrop = true;
 
                 if (t.status == Status.DONE) {
+                    labe.Background = Brushes.AliceBlue;
+                    labe.BorderBrush = Brushes.DarkGray;
                     panelMiddle.Children.Add(labe);
                 } else {
                     panelLeft.Children.Add(labe);
@@ -61,7 +65,11 @@ namespace organizer {
                 TextBox tb = new TextBox();
                 tb.Name = "txtBox" + cnt.ToString();
                 tb.Text = n.text;
+                tb.Background = Brushes.SeaShell;
+                tb.BorderThickness = new Thickness(2);
+                tb.BorderBrush = Brushes.DarkKhaki;
                 tb.Margin = new Thickness(10, 10, 10, 10);
+                tb.Height = 50;
                 panelRight.Children.Add(tb);
                 cnt++;
             }
