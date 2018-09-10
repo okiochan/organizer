@@ -11,26 +11,40 @@ namespace organizer {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
-        private Database db;
+        Database db;
 
         public ActivePage() {
             InitializeComponent();
-            prepeareData();
 
-            // usage example
-            // db = new Database(@"..\..\..\db\tasks.db");
-            // db.CreateNewTaskFolder("a new task");
-            // var allFolders = db.ReadAll();
-            // var lastTaskFolder = allFolders[allFolders.Count - 1];
-            // db.CreateNewNote("a new note", lastTaskFolder);
-            // db.CreateNewTask("a new task", Priority.LOW, Status.DONE, DateTime.Now,lastTaskFolder);
-            // allFolders = db.ReadAll(); // update folders
+            spList = new List<StackPanel>();
+            db = new Database(@"..\..\..\db\tasks.db");
         }
+        
+        private void Repaint() {
+            foreach (var sp in spList) {
+                sp.Children.Clear();
+            }
+            spList.Clear();
+            tasksCnt = 0;
 
+            List<TaskFolder> allFolders = db.ReadAll();
+            foreach (var tf in allFolders) {
+                if (tf.status == Status.TODO) {
+                    addTaskFolder(tf);
+                }
+            }
+        }
+        
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tf);
+            FolderLook pageFL = new FolderLook(tasksCnt, tf.text);
+            //EVENT ADD
+            pageFL.ButtonClickedHandler += EventButApplyClicked;
+
+            //delete event
+            //pageFL.ButtonClickedHandler -= ButtonClickedEvent;
+
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
@@ -45,44 +59,28 @@ namespace organizer {
             spList[spList.Count - 1].Children.Add(myFrame);
             tasksCnt++;
         }
-        
-        //do what says Dinash
-        //private void addFolderToDB(String tfName) {
-        //    TaskFolder tf = new TaskFolder();
-        //    tf.text = tfName;
-        //    tf.status = Status.TODO;
-        //    allFolders.Add(tf);
-        //}
-
-        //masha add
-        private void prepeareData() {
-            spList = new List<StackPanel>();
-
-            //read tasks
-            db = new Database(@"..\..\..\db\tasks.db");
-            List<TaskFolder> allFolders = db.ReadAll();
-
-            foreach (var t in allFolders) {
-                if (t.status == Status.TODO) {
-                    addTaskFolder(t);
-                }
-            }
-        }
 
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             DialogAddFolderTask wind = new DialogAddFolderTask();
             if (wind.ShowDialog() == true) {
-
-                TaskFolder tf = new TaskFolder();
-                tf.text = wind.getTaskTitle;
-                //addFolderToDB(name);
-                addTaskFolder(tf);
+                String title = wind.getTaskTitle;
+                db.CreateNewTaskFolder(title);
+                Repaint();
             } else {
                 MessageBox.Show("Info not saved =(");
             }
             
         }
 
+        private void activePage_Loaded(object sender, RoutedEventArgs e) {
+            Repaint();
+        }
+
+        //EVENTS------------------------------
+
+        private void EventButApplyClicked(object sender, EventArgs e) {
+            Repaint();
+        }
     }
 }

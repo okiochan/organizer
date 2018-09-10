@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:organizer"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="ActivePage" Name="activePage">
+      Title="ActivePage" Name="activePage" Loaded="activePage_Loaded">
 
     <!-- right col -->
     <StackPanel  Margin="0 0 10 0" Grid.ColumnSpan="2" >

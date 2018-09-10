@@ -74,6 +74,9 @@
     </Compile>
     <Compile Include="Codes\Note.cs" />
     <Compile Include="Codes\Priority.cs" />
+    <Compile Include="Views\FolderLookDone.xaml.cs">
+      <DependentUpon>FolderLookDone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RecyclePage.xaml.cs">
       <DependentUpon>RecyclePage.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FolderLook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FolderLookDone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

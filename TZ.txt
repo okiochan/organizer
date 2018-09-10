@@ -1,3 +1,4 @@
+FL check add tf on errors
 
 add scrolls to active page
 add scrolls to done page
@@ -20,9 +21,6 @@ task page:
     
     ask Ilya
     -how to set up ID for task and taskFolder?
-    -how to read from DB?
-    -how to save to DB?
-    -how to add tsk to task folder?
     
     
     
