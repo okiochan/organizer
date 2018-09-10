@@ -84,6 +84,44 @@ namespace organizer.Codes {
             CloseIfOpened();
         }
 
+        public void UpdateTaskFolder(TaskFolder taskFolder, string newText, Status newStatus) {
+            OpenIfClosed();
+            string query = "UPDATE `TaskFolder` SET `text`=@text,`status`=@status WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", newText);
+            command.Parameters.AddWithValue("@status", (int)newStatus);
+            command.Parameters.AddWithValue("@id", taskFolder.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void UpdateTask(Task task, string newText, Priority newPrio, Status newStatus, DateTime newDeadline) {
+            OpenIfClosed();
+            string query = "UPDATE `Task` SET `text`=@text,`prio`=@prio,`status`=@status,`deadline`=@deadline WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", newText);
+            command.Parameters.AddWithValue("@prio", (int)newPrio);
+            command.Parameters.AddWithValue("@status", (int)newStatus);
+            if (DateTime.MinValue.Equals(newDeadline)) {
+                command.Parameters.AddWithValue("@deadline", null);
+            } else {
+                command.Parameters.AddWithValue("@deadline", DateTimeHelper.ToString(newDeadline));
+            }
+            command.Parameters.AddWithValue("@id", task.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void UpdateNote(Note note, string newText) {
+            OpenIfClosed();
+            string query = "UPDATE `Note` SET `text`=@text WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@text", newText);
+            command.Parameters.AddWithValue("@id", note.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
         private Dictionary<int, TaskFolder> ReadTaskFolder() {
             // query
             string query = "SELECT id,text,status FROM TaskFolder";

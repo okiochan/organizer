@@ -1,4 +1,4 @@
-﻿using organizer.Codes;
+using organizer.Codes;
 using System;
 using System.Windows;
 using System.Windows.Controls;
