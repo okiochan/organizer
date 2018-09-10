@@ -18,25 +18,35 @@ namespace organizer
     /// </summary>
     public partial class DialogAddTask : Window
     {
-        private Task t;
-        TaskFolder tf;
+        private Priority prio;
+        private int tfId;
+        private Database db;
 
-        public DialogAddTask(TaskFolder tf)
+        public DialogAddTask(int tfId)
         {
-            this.tf = tf;
             InitializeComponent();
 
-            t = new Task();
-            t.text = "unnown title";
-            t.prio = Priority.LOW;
+            prio = Priority.LOW;
+            db = new Database(@"..\..\..\db\tasks.db");
+            this.tfId = tfId;
+        }
+
+        public event EventHandler HandlerButApplyClick;
+        protected virtual void EventOnButtonClicked(EventArgs e) {
+            EventHandler handler = HandlerButApplyClick;
+            if (handler != null) {
+                handler(this, e);
+            }
         }
 
         private void butApply_Click(object sender, RoutedEventArgs e) {
 
+            String text = "unnown title";
             if (txtBoxTitle.Text != "") {
-                t.text = txtBoxTitle.Text;
+                text = txtBoxTitle.Text;
             }
 
+            //DEADLINE????
             int timeM = 0;
 
             int n;
@@ -50,21 +60,24 @@ namespace organizer
                 timeM += Int32.Parse(txtBoxM.Text);
             }
 
-            tf.tasks.Add(t);
+            List<TaskFolder> allFolders = db.ReadAll();
+            db.CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
+            //repaint
+            EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
         }
 
 
         private void butLow_Click(object sender, RoutedEventArgs e) {
-            t.prio = Priority.LOW;
+            prio = Priority.LOW;
         }
 
         private void butMid_Click(object sender, RoutedEventArgs e) {
-            t.prio = Priority.MID;
+            prio = Priority.MID;
         }
 
         private void butHight_Click(object sender, RoutedEventArgs e) {
-            t.prio = Priority.HIGH;
+            prio = Priority.HIGH;
         }
     }
 }

@@ -19,34 +19,46 @@ namespace organizer {
     
     public partial class TaskWindow : Window {
 
-        private TaskFolder tf;
+        private int tfId;
         private int cnt=0;
+        private Database db;
 
-        public TaskWindow( TaskFolder tf) {
+        public TaskWindow( int tfId) {
             InitializeComponent();
-            this.tf = tf;
-            prepData();
+
+            db = new Database(@"..\..\..\db\tasks.db");
+            this.tfId = tfId;
         }
 
-        // Drop????
-        private void prepData() {
+        public event EventHandler HandlerAddTask;
+        protected virtual void EventTaskAdded(EventArgs e) {
+            EventHandler handler = HandlerAddTask;
+            if (handler != null) {
+                handler(this, e);
+            }
+        }
 
-            //add Drop!
+        private void repaint() {
+
+            panelMiddle.Children.Clear();
+            panelLeft.Children.Clear();
+            List<TaskFolder> allFolders = db.ReadAll();
+            TaskFolder tf = allFolders[tfId];
+
             foreach (var t in tf.tasks) {
-                Label but = new Label();
-                but.Content = t.text;
-                but.Name = "but" + cnt.ToString();
-                but.Margin = new Thickness(10);
-                but.Height = 30;
-                but.Drop += Button_Drop;
-                but.MouseDown += Button_MouseDown;
-                but.AllowDrop = true;
-                //but.Click += Button_Click;
+                Label labe = new Label();
+                labe.Content = t.text;
+                labe.Name = "labe" + cnt.ToString();
+                labe.Margin = new Thickness(10);
+                labe.Height = 30;
+                labe.Drop += Button_Drop;
+                labe.MouseDown += Button_MouseDown;
+                labe.AllowDrop = true;
 
                 if (t.status == Status.DONE) {
-                    panelMiddle.Children.Add(but);
+                    panelMiddle.Children.Add(labe);
                 } else {
-                    panelLeft.Children.Add(but);
+                    panelLeft.Children.Add(labe);
                 }
                 cnt++;
             }
@@ -78,11 +90,26 @@ namespace organizer {
         }
 
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
-            DialogAddTask d = new DialogAddTask(tf);
-
-            if (d.ShowDialog() == false) {
+            
+            DialogAddTask d = new DialogAddTask(tfId);
+            d.HandlerButApplyClick += EventButClicked;
+            
+            if (d.ShowDialog() == true) {
+                //repaint all
+                EventTaskAdded(EventArgs.Empty);
+                repaint();
+            } else {
                 MessageBox.Show("Info not saved =(");
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            repaint();
+        }
+
+        private void EventButClicked(object sender, EventArgs e) {
+            repaint();
+        }
+
     }
 }

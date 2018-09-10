@@ -1,3 +1,4 @@
+FL check add tf on errors
 
 add scrolls to active page
 add scrolls to done page
@@ -9,7 +10,7 @@ add "pause" to task
 
 
 
-main page: WAIT UNTIL YLYA MAKE CHANGES!
+main page:
     when delete -> move to page recycle
     when done -> move to page done
     
@@ -20,9 +21,6 @@ task page:
     
     ask Ilya
     -how to set up ID for task and taskFolder?
-    -how to read from DB?
-    -how to save to DB?
-    -how to add tsk to task folder?
     
     
     
