@@ -1,4 +1,5 @@
-FL check add tf on errors
+
+
 
 add scrolls to active page
 add scrolls to done page
@@ -20,7 +21,7 @@ task page:
 
     
     ask Ilya
-    -how to set up ID for task and taskFolder?
+    -how to change in DB
     
     
     

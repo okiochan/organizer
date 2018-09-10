@@ -12,13 +12,11 @@ namespace organizer {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
-        Database db;
 
         public ActivePage() {
             InitializeComponent();
 
             spList = new List<StackPanel>();
-            db = new Database(@"..\..\..\db\tasks.db");
         }
         
         private void Repaint() {
@@ -28,7 +26,7 @@ namespace organizer {
             spList.Clear();
             tasksCnt = 0;
 
-            List<TaskFolder> allFolders = db.ReadAll();
+            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
             foreach (var tf in allFolders) {
                 if (tf.status == Status.TODO) {
                     addTaskFolder(tf);
@@ -64,11 +62,9 @@ namespace organizer {
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             DialogAddFolderTask wind = new DialogAddFolderTask();
-            if (wind.ShowDialog() == true) {
-                String title = wind.getTaskTitle;
-                db.CreateNewTaskFolder(title);
-                Repaint();
-            } else {
+            wind.HandlerButApplyClick += EventButApplyClicked;
+
+            if (wind.ShowDialog() != true) {
                 MessageBox.Show("Info not saved =(");
             }
             

@@ -11,14 +11,12 @@ namespace organizer {
     {
         private Priority prio;
         private int tfId;
-        private Database db;
 
         public DialogAddTask(int tfId)
         {
             InitializeComponent();
 
             prio = Priority.LOW;
-            db = new Database(@"..\..\..\db\tasks.db");
             this.tfId = tfId;
         }
 
@@ -51,8 +49,8 @@ namespace organizer {
                 timeM += Int32.Parse(txtBoxM.Text);
             }
 
-            List<TaskFolder> allFolders = db.ReadAll();
-            db.CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
+            List<TaskFolder> allFolders = Database.GetInstance().ReadAll();
+            Database.GetInstance().CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;

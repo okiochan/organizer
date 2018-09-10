@@ -60,8 +60,8 @@
       <DependentUpon>ActivePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Database.cs" />
-    <Compile Include="Views\DialogAddFolderTask.xaml.cs">
-      <DependentUpon>DialogAddFolderTask.xaml</DependentUpon>
+    <Compile Include="Views\DialogAddFolder.xaml.cs">
+      <DependentUpon>DialogAddFolder.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DialogAddTask.xaml.cs">
       <DependentUpon>DialogAddTask.xaml</DependentUpon>
@@ -90,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddFolderTask.xaml">
+    <Page Include="Views\DialogAddFolder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
