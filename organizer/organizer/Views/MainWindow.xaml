@@ -32,7 +32,7 @@
                 </StackPanel>
 
                 <Grid Grid.Row="1" Grid.Column="1">
-                    <Frame Name="mainFrame" Source="ActivePage.xaml" ></Frame>
+                    <Frame Name="mainFrame" Source="ActivePage.xaml" VerticalAlignment="Stretch"></Frame>
                 </Grid>
                 
             </Grid>
