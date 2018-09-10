@@ -122,6 +122,33 @@ namespace organizer.Codes {
             CloseIfOpened();
         }
 
+        public void DeleteTaskFolder(TaskFolder taskFolder) {
+            OpenIfClosed();
+            string query = "DELETE FROM `TaskFolder` WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@id", taskFolder.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void DeleteTask(Task task) {
+            OpenIfClosed();
+            string query = "DELETE FROM `Task` WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@id", task.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
+        public void DeleteNote(Note note) {
+            OpenIfClosed();
+            string query = "DELETE FROM `Note` WHERE `id`=@id";
+            SQLiteCommand command = new SQLiteCommand(query, db);
+            command.Parameters.AddWithValue("@id", note.id);
+            command.ExecuteNonQuery();
+            CloseIfOpened();
+        }
+
         private Dictionary<int, TaskFolder> ReadTaskFolder() {
             // query
             string query = "SELECT id,text,status FROM TaskFolder";
