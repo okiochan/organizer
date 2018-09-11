@@ -77,8 +77,8 @@
     <Compile Include="Views\FolderLookDone.xaml.cs">
       <DependentUpon>FolderLookDone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FolderLookRecycle.xaml.cs">
-      <DependentUpon>FolderLookRecycle.xaml</DependentUpon>
+    <Compile Include="Views\PageFLRecycle.xaml.cs">
+      <DependentUpon>PageFLRecycle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RecyclePage.xaml.cs">
       <DependentUpon>RecyclePage.xaml</DependentUpon>
@@ -116,10 +116,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FolderLookRecycle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PageFLRecycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RecyclePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

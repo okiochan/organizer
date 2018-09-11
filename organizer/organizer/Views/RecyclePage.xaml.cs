@@ -28,7 +28,7 @@ namespace organizer {
 
             List<TaskFolder> allfolders = Database.GetInstance().ReadAll();
             foreach (var tf in allfolders) {
-                if (tf.status == Status.DONE) {
+                if (tf.status == Status.TRASH) {
                     addTaskFolder(tf);
                 }
             }
@@ -37,7 +37,7 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLookRecycle pageFL = new FolderLookRecycle(tf);
+            PageFLRecycle pageFL = new PageFLRecycle(tf);
             pageFL.HandlerButClicked += EventRepaint;
 
             Frame myFrame = new Frame();

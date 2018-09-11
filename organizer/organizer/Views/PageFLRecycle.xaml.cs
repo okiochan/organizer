@@ -1,30 +1,20 @@
 ﻿using organizer.Codes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace organizer.Views {
     /// <summary>
-    /// Interaction logic for FolderLookRecycle.xaml
+    /// Interaction logic for PageFLRecycle.xaml
     /// </summary>
-    public partial class FolderLookRecycle : Window {
+    public partial class PageFLRecycle : Page {
 
         private TaskFolder tf;
-
-        public FolderLookRecycle(TaskFolder tf) {
+        public PageFLRecycle(TaskFolder tf) {
             InitializeComponent();
             this.tf = tf;
         }
-
+        
         private void butRestore_Click(object sender, RoutedEventArgs e) {
             Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TODO);
             OnButtonClickedEvent(EventArgs.Empty);
@@ -39,6 +29,11 @@ namespace organizer.Views {
             txtBoxTitle.Text = tf.text;
         }
 
+        private void butRestoreD_Click(object sender, RoutedEventArgs e) {
+            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.DONE);
+            OnButtonClickedEvent(EventArgs.Empty);
+        }
+
         //EVENTS--------------------------
 
         public event EventHandler HandlerButClicked;
@@ -48,5 +43,7 @@ namespace organizer.Views {
                 handler(this, e);
             }
         }
+
+        
     }
 }
