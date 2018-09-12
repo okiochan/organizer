@@ -61,7 +61,12 @@ namespace organizer.Codes.Database {
                 note.id = reader.GetInt32(0);
                 note.text = reader.GetString(1);
                 int owner = reader.GetInt32(2);
-                taskFolder[owner].notes.Add(note);
+                
+                if (!taskFolder.ContainsKey(owner)) {
+                    DeleteNote(note);
+                } else {
+                    taskFolder[owner].notes.Add(note);
+                }
             }
 
             db.CloseIfOpened();

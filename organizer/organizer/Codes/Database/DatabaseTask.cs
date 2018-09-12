@@ -82,7 +82,12 @@ namespace organizer.Codes.Database {
                     task.deadline = DateTimeHelper.FromString(reader.GetString(4));
                 }
                 int owner = reader.GetInt32(5);
-                taskFolder[owner].tasks.Add(task);
+
+                if(!taskFolder.ContainsKey(owner)) {
+                    DeleteTask(task);
+                } else {
+                    taskFolder[owner].tasks.Add(task);
+                }
             }
 
             db.CloseIfOpened();
