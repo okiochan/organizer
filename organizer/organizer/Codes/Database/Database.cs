@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.IO;
+using System.Threading;
 
 namespace organizer.Codes.Database {
     public class Database : IDisposable {
         private static Database instance = null;
+        private static int refCount = 0;
+
         public static Database GetInstance() {
             if(instance == null) {
                 instance = OpenFromDefaultPath();
@@ -23,7 +26,8 @@ namespace organizer.Codes.Database {
         }
 
         public void OpenIfClosed() {
-            if(conn == null) {
+            refCount++;
+            if(refCount == 1) {
                 if (!File.Exists(path))
                     throw new Exception("Can't find the database at specified path");
                 conn = new SQLiteConnection("Data Source=" + path + ";");
@@ -31,7 +35,8 @@ namespace organizer.Codes.Database {
             }
         }
         public void CloseIfOpened() {
-            if(conn != null) {
+            refCount--;
+            if(refCount==0) {
                 conn.Close();
                 conn = null;
             }
