@@ -23,12 +23,18 @@ namespace organizer {
             this.tf = tf;
         }
 
+        //HANDLER
         public event EventHandler HandlerAddTask;
-        protected virtual void EventTaskAdded(EventArgs e) {
+        protected virtual void EventRepaintAP(EventArgs e) {
             EventHandler handler = HandlerAddTask;
             if (handler != null) {
                 handler(this, e);
             }
+        }
+
+        //EVENT
+        private void EventButClicked(object sender, EventArgs e) {
+            repaint();
         }
 
         private void repaint() {
@@ -109,7 +115,7 @@ namespace organizer {
             
             if (d.ShowDialog() == true) {
                 //repaint all
-                EventTaskAdded(EventArgs.Empty);
+                EventRepaintAP(EventArgs.Empty);
                 repaint();
             } else {
                 MessageBox.Show("Info not saved =(");
@@ -120,9 +126,8 @@ namespace organizer {
             repaint();
         }
 
-        private void EventButClicked(object sender, EventArgs e) {
-            repaint();
-        }
+        private void butAddNote_Click(object sender, RoutedEventArgs e) {
 
+        }
     }
 }
