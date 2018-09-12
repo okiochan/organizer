@@ -37,14 +37,22 @@ namespace organizer {
             panelLeft.Children.Clear();
             panelRight.Children.Clear();
             cnt = 0;
-
-            //waiting method....
+            
+            DatabaseTaskFolder.ReloadTaskFolder(tf);
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
                 labe.Content = t.text;
                 labe.Name = "labe" + cnt.ToString();
-                labe.Background = Brushes.PapayaWhip;
+                
+                if(t.prio == Priority.MID) {
+                    labe.Background = Brushes.SandyBrown;
+                } else if(t.prio == Priority.HIGH) {
+                    labe.Background = Brushes.Salmon;
+                } else {
+                    labe.Background = Brushes.PapayaWhip;
+                }
+
                 labe.BorderBrush = Brushes.DarkSalmon;
                 labe.BorderThickness = new Thickness(2);
                 labe.Margin = new Thickness(10);

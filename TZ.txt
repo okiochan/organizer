@@ -1,11 +1,7 @@
-Database
-    add method : I want to give a TaskFolder and get this TaskFolder from DB! (because it's children can be changed)
-
 
 WindowTask
-    fix repaint! when you add a task
+    tasks should be sorted by prio
     add but add note
-    ad but -> and -<
     
     when "add task"
         when clicked on prio - other prio shoul be switched to gray color
