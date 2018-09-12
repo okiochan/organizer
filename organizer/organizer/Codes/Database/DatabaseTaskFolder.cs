@@ -64,7 +64,7 @@ namespace organizer.Codes.Database {
             db.CloseIfOpened();
         }
 
-        public static void UpdateTaskFolder(TaskFolder folder) {
+        public static void ReloadTaskFolder(TaskFolder folder) {
             List<TaskFolder> allFolders = ReadAll();
             TaskFolder found = null;
             foreach (var f in allFolders) {
