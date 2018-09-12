@@ -1,4 +1,5 @@
-﻿using System;
+﻿using organizer.Codes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,36 @@ namespace organizer.Views
     /// </summary>
     public partial class FolderLookDone : Page
     {
-        public FolderLookDone()
+        private TaskFolder tf;
+        public FolderLookDone(TaskFolder tf)
         {
             InitializeComponent();
+            this.tf = tf;
         }
+        
+        private void butDelete_Click(object sender, RoutedEventArgs e) {
+            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TRASH);
+            OnButtonClickedEvent(EventArgs.Empty);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e) {
+            txtBoxTitle.Text = tf.text;
+        }
+
+        private void butView_Click(object sender, RoutedEventArgs e) {
+            TaskView tv = new TaskView(tf);
+            tv.Show();
+        }
+
+        //EVENTS--------------------------
+
+        public event EventHandler HandlerButDeleteClicked;
+        protected virtual void OnButtonClickedEvent(EventArgs e) {
+            EventHandler handler = HandlerButDeleteClicked;
+            if (handler != null) {
+                handler(this, e);
+            }
+        }
+        
     }
 }

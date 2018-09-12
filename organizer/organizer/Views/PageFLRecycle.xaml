@@ -1,14 +1,13 @@
-﻿<Page x:Class="organizer.Views.FolderLookDone"
+﻿<Page x:Class="organizer.Views.PageFLRecycle"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:organizer.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="80" d:DesignWidth="250"
-      Title="FolderLookDone" Loaded="Page_Loaded">
-    
-    
+      Title="PageFLRecycle"  d:DesignHeight="120" d:DesignWidth="250" Loaded="Window_Loaded">
+
+
     <Grid Background="LightGoldenrodYellow">
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -16,7 +15,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="5" Background="LightGreen" Name="butView" Click="butView_Click">view</Button>
+            <Button Margin="5" Background="lightB" Name="butRestore" Click="butRestore_Click">restore to active</Button>
+            <Button Margin="5" Background="LightGreen" Name="butRestoreD" Click="butRestoreD_Click">restore to done</Button>
             <Button Margin="5" Background="LightPink" Name="butDelete" Click="butDelete_Click">delete</Button>
         </StackPanel>
 

@@ -80,12 +80,18 @@
     <Compile Include="Views\FolderLookDone.xaml.cs">
       <DependentUpon>FolderLookDone.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageFLRecycle.xaml.cs">
+      <DependentUpon>PageFLRecycle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RecyclePage.xaml.cs">
       <DependentUpon>RecyclePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Status.cs" />
     <Compile Include="Codes\Task.cs" />
     <Compile Include="Codes\TaskFolder.cs" />
+    <Compile Include="Views\TaskView.xaml.cs">
+      <DependentUpon>TaskView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
@@ -125,7 +131,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PageFLRecycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RecyclePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

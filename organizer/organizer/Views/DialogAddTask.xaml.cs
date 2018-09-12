@@ -11,14 +11,14 @@ namespace organizer {
     public partial class DialogAddTask : Window
     {
         private Priority prio;
-        private int tfId;
+        private TaskFolder tf;
 
-        public DialogAddTask(int tfId)
+        public DialogAddTask(TaskFolder tf)
         {
             InitializeComponent();
 
             prio = Priority.LOW;
-            this.tfId = tfId;
+            this.tf = tf;
         }
 
         public event EventHandler HandlerButApplyClick;
@@ -50,8 +50,7 @@ namespace organizer {
                 timeM += Int32.Parse(txtBoxM.Text);
             }
 
-            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
-            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, allFolders[tfId]);
+            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, tf);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
