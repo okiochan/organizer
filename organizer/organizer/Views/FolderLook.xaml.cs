@@ -1,4 +1,5 @@
 using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -27,12 +28,12 @@ namespace organizer {
         }
 
         private void butDone_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.DONE);
+            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.DONE);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 
         private void butDelete_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TRASH);
+            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.TRASH);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 

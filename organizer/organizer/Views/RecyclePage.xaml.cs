@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using organizer.Views;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace organizer {
             spList.Clear();
             tasksCnt = 0;
 
-            List<TaskFolder> allfolders = Database.GetInstance().ReadAll();
+            List<TaskFolder> allfolders = DatabaseTaskFolder.ReadAll();
             foreach (var tf in allfolders) {
                 if (tf.status == Status.TRASH) {
                     addTaskFolder(tf);
