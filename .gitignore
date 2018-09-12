@@ -7,3 +7,4 @@
 *.pdb
 organizer/organizer/obj/
 organizer/organizer/bin/
+organizer/organizer/organizer.csproj.user
