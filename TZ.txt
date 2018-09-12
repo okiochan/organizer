@@ -1,30 +1,26 @@
+Database
+    add method : I want to give a TaskFolder and get this TaskFolder from DB! (because it's children can be changed)
 
 
+WindowTask
+    fix repaint! when you add a task
+    add but add note
+    ad but -> and -<
+    
+    when "add task"
+        when clicked on prio - other prio shoul be switched to gray color
 
-RPage
-change FLR window to page!!!!
-    add FLRecycle
 
+- how can we change a folder title?
+
+Done page
+    window
+        change "task title" to it's task title
 
 add scrolls to active page
 add scrolls to done page
 add scrolls to recycle page
 add scrolls to task page
 
-add "start" to task
-add "pause" to task
-
-
-
-
-    
-task page:
-    make drop  to col done
-    add but add note
-
-    
-    ask Ilya
-    -how to change in DB
-    
     
     

@@ -35,9 +35,10 @@ namespace organizer {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
-
             panelRight.Children.Clear();
             cnt = 0;
+
+            //waiting method....
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
@@ -49,10 +50,10 @@ namespace organizer {
                 labe.Margin = new Thickness(10);
                 labe.Height = 30;
 
-                labe.Drop += Button_Drop;
-                labe.MouseDown += Button_MouseDown;
-                labe.AllowDrop = true;
-
+                //labe.Drop += Button_Drop;
+                //labe.MouseDown += Button_MouseDown;
+                //labe.AllowDrop = true;
+                
                 if (t.status == Status.DONE) {
                     labe.Background = Brushes.AliceBlue;
                     labe.BorderBrush = Brushes.DarkGray;

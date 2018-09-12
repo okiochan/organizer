@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="5" Background="lightB" Name="butRestore" Click="butRestore_Click">restore to active</Button>
+            <Button Margin="5" Background="LightBlue" Name="butRestore" Click="butRestore_Click">restore to active</Button>
             <Button Margin="5" Background="LightGreen" Name="butRestoreD" Click="butRestoreD_Click">restore to done</Button>
             <Button Margin="5" Background="LightPink" Name="butDelete" Click="butDelete_Click">delete</Button>
         </StackPanel>

@@ -44,20 +44,17 @@
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "0" >
                 <StackPanel Background="AliceBlue" Orientation = "Vertical" Name="panelLeft" >
-                        <Label  Background="PapayaWhip" BorderBrush="DarkSalmon" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
-                    </StackPanel>
+                </StackPanel>
             </ScrollViewer>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "1"  >
                 <StackPanel Background="PowderBlue" Orientation = "Vertical" Name="panelMiddle">
-                        <Label  Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
-                    </StackPanel>
+                </StackPanel>
             </ScrollViewer>
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "2"  >
-                    <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Name="panelRight">
-                        <Label  Background="SeaShell" BorderBrush="DarkKhaki" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" Drop="Button_Drop" AllowDrop="True" />
-                    </StackPanel>
+                <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Name="panelRight">
+                </StackPanel>
                 </ScrollViewer>
 
         </Grid>
