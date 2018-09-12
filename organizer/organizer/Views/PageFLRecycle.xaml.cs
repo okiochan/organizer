@@ -1,4 +1,5 @@
 ﻿using organizer.Codes;
+using organizer.Codes.Database;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,12 +17,12 @@ namespace organizer.Views {
         }
         
         private void butRestore_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.TODO);
+            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.TODO);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 
         private void butDelete_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().DeleteTaskFolder(tf);
+            DatabaseTaskFolder.DeleteTaskFolder(tf);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 
@@ -30,7 +31,7 @@ namespace organizer.Views {
         }
 
         private void butRestoreD_Click(object sender, RoutedEventArgs e) {
-            Database.GetInstance().UpdateTaskFolder(tf, tf.text, Status.DONE);
+            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.DONE);
             OnButtonClickedEvent(EventArgs.Empty);
         }
 
