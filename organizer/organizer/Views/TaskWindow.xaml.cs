@@ -39,7 +39,7 @@ namespace organizer {
             cnt = 0;
 
             //waiting method....
-
+            tf.SortTasksByPriority();
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
                 labe.Content = t.text;
