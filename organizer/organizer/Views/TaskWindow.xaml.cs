@@ -43,8 +43,9 @@ namespace organizer {
             panelLeft.Children.Clear();
             panelRight.Children.Clear();
             cnt = 0;
-            
+
             DatabaseTaskFolder.ReloadTaskFolder(tf);
+            tf.SortTasksByPriority();
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
