@@ -15,12 +15,12 @@ namespace organizer {
 
     public partial class TaskWindow : Window {
 
-        private int tfId;
+        private TaskFolder tf;
         private int cnt=0;
 
-        public TaskWindow( int tfId) {
+        public TaskWindow(TaskFolder tf) {
             InitializeComponent();
-            this.tfId = tfId;
+            this.tf = tf;
         }
 
         public event EventHandler HandlerAddTask;
@@ -35,8 +35,9 @@ namespace organizer {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
-            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
-            TaskFolder tf = allFolders[tfId];
+
+            panelRight.Children.Clear();
+            cnt = 0;
 
             foreach (var t in tf.tasks) {
                 Label labe = new Label();
@@ -94,7 +95,7 @@ namespace organizer {
 
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             
-            DialogAddTask d = new DialogAddTask(tfId);
+            DialogAddTask d = new DialogAddTask(tf);
             d.HandlerButApplyClick += EventButClicked;
             
             if (d.ShowDialog() == true) {

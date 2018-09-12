@@ -1,6 +1,11 @@
 
 
 
+RPage
+change FLR window to page!!!!
+    add FLRecycle
+
+
 add scrolls to active page
 add scrolls to done page
 add scrolls to recycle page
@@ -11,9 +16,7 @@ add "pause" to task
 
 
 
-main page:
-    when delete -> move to page recycle
-    when done -> move to page done
+
     
 task page:
     make drop  to col done

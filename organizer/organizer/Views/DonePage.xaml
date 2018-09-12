@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:organizer"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="DonePage">
+      Title="DonePage" Loaded="Page_Loaded">
 
     <Grid>
         <!-- right col -->
