@@ -7,11 +7,11 @@ using System.Text;
 namespace organizer.Codes.Database {
     public class DatabaseTask {
 
-        public static void CreateNewTask(string text, Priority prio, Status status, DateTime deadline, TaskFolder owner) {
+        public static void CreateNewTask(string text, Priority prio, Status status, DateTime deadline, DateTime startdate, TaskFolder owner) {
             Database db = Database.GetInstance();
             db.OpenIfClosed();
 
-            string query = "INSERT INTO `Task`(`text`,`prio`,`status`,`deadline`,`owner`) VALUES (@text,@prio,@status,@deadline,@owner)";
+            string query = "INSERT INTO `Task`(`text`,`prio`,`status`,`deadline`,`startdate`,`timespent`,`startdate`,`owner`) VALUES (@text,@prio,@status,@deadline,@startdate,@owner)";
             SQLiteCommand command = new SQLiteCommand(query, db.GetConnection());
             command.Parameters.AddWithValue("@text", text);
             command.Parameters.AddWithValue("@prio", (int)prio);
@@ -21,26 +21,44 @@ namespace organizer.Codes.Database {
             } else {
                 command.Parameters.AddWithValue("@deadline", DateTimeHelper.ToString(deadline));
             }
+            if (DateTime.MinValue.Equals(startdate)) {
+                command.Parameters.AddWithValue("@startdate", null);
+            } else {
+                command.Parameters.AddWithValue("@startdate", DateTimeHelper.ToString(startdate));
+            }
             command.Parameters.AddWithValue("@owner", owner.id);
             command.ExecuteNonQuery();
 
             db.CloseIfOpened();
         }
 
-        public static void UpdateTask(Task task, string newText, Priority newPrio, Status newStatus, DateTime newDeadline) {
+        public static void UpdateTask(Task task) {
             Database db = Database.GetInstance();
             db.OpenIfClosed();
 
-            string query = "UPDATE `Task` SET `text`=@text,`prio`=@prio,`status`=@status,`deadline`=@deadline WHERE `id`=@id";
+            string query = "UPDATE `Task` SET "
+                + "`text`=@text,"
+                + "`prio`=@prio,"
+                + "`status`=@status,"
+                + "`deadline`=@deadline,"
+                + "`startdate`=@startdate,"
+                + "`timespent`=@timespent"
+                + " WHERE `id`=@id";
             SQLiteCommand command = new SQLiteCommand(query, db.GetConnection());
-            command.Parameters.AddWithValue("@text", newText);
-            command.Parameters.AddWithValue("@prio", (int)newPrio);
-            command.Parameters.AddWithValue("@status", (int)newStatus);
-            if (DateTime.MinValue.Equals(newDeadline)) {
+            command.Parameters.AddWithValue("@text", task.text);
+            command.Parameters.AddWithValue("@prio", (int)task.prio);
+            command.Parameters.AddWithValue("@status", (int)task.status);
+            if (DateTime.MinValue.Equals(task.deadline)) {
                 command.Parameters.AddWithValue("@deadline", null);
             } else {
-                command.Parameters.AddWithValue("@deadline", DateTimeHelper.ToString(newDeadline));
+                command.Parameters.AddWithValue("@deadline", DateTimeHelper.ToString(task.deadline));
             }
+            if (DateTime.MinValue.Equals(task.startdate)) {
+                command.Parameters.AddWithValue("@startdate", null);
+            } else {
+                command.Parameters.AddWithValue("@startdate", DateTimeHelper.ToString(task.startdate));
+            }
+            command.Parameters.AddWithValue("@timespent", task.timeSpent);
             command.Parameters.AddWithValue("@id", task.id);
             command.ExecuteNonQuery();
 
@@ -65,7 +83,7 @@ namespace organizer.Codes.Database {
             db.OpenIfClosed();
 
             // query
-            string query = "SELECT id,text,prio,status,deadline,owner FROM Task";
+            string query = "SELECT id,text,prio,status,deadline,startdate,timespent,owner FROM Task";
             SQLiteCommand command = new SQLiteCommand(query, db.GetConnection());
             SQLiteDataReader reader = command.ExecuteReader();
 
@@ -81,7 +99,13 @@ namespace organizer.Codes.Database {
                 } else {
                     task.deadline = DateTimeHelper.FromString(reader.GetString(4));
                 }
-                int owner = reader.GetInt32(5);
+                if (reader.IsDBNull(5)) {
+                    task.startdate = DateTime.MinValue;
+                } else {
+                    task.startdate = DateTimeHelper.FromString(reader.GetString(5));
+                }
+                task.timeSpent = reader.GetInt32(6);
+                int owner = reader.GetInt32(7);
 
                 if(!taskFolder.ContainsKey(owner)) {
                     DeleteTask(task);

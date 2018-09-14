@@ -37,7 +37,7 @@ namespace organizer {
                 text = txtBoxTitle.Text;
             }
 
-            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, tf);
+            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, DateTime.Now, tf);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
