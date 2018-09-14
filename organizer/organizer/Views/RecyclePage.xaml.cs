@@ -38,8 +38,8 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            PageFLRecycle pageFL = new PageFLRecycle(tf);
-            pageFL.HandlerButClicked += EventRepaint;
+            FolderLook pageFL = new FolderLook(tf);
+            pageFL.HandlerRepaint += EventRepaint;
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);

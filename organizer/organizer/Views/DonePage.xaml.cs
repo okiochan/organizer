@@ -38,15 +38,15 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLookDone pageFLD = new FolderLookDone(tf);
-            pageFLD.HandlerButDeleteClicked += EventRepaint;
+            FolderLook pageFL = new FolderLook(tf);
+            pageFL.HandlerRepaint += EventRepaint;
             
             //pageFLD.ButtonClickedHandler += EventButApplyClicked;
 
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
-            myFrame.Navigate(pageFLD);
+            myFrame.Navigate(pageFL);
 
             if (tasksCnt % 5 == 0) {
                 StackPanel sp = new StackPanel();

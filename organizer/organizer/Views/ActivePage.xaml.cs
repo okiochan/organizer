@@ -38,7 +38,7 @@ namespace organizer {
 
             FolderLook pageFL = new FolderLook(tf);
             //EVENT ADD
-            pageFL.ButtonClickedHandler += EventButApplyClicked;
+            pageFL.HandlerRepaint += EventButApplyClicked;
 
             //delete event
             //pageFL.ButtonClickedHandler -= ButtonClickedEvent;
