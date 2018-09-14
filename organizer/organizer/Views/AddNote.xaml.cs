@@ -1,4 +1,6 @@
-﻿using System;
+﻿using organizer.Codes;
+using organizer.Codes.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +18,28 @@ namespace organizer.Views {
     /// Interaction logic for AddNote.xaml
     /// </summary>
     public partial class AddNote : Window {
-        public AddNote() {
+
+        private TaskFolder tf;
+
+        public AddNote(TaskFolder tf) {
             InitializeComponent();
+            this.tf = tf;
+        }
+
+        //Handler
+        public event EventHandler HandlerButApplyClick;
+        protected virtual void EventOnButtonClicked(EventArgs e) {
+            EventHandler handler = HandlerButApplyClick;
+            if (handler != null) {
+                handler(this, e);
+            }
+        }
+
+        private void butApply_Click(object sender, RoutedEventArgs e) {
+            DatabaseNote.CreateNewNote(txtNote.Text, tf);
+
+            EventOnButtonClicked(EventArgs.Empty);
+            this.DialogResult = true;
         }
     }
 }

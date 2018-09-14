@@ -1,22 +1,16 @@
 
+
+add and show end data and begin data for FOLDER
+    ex: begin - today ; end 21.10.2018  
+        begin - 21.10.2018 ; end 21.10.2018 
+        
+    - folder that doesn't start yet should be gray
+
 WindowTask
     tasks should be sorted by prio
-    add but add note
     
-    when "add task"
-        when clicked on prio - other prio shoul be switched to gray color
+    - needs "add time spent" button
+        this time should be added to task
 
-
-- how can we change a folder title?
-
-Done page
-    window
-        change "task title" to it's task title
-
-add scrolls to active page
-add scrolls to done page
-add scrolls to recycle page
-add scrolls to task page
-
-    
-    
+ASK:
+ - are we need deadline for task?

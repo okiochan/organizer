@@ -5,16 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="DialogAddTask" Height="300" Width="300">
+        Title="DialogAddTask" Height="240" Width="300">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="92*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Fill these fields to add new task" FontWeight="Bold" Margin="0 5 " TextAlignment="Center"/>
+        <TextBlock Text="Fill these fields to add new task" FontWeight="Bold" Margin="0 5 " TextAlignment="Center" Grid.ColumnSpan="2"/>
 
-        <StackPanel Grid.Row="1" Background="Beige">
+        <StackPanel Grid.Row="1" Background="Beige" Grid.ColumnSpan="2">
             <TextBlock Text="Title of the task" TextAlignment="Center" FontSize="15"/>
             <TextBox Margin="5" Height="60" Name="txtBoxTitle" FontSize="15" ></TextBox>
 
@@ -24,19 +28,7 @@
                 <Button Width="50" Name="butMid" Margin="10 0" Background="Orange" Click="butMid_Click">middle</Button>
                 <Button Width="50" Name="butHight" Margin="10 0" Background="Red" Click="butHight_Click">hight</Button>
             </StackPanel>
-
-            <TextBlock Text="set up deadline" TextAlignment="Center" FontSize="15"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
-                <TextBlock FontWeight="Bold"> Days:</TextBlock>
-                <TextBox Width="50" Margin="5 0" Name="txtBoxD"></TextBox>
-                
-                <TextBlock FontWeight="Bold"> H:</TextBlock>
-                <TextBox Width="50" Margin="5 0" Name="txtBoxH"></TextBox>
-                
-                <TextBlock FontWeight="Bold"> M:</TextBlock>
-                <TextBox Width="50" Margin="5 0" Name="txtBoxM"></TextBox>
-            </StackPanel>
-
+            
             <Button Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
         </StackPanel>
 

@@ -3,6 +3,7 @@ using organizer.Codes.Database;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 
 namespace organizer {
     /// <summary>
@@ -36,20 +37,6 @@ namespace organizer {
                 text = txtBoxTitle.Text;
             }
 
-            //DEADLINE????
-            int timeM = 0;
-
-            int n;
-            if (int.TryParse(txtBoxD.Text, out n) == true) {
-                timeM += Int32.Parse(txtBoxD.Text) * 24 * 60;
-            }
-            if (int.TryParse(txtBoxH.Text, out n) == true) {
-                timeM += Int32.Parse(txtBoxH.Text) * 60;
-            }
-            if (int.TryParse(txtBoxM.Text, out n) == true) {
-                timeM += Int32.Parse(txtBoxM.Text);
-            }
-
             DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, tf);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
@@ -59,14 +46,23 @@ namespace organizer {
 
         private void butLow_Click(object sender, RoutedEventArgs e) {
             prio = Priority.LOW;
+            butLow.Background = Brushes.Yellow;
+            butMid.Background = Brushes.Gray;
+            butHight.Background = Brushes.Gray;
         }
 
         private void butMid_Click(object sender, RoutedEventArgs e) {
             prio = Priority.MID;
+            butLow.Background = Brushes.Gray;
+            butMid.Background = Brushes.Orange;
+            butHight.Background = Brushes.Gray;
         }
 
         private void butHight_Click(object sender, RoutedEventArgs e) {
             prio = Priority.HIGH;
+            butLow.Background = Brushes.Gray;
+            butMid.Background = Brushes.Gray;
+            butHight.Background = Brushes.Red;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
+using organizer.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -128,7 +129,16 @@ namespace organizer {
         }
 
         private void butAddNote_Click(object sender, RoutedEventArgs e) {
+            AddNote an = new AddNote(tf);
+            an.HandlerButApplyClick += EventButClicked;
 
+            if (an.ShowDialog() == true) {
+                //repaint all
+                EventRepaintAP(EventArgs.Empty);
+                repaint();
+            } else {
+                MessageBox.Show("Info not saved =(");
+            }
         }
     }
 }
