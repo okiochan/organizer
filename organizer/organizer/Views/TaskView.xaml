@@ -35,10 +35,8 @@
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Notes" HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
             <StackPanel Background="PowderBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
-                <Label  Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" />
             </StackPanel>
             <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelRight">
-                <Label  Background="SeaShell" BorderBrush="DarkKhaki" BorderThickness="2" Content = "Example" Margin = "10" Width = "180" Height = "30" />
             </StackPanel>
 
         </Grid>

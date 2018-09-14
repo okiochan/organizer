@@ -1,4 +1,4 @@
-
+-leave one folder look
 
 add and show end data and begin data for FOLDER
     ex: begin - today ; end 21.10.2018  
@@ -7,10 +7,15 @@ add and show end data and begin data for FOLDER
     - folder that doesn't start yet should be gray
 
 WindowTask
-    tasks should be sorted by prio
-    
+    -add page for a Task
     - needs "add time spent" button
         this time should be added to task
 
 ASK:
  - are we need deadline for task?
+ 
+Scrolls
+-add scrolls to 
+    TaskView
+    DonePage
+    RecyclePage

@@ -86,6 +86,9 @@
     <Compile Include="Views\PageFLRecycle.xaml.cs">
       <DependentUpon>PageFLRecycle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PageTaskLook.xaml.cs">
+      <DependentUpon>PageTaskLook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RecyclePage.xaml.cs">
       <DependentUpon>RecyclePage.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PageFLRecycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageTaskLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
