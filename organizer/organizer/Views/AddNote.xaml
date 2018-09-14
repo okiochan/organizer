@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer.Views"
         mc:Ignorable="d"
-        Title="AddNote" Height="140" Width="300">
-    <Grid>
-
+        Title="AddNote" Height="150" Width="300">
+    
+    <Grid Background="LightGoldenrodYellow">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="add note" TextAlignment="Center" FontSize="15"/>
+            <TextBox Name="txtNote" Height="50" Margin="10"></TextBox>
+            <Button Width="50" Name="butApply" Click="butApply_Click">apply</Button>
+        </StackPanel>
+        
     </Grid>
 </Window>

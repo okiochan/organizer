@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="DialogAddFolderTask" Height="210" Width="300">
+        Title="DialogAddFolderTask" Height="370" Width="405">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -16,7 +16,25 @@
 
         <StackPanel Grid.Row="1" Background="Beige">
             <TextBlock Text="Title of the task" Padding="5" TextAlignment="Center" FontSize="15"/>
-            <TextBox Margin="5" Height="60" Name="txtBoxTitle" FontSize="15" ></TextBox>
+            <TextBox Margin="5" Height="50" Name="txtBoxTitle" FontSize="15" ></TextBox>
+
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Margin="10 0">
+                    <TextBlock Text="begin data" TextAlignment="Center"/>
+                    <Calendar x:Name="calendarStart" FirstDayOfWeek="Monday" SelectedDatesChanged="calendarStart_SelectedDatesChanged">
+                    </Calendar>
+                </StackPanel>
+
+                <StackPanel  Margin="10 0">
+                    <TextBlock Text="end data" TextAlignment="Center"/>
+                    <Calendar x:Name="calendarEnd"  FirstDayOfWeek="Monday" SelectedDatesChanged="calendarEnd_SelectedDatesChanged">
+                    </Calendar>
+                </StackPanel>
+
+            </StackPanel>
+
             <Button Width="50" Name="butApply" Click="butApply_Click">apply</Button>
         </StackPanel>
 
