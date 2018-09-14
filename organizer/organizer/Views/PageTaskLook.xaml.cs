@@ -46,7 +46,13 @@ namespace organizer.Views {
                 butR.Content = "<--";
                 panel.Children.Remove(butTime);
 
-                //DINASH set txtTime.Text = "Spent: D:... H:... M:... "
+                int time = t.timeSpent;
+                int mins = time % 60;
+                time /= 60;
+                int hours = time % 60;
+                time /= 60;
+                int days = time;
+                txtTime.Text = String.Format("Spent: D:{0} H:{1} M:{2}", days, hours, mins);
 
             } else { //TODO
 
@@ -74,13 +80,13 @@ namespace organizer.Views {
             } else {
                 t.status = Status.TODO;
             }
-            DatabaseTask.UpdateTask(t, t.text, t.prio, t.status, t.deadline);
+            DatabaseTask.UpdateTask(t);
             EventRepaint(EventArgs.Empty);
         }
 
         private void butTime_Click(object sender, RoutedEventArgs e) {
-            //DINASH create window for user that sums time spent on task
-
+            AddTimeSpentWindow wnd = new AddTimeSpentWindow(t);
+            wnd.Show();
         }
     }
 }
