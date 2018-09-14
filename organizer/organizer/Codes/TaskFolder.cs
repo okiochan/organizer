@@ -11,7 +11,7 @@ namespace organizer.Codes {
 
         public void SortTasksByPriority() {
             Comparison<Task> compare = (Task x, Task y) => {
-                return (int)x.prio - (int)y.prio;
+                return -((int)x.prio - (int)y.prio);
             };
             tasks.Sort(compare);
         }

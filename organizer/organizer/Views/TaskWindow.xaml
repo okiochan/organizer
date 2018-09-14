@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="TaskWindow" Height="540" Width="734.485" Loaded="Window_Loaded">
+        Title="TaskWindow" Height="540" Width="920" Loaded="Window_Loaded">
 
     <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
@@ -31,7 +31,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width = "*" />
-                <ColumnDefinition Width = "*" />
+                <ColumnDefinition Width = "1.4*" />
                 <ColumnDefinition Width = "*" />
             </Grid.ColumnDefinitions>
 

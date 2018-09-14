@@ -34,7 +34,7 @@ namespace organizer {
         }
 
         //EVENT
-        private void EventButClicked(object sender, EventArgs e) {
+        private void EventRepaint(object sender, EventArgs e) {
             repaint();
         }
 
@@ -49,36 +49,56 @@ namespace organizer {
             tf.SortTasksByPriority();
 
             foreach (var t in tf.tasks) {
-                Label labe = new Label();
-                labe.Content = t.text;
-                labe.Name = "labe" + cnt.ToString();
+
+                PageTaskLook taskLook = new PageTaskLook(t);
+                //EVENT ADD
+                taskLook.HandlerButClicked += EventRepaint;
                 
-                if(t.prio == Priority.MID) {
-                    labe.Background = Brushes.SandyBrown;
-                } else if(t.prio == Priority.HIGH) {
-                    labe.Background = Brushes.Salmon;
-                } else {
-                    labe.Background = Brushes.PapayaWhip;
-                }
-
-                labe.BorderBrush = Brushes.DarkSalmon;
-                labe.BorderThickness = new Thickness(2);
-                labe.Margin = new Thickness(10);
-                labe.Height = 30;
-
-                //labe.Drop += Button_Drop;
-                //labe.MouseDown += Button_MouseDown;
-                //labe.AllowDrop = true;
+                Frame myFrame = new Frame();
+                myFrame.Margin = new Thickness(10, 10, 10, 10);
+                myFrame.Navigate(taskLook);
                 
                 if (t.status == Status.DONE) {
-                    labe.Background = Brushes.AliceBlue;
-                    labe.BorderBrush = Brushes.DarkGray;
-                    panelMiddle.Children.Add(labe);
+                    panelMiddle.Children.Add(myFrame);
                 } else {
-                    panelLeft.Children.Add(labe);
+                    panelLeft.Children.Add(myFrame);
                 }
                 cnt++;
             }
+
+
+            //old version
+            //foreach (var t in tf.tasks) {
+            //    Label labe = new Label();
+            //    labe.Content = t.text;
+            //    labe.Name = "labe" + cnt.ToString();
+
+            //    if(t.prio == Priority.MID) {
+            //        labe.Background = Brushes.SandyBrown;
+            //    } else if(t.prio == Priority.HIGH) {
+            //        labe.Background = Brushes.Salmon;
+            //    } else {
+            //        labe.Background = Brushes.PapayaWhip;
+            //    }
+
+            //    labe.BorderBrush = Brushes.DarkSalmon;
+            //    labe.BorderThickness = new Thickness(2);
+            //    labe.Margin = new Thickness(10);
+            //    labe.Height = 30;
+
+            //    //labe.Drop += Button_Drop;
+            //    //labe.MouseDown += Button_MouseDown;
+            //    //labe.AllowDrop = true;
+
+            //    if (t.status == Status.DONE) {
+            //        labe.Background = Brushes.AliceBlue;
+            //        labe.BorderBrush = Brushes.DarkGray;
+            //        panelMiddle.Children.Add(labe);
+            //    } else {
+            //        panelLeft.Children.Add(labe);
+            //    }
+            //    cnt++;
+            //}
 
             foreach (var n in tf.notes) {
                 TextBox tb = new TextBox();
@@ -113,7 +133,7 @@ namespace organizer {
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             
             DialogAddTask d = new DialogAddTask(tf);
-            d.HandlerButApplyClick += EventButClicked;
+            d.HandlerButApplyClick += EventRepaint;
             
             if (d.ShowDialog() == true) {
                 //repaint all
@@ -130,7 +150,7 @@ namespace organizer {
 
         private void butAddNote_Click(object sender, RoutedEventArgs e) {
             AddNote an = new AddNote(tf);
-            an.HandlerButApplyClick += EventButClicked;
+            an.HandlerButApplyClick += EventRepaint;
 
             if (an.ShowDialog() == true) {
                 //repaint all
