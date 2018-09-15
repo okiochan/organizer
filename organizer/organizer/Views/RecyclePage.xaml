@@ -17,8 +17,10 @@
             </StackPanel>
 
             <!-- add here tasks -->
-            <StackPanel Orientation="Vertical" x:Name="panelRecycle" >
-            </StackPanel>
+            <ScrollViewer   Height="400" >
+                <StackPanel Orientation="Vertical" x:Name="panelRecycle"   >
+                </StackPanel>
+            </ScrollViewer>
 
         </StackPanel>
     </Grid>
