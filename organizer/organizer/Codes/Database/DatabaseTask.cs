@@ -11,7 +11,7 @@ namespace organizer.Codes.Database {
             Database db = Database.GetInstance();
             db.OpenIfClosed();
 
-            string query = "INSERT INTO `Task`(`text`,`prio`,`status`,`deadline`,`startdate`,`timespent`,`startdate`,`owner`) VALUES (@text,@prio,@status,@deadline,@startdate,@owner)";
+            string query = "INSERT INTO `Task`(`text`,`prio`,`status`,`deadline`,`startdate`,`owner`) VALUES (@text,@prio,@status,@deadline,@startdate,@owner)";
             SQLiteCommand command = new SQLiteCommand(query, db.GetConnection());
             command.Parameters.AddWithValue("@text", text);
             command.Parameters.AddWithValue("@prio", (int)prio);

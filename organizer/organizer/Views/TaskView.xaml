@@ -34,10 +34,15 @@
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "0" Text = "Tasks" Margin = "0"  HorizontalAlignment = "Center" VerticalAlignment = "Center" />
             <TextBlock FontWeight="Bold" Grid.Row = "0" Grid.Column = "1" Text = "Notes" HorizontalAlignment = "Center" VerticalAlignment = "Center" />
 
-            <StackPanel Background="PowderBlue" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "0" Name="panelLeft">
-            </StackPanel>
-            <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical" Grid.Row = "1" Grid.Column = "1" Name="panelRight">
-            </StackPanel>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "0" >
+                <StackPanel Background="PowderBlue" Orientation = "Vertical"  Name="panelLeft">
+                </StackPanel>
+            </ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "1" >
+                <StackPanel Background="LightGoldenrodYellow" Orientation = "Vertical"  Name="panelRight">
+                </StackPanel>
+            </ScrollViewer>
 
         </Grid>
 
