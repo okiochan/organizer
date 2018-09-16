@@ -59,12 +59,12 @@
     <Compile Include="Codes\Database\DatabaseTask.cs" />
     <Compile Include="Codes\Database\DatabaseTaskFolder.cs" />
     <Compile Include="Codes\Database\DateTimeHelper.cs" />
-    <Compile Include="Views\ActivePage.xaml.cs">
-      <DependentUpon>ActivePage.xaml</DependentUpon>
+    <Compile Include="Views\PageActive.xaml.cs">
+      <DependentUpon>PageActive.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Database\Database.cs" />
-    <Compile Include="Views\AddNote.xaml.cs">
-      <DependentUpon>AddNote.xaml</DependentUpon>
+    <Compile Include="Views\DialogAddNote.xaml.cs">
+      <DependentUpon>DialogAddNote.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DialogAddFolder.xaml.cs">
       <DependentUpon>DialogAddFolder.xaml</DependentUpon>
@@ -72,34 +72,37 @@
     <Compile Include="Views\DialogAddTask.xaml.cs">
       <DependentUpon>DialogAddTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DonePage.xaml.cs">
-      <DependentUpon>DonePage.xaml</DependentUpon>
+    <Compile Include="Views\PageDone.xaml.cs">
+      <DependentUpon>PageDone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FolderLook.xaml.cs">
-      <DependentUpon>FolderLook.xaml</DependentUpon>
+    <Compile Include="Views\PageFolderLook.xaml.cs">
+      <DependentUpon>PageFolderLook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Note.cs" />
     <Compile Include="Codes\Priority.cs" />
     <Compile Include="Views\PageTaskLook.xaml.cs">
       <DependentUpon>PageTaskLook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RecyclePage.xaml.cs">
-      <DependentUpon>RecyclePage.xaml</DependentUpon>
+    <Compile Include="Views\PageRecycle.xaml.cs">
+      <DependentUpon>PageRecycle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Status.cs" />
     <Compile Include="Codes\Task.cs" />
     <Compile Include="Codes\TaskFolder.cs" />
-    <Compile Include="Views\TaskView.xaml.cs">
-      <DependentUpon>TaskView.xaml</DependentUpon>
+    <Compile Include="Views\TaskViewWindow.xaml.cs">
+      <DependentUpon>TaskViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ActivePage.xaml">
+    <Compile Include="Views\Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\PageActive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddNote.xaml">
+    <Page Include="Views\DialogAddNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,11 +114,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DonePage.xaml">
+    <Page Include="Views\PageDone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FolderLook.xaml">
+    <Page Include="Views\PageFolderLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,15 +138,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RecyclePage.xaml">
+    <Page Include="Views\PageRecycle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskView.xaml">
+    <Page Include="Views\TaskViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

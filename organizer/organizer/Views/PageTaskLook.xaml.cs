@@ -39,19 +39,23 @@ namespace organizer.Views {
         private void repaint() {
             labe.Content = t.text;
 
+            //clear
+            panel.Children.Remove(txtTime);
+            panel.Children.Remove(butTime);
+            panel.Children.Remove(butDelete);
+
             if (t.status == Status.DONE) { //DONE
 
                 labe.Background = Brushes.AliceBlue;
                 labe.BorderBrush = Brushes.DarkGray;
                 butR.Content = "<--";
-                panel.Children.Remove(butTime);
-
+                panel.Children.Add(txtTime);
                 //DINASH set txtTime.Text = "Spent: D:... H:... M:... "
 
             } else { //TODO
 
-                panel.Children.Remove(txtTime);
-
+                panel.Children.Add(butTime);
+                panel.Children.Add(butDelete);
                 if (t.prio == Priority.MID) {
                     labe.Background = Brushes.SandyBrown;
                 } else if (t.prio == Priority.HIGH) {
@@ -66,9 +70,8 @@ namespace organizer.Views {
             private void Page_Loaded(object sender, RoutedEventArgs e) {
             repaint();
         }
-
+        
         private void butR_Click(object sender, RoutedEventArgs e) {
-
             if(t.status == Status.TODO) {
                 t.status = Status.DONE;
             } else {
@@ -81,6 +84,26 @@ namespace organizer.Views {
         private void butTime_Click(object sender, RoutedEventArgs e) {
             //DINASH create window for user that sums time spent on task
 
+        }
+
+        private void butDelete_Click(object sender, RoutedEventArgs e) {
+            // Configure the message box to be displayed
+            string messageBoxText = "Do you want to delete task?";
+            string caption = "Dialog window";
+            MessageBoxButton button = MessageBoxButton.YesNo;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            // Display message box
+            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+            // Process message box results
+            switch (result) {
+                case MessageBoxResult.Yes:
+                    DatabaseTask.DeleteTask(t);
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+            EventRepaint(EventArgs.Empty);
         }
     }
 }

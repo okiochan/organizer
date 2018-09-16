@@ -1,7 +1,9 @@
 WARNINGS
 FolderLook repaints all pages! active, done, recycle
 
--leave one folder look
+TaskWindow
+    add noteLook
+    add delete
 
 FolderLook
     - folder that doesn't start yet should be gray

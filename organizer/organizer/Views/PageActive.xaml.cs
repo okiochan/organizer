@@ -1,6 +1,5 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
-using organizer.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -8,28 +7,27 @@ using System.Windows.Controls;
 
 namespace organizer {
     /// <summary>
-    /// Interaction logic for RecyclePage.xaml
+    /// Interaction logic for ActivePage.xaml
     /// </summary>
-    public partial class RecyclePage : Page {
+    public partial class PageActive : Page {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
 
-        public RecyclePage() {
+        public PageActive() {
             InitializeComponent();
             spList = new List<StackPanel>();
         }
         
-        private void repaint() {
+        private void Repaint() {
             foreach (var sp in spList) {
                 sp.Children.Clear();
             }
             spList.Clear();
             tasksCnt = 0;
-
-            List<TaskFolder> allfolders = DatabaseTaskFolder.ReadAll();
-            foreach (var tf in allfolders) {
-                if (tf.status == Status.TRASH) {
+            List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
+            foreach (var tf in allFolders) {
+                if (tf.status == Status.TODO) {
                     addTaskFolder(tf);
                 }
             }
@@ -38,8 +36,13 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tf);
-            pageFL.HandlerRepaint += EventRepaint;
+            PageFolderLook pageFL = new PageFolderLook(tf);
+            //EVENT ADD
+            pageFL.HandlerRepaint += EventButApplyClicked;
+
+            //delete event
+            //pageFL.ButtonClickedHandler -= ButtonClickedEvent;
+
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
@@ -49,21 +52,31 @@ namespace organizer {
                 StackPanel sp = new StackPanel();
                 sp.Orientation = Orientation.Horizontal;
                 spList.Add(sp);
-                panelRecycle.Children.Add(sp);
+                panelTasks.Children.Add(sp);
             }
             spList[spList.Count - 1].Children.Add(myFrame);
             tasksCnt++;
         }
 
-        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e) {
-            repaint();
+        //masha add
+        private void butAddTask_Click(object sender, RoutedEventArgs e) {
+            DialogAddFolderTask wind = new DialogAddFolderTask();
+            wind.HandlerButApplyClick += EventButApplyClicked;
+
+            if (wind.ShowDialog() != true) {
+                MessageBox.Show("Info not saved =(");
+            }
+            
+        }
+
+        private void activePage_Loaded(object sender, RoutedEventArgs e) {
+            Repaint();
         }
 
         //EVENTS------------------------------
 
-        private void EventRepaint(object sender, EventArgs e) {
-            repaint();
+        private void EventButApplyClicked(object sender, EventArgs e) {
+            Repaint();
         }
-        
     }
 }

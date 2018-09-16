@@ -10,7 +10,8 @@
 
     <StackPanel Name="panel" Orientation="Horizontal" Margin="0,0,-271,0">
         <Label Name="labe" Content="hello" BorderThickness="2" BorderBrush="DarkSalmon" Width="180" ></Label>
-        <Button Name="butR" Margin="5" Background="LightGreen" Click="butR_Click"> --> </Button>
+        <Button Name="butDelete" Margin="5" Background="LightPink" Click="butDelete_Click">del</Button>
+        <Button Name="butR" Margin="5" Background="LightGreen" Click="butR_Click">--></Button>
         <Button Name="butTime" Margin="5" Background="LightBlue" Click="butTime_Click">time+</Button>
         <TextBlock Name="txtTime" Text="Spent: D:19 H:10 M:15" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
     </StackPanel>

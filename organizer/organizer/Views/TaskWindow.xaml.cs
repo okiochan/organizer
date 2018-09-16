@@ -149,7 +149,7 @@ namespace organizer {
         }
 
         private void butAddNote_Click(object sender, RoutedEventArgs e) {
-            AddNote an = new AddNote(tf);
+            DialogAddNote an = new DialogAddNote(tf);
             an.HandlerButApplyClick += EventRepaint;
 
             if (an.ShowDialog() == true) {

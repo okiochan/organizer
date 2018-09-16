@@ -12,11 +12,11 @@ namespace organizer {
     /// </summary>
     ///
 
-    public partial class FolderLook : Page
+    public partial class PageFolderLook : Page
     {
         private TaskFolder tf;
 
-        public FolderLook(TaskFolder tf)
+        public PageFolderLook(TaskFolder tf)
         {
             InitializeComponent();
             this.tf = tf;
@@ -38,7 +38,7 @@ namespace organizer {
         }
 
         private void butView_Click(object sender, RoutedEventArgs e) {
-            TaskView tv = new TaskView(tf);
+            TaskViewWindow tv = new TaskViewWindow(tf);
             tv.Show();
         }
 
@@ -67,14 +67,14 @@ namespace organizer {
             if (tf.status == Status.TODO) {
                 panel.Children.Add(butDone);
                 panel.Children.Add(butGoTo);
-                panel.Children.Remove(butDelete);
+                panel.Children.Add(butDelete);
             } else if(tf.status == Status.DONE) {
                 panel.Children.Add(butView);
-                panel.Children.Remove(butDelete);
+                panel.Children.Add(butDelete);
             } else { //recycle
                 panel.Children.Add(butRestore);
                 panel.Children.Add(butRestoreD);
-                panel.Children.Remove(butDelete);
+                panel.Children.Add(butDelete);
             }
         }
 

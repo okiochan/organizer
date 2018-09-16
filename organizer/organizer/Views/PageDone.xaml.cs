@@ -10,12 +10,12 @@ namespace organizer {
     /// <summary>
     /// Interaction logic for DonePage.xaml
     /// </summary>
-    public partial class DonePage : Page {
+    public partial class PageDone : Page {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
 
-        public DonePage() {
+        public PageDone() {
             InitializeComponent();
             spList = new List<StackPanel>();
         }
@@ -38,7 +38,7 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tf);
+            PageFolderLook pageFL = new PageFolderLook(tf);
             pageFL.HandlerRepaint += EventRepaint;
             
             //pageFLD.ButtonClickedHandler += EventButApplyClicked;

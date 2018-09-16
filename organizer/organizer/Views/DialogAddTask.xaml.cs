@@ -13,6 +13,7 @@ namespace organizer {
     {
         private Priority prio;
         private TaskFolder tf;
+        private DateTime? dateStart, dateEnd;
 
         public DialogAddTask(TaskFolder tf)
         {
@@ -30,6 +31,7 @@ namespace organizer {
             }
         }
 
+        //init task properties
         private void butApply_Click(object sender, RoutedEventArgs e) {
 
             String text = "unnown title";
@@ -63,6 +65,15 @@ namespace organizer {
             butLow.Background = Brushes.Gray;
             butMid.Background = Brushes.Gray;
             butHight.Background = Brushes.Red;
+        }
+
+        //calendar
+        private void calendarStart_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
+            dateStart = calendarStart.SelectedDate;
+        }
+
+        private void calendarEnd_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
+            dateEnd = calendarEnd.SelectedDate;
         }
     }
 }
