@@ -102,6 +102,7 @@ namespace organizer {
 
             foreach (var n in tf.notes) {
                 TextBox tb = new TextBox();
+                tb.TextWrapping = TextWrapping.Wrap;
                 tb.Name = "txtBox" + cnt.ToString();
                 tb.Text = n.text;
                 tb.Background = Brushes.SeaShell;
