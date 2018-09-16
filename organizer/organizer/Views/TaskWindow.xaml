@@ -50,12 +50,12 @@
             </StackPanel>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "0" >
-                <StackPanel Background="AliceBlue" Orientation = "Vertical" Name="panelLeft" >
+                <StackPanel Background="AliceBlue" Orientation = "Vertical" Name="panelLeft" AllowDrop="True" Drop="panelLeft_Drop">
                 </StackPanel>
             </ScrollViewer>
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row = "1" Grid.Column = "1"  >
-                <StackPanel Background="PowderBlue" Orientation = "Vertical" Name="panelMiddle">
+                <StackPanel Background="PowderBlue" Orientation = "Vertical" Name="panelMiddle" AllowDrop="True" Drop="panelMiddle_Drop">
                 </StackPanel>
             </ScrollViewer>
 
