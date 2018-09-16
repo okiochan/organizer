@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:organizer"
       mc:Ignorable="d" 
       d:DesignHeight="80" d:DesignWidth="250"
-      Title="FolderLook" Loaded="Page_Loaded">
+      Title="FolderLook" Loaded="Page_Loaded" MouseLeftButtonDown="DoubleClickOpen">
 
     <Grid Background="Bisque">
         <Grid.RowDefinitions>

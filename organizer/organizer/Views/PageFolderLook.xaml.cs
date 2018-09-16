@@ -102,6 +102,13 @@ namespace organizer {
                 handler(this, e);
             }
         }
-        
+
+        private void DoubleClickOpen(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+            if (e.ClickCount == 2) {
+                TaskWindow win2 = new TaskWindow(tf);
+                win2.HandlerAddTask += EventButApplyClicked;
+                win2.Show();
+            }
+        }
     }
 }
