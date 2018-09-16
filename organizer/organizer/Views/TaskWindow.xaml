@@ -16,7 +16,7 @@
         <!-- title -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment = "Center">
             <TextBlock FontWeight="Bold"  FontSize="20" Text = "Tasks list" Margin = "0"   VerticalAlignment = "Center" />
-            <Label Content="trash" Background="LightPink" Margin="30 0"> </Label>
+            <Label Content="trash" Background="LightPink" Margin="30 0" AllowDrop="True" Drop="DeleteItem"> </Label>
         </StackPanel>
         
 

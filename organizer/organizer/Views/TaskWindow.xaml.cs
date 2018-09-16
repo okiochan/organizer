@@ -187,5 +187,36 @@ namespace organizer {
             e.Handled = true;
             repaint();
         }
+
+        private void DeleteItem(object sender, DragEventArgs e) {
+
+            base.OnDrop(e);
+
+            // If the DataObject contains string data, extract it.
+            if (e.Data.GetDataPresent("Task")) {
+                Task task = (Task)e.Data.GetData("Task");
+
+
+                // Configure the message box to be displayed
+                string messageBoxText = "Do you want to delete task?";
+                string caption = "Dialog window";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                // Display message box
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+                // Process message box results
+                switch (result) {
+                    case MessageBoxResult.Yes:
+                        DatabaseTask.DeleteTask(task);
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+                repaint();
+
+            }
+            e.Handled = true;
+        }
     }
 }
