@@ -10,16 +10,16 @@ namespace organizer {
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ActivePage ap;
-        private DonePage dp;
-        private RecyclePage rp;
+        private PageActive ap;
+        private PageDone dp;
+        private PageRecycle rp;
 
         public MainWindow() {
             InitializeComponent();
             mainFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
-            ap = new ActivePage();
-            dp = new DonePage();
-            rp = new RecyclePage();
+            ap = new PageActive();
+            dp = new PageDone();
+            rp = new PageRecycle();
         }
         
         private void butActive_Click(object sender, RoutedEventArgs e) {

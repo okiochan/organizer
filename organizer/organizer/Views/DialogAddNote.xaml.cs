@@ -17,11 +17,11 @@ namespace organizer.Views {
     /// <summary>
     /// Interaction logic for AddNote.xaml
     /// </summary>
-    public partial class AddNote : Window {
+    public partial class DialogAddNote : Window {
 
         private TaskFolder tf;
 
-        public AddNote(TaskFolder tf) {
+        public DialogAddNote(TaskFolder tf) {
             InitializeComponent();
             this.tf = tf;
         }

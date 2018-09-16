@@ -1,4 +1,4 @@
-﻿<Page x:Class="organizer.FolderLook"
+﻿<Page x:Class="organizer.PageFolderLook"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,7 +14,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Name="panel" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="5" Background="LightBlue" Name="butRestore" Click="butRestore_Click">restore to active</Button>
+            <Button Margin="5" Background="LightGreen" Name="butRestoreD" Click="butRestoreD_Click">restore to done</Button>
+            <Button Margin="5" Background="LightGreen" Name="butView" Click="butView_Click">view</Button>
             <Button Margin="5" Background="LightSkyBlue" Name="butGoTo" Click="butGoTo_Click"  >go to</Button>
             <Button Margin="5" Background="LightGreen" Name="butDone" Click="butDone_Click"> done</Button>
             <Button Margin="5" Background="LightPink" Name="butDelete" Click="butDelete_Click">delete</Button>

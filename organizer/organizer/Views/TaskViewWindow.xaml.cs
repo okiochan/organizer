@@ -16,12 +16,12 @@ namespace organizer.Views {
     /// <summary>
     /// Interaction logic for TaskView.xaml
     /// </summary>
-    public partial class TaskView : Window {
+    public partial class TaskViewWindow : Window {
 
         private TaskFolder tf;
         private int cnt = 0;
 
-        public TaskView(TaskFolder tf) {
+        public TaskViewWindow(TaskFolder tf) {
             InitializeComponent();
             this.tf = tf;
         }

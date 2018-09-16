@@ -10,12 +10,12 @@ namespace organizer {
     /// <summary>
     /// Interaction logic for RecyclePage.xaml
     /// </summary>
-    public partial class RecyclePage : Page {
+    public partial class PageRecycle : Page {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
 
-        public RecyclePage() {
+        public PageRecycle() {
             InitializeComponent();
             spList = new List<StackPanel>();
         }
@@ -38,8 +38,8 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            PageFLRecycle pageFL = new PageFLRecycle(tf);
-            pageFL.HandlerButClicked += EventRepaint;
+            PageFolderLook pageFL = new PageFolderLook(tf);
+            pageFL.HandlerRepaint += EventRepaint;
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);

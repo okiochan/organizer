@@ -9,7 +9,7 @@ namespace organizer {
     /// </summary>
     public partial class DialogAddFolderTask : Window {
 
-        private DateTime? dateStart, dateEnd;
+        
 
         public DialogAddFolderTask() {
             InitializeComponent();
@@ -36,12 +36,6 @@ namespace organizer {
             this.DialogResult = true;
         }
 
-        private void calendarStart_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
-            dateStart = calendarStart.SelectedDate;
-        }
 
-        private void calendarEnd_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
-            dateEnd = calendarEnd.SelectedDate;
-        }
     }
 }

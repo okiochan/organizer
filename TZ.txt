@@ -1,21 +1,12 @@
--leave one folder look
+WARNINGS
+FolderLook repaints all pages! active, done, recycle
 
-add and show end data and begin data for FOLDER
-    ex: begin - today ; end 21.10.2018  
-        begin - 21.10.2018 ; end 21.10.2018 
-        
+TaskWindow
+    add noteLook
+    add delete
+
+FolderLook
     - folder that doesn't start yet should be gray
-
-WindowTask
-    -add page for a Task
-    - needs "add time spent" button
-        this time should be added to task
 
 ASK:
  - are we need deadline for task?
- 
-Scrolls
--add scrolls to 
-    TaskView
-    DonePage
-    RecyclePage
