@@ -160,5 +160,31 @@ namespace organizer {
                 MessageBox.Show("Info not saved =(");
             }
         }
+
+        private void panelMiddle_Drop(object sender, DragEventArgs e) {
+            base.OnDrop(e);
+
+            // If the DataObject contains string data, extract it.
+            if (e.Data.GetDataPresent("Task")) {
+                Task task = (Task)e.Data.GetData("Task");
+                task.status = Status.DONE;
+                DatabaseTask.UpdateTask(task);
+            }
+            e.Handled = true;
+            repaint();
+        }
+
+        private void panelLeft_Drop(object sender, DragEventArgs e) {
+            base.OnDrop(e);
+
+            // If the DataObject contains string data, extract it.
+            if (e.Data.GetDataPresent("Task")) {
+                Task task = (Task)e.Data.GetData("Task");
+                task.status = Status.WIP;
+                DatabaseTask.UpdateTask(task);
+            }
+            e.Handled = true;
+            repaint();
+        }
     }
 }

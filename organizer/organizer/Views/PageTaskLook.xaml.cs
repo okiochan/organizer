@@ -30,10 +30,7 @@ namespace organizer.Views {
         //Handler
         public event EventHandler HandlerButClicked;
         protected virtual void EventRepaint(EventArgs e) {
-            EventHandler handler = HandlerButClicked;
-            if (handler != null) {
-                handler(this, e);
-            }
+            HandlerButClicked?.Invoke(this, e);
         }
 
         private void repaint() {
@@ -87,6 +84,31 @@ namespace organizer.Views {
         private void butTime_Click(object sender, RoutedEventArgs e) {
             AddTimeSpentWindow wnd = new AddTimeSpentWindow(t);
             wnd.Show();
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e) {
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed) {
+                // Package the data.
+                DataObject data = new DataObject();
+                data.SetData("Task", this.t);
+
+                // Inititate the drag-and-drop operation.
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+            }
+        }
+        protected override void OnGiveFeedback(GiveFeedbackEventArgs e) {
+            base.OnGiveFeedback(e);
+            // These Effects values are set in the drop target's
+            // DragOver event handler.
+            if (e.Effects.HasFlag(DragDropEffects.Copy)) {
+                Mouse.SetCursor(Cursors.Cross);
+            } else if (e.Effects.HasFlag(DragDropEffects.Move)) {
+                Mouse.SetCursor(Cursors.Pen);
+            } else {
+                Mouse.SetCursor(Cursors.No);
+            }
+            e.Handled = true;
         }
     }
 }
