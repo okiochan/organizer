@@ -39,7 +39,16 @@ namespace organizer {
                 text = txtBoxTitle.Text;
             }
 
-            DatabaseTask.CreateNewTask(text, prio, Status.TODO, DateTime.Now, DateTime.Now, tf);
+            DateTime start = DateTime.Now;
+            if(calendarStart.SelectedDate.HasValue) {
+                start = calendarStart.SelectedDate.Value;
+            }
+            DateTime end = DateTime.Now;
+            if (calendarEnd.SelectedDate.HasValue) {
+                end = calendarEnd.SelectedDate.Value;
+            }
+
+            DatabaseTask.CreateNewTask(text, prio, Status.TODO, start, end, tf);
             //repaint
             EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
