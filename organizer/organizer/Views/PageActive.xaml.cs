@@ -9,12 +9,12 @@ namespace organizer {
     /// <summary>
     /// Interaction logic for ActivePage.xaml
     /// </summary>
-    public partial class ActivePage : Page {
+    public partial class PageActive : Page {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
 
-        public ActivePage() {
+        public PageActive() {
             InitializeComponent();
             spList = new List<StackPanel>();
         }
@@ -36,9 +36,9 @@ namespace organizer {
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
-            FolderLook pageFL = new FolderLook(tf);
+            PageFolderLook pageFL = new PageFolderLook(tf);
             //EVENT ADD
-            pageFL.ButtonClickedHandler += EventButApplyClicked;
+            pageFL.HandlerRepaint += EventButApplyClicked;
 
             //delete event
             //pageFL.ButtonClickedHandler -= ButtonClickedEvent;

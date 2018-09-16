@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="DialogAddTask" Height="240" Width="300">
+        Title="DialogAddTask" Height="600" Width="405">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="89*"/>
@@ -28,8 +28,25 @@
                 <Button Width="50" Name="butMid" Margin="10 0" Background="Orange" Click="butMid_Click">middle</Button>
                 <Button Width="50" Name="butHight" Margin="10 0" Background="Red" Click="butHight_Click">hight</Button>
             </StackPanel>
-            
-            <Button Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
+
+
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Margin="10 0">
+                    <TextBlock Text="begin data" TextAlignment="Center"/>
+                    <Calendar x:Name="calendarStart" FirstDayOfWeek="Monday" SelectedDatesChanged="calendarStart_SelectedDatesChanged">
+                    </Calendar>
+                </StackPanel>
+
+                <StackPanel  Margin="10 0">
+                    <TextBlock Text="end data" TextAlignment="Center"/>
+                    <Calendar x:Name="calendarEnd"  FirstDayOfWeek="Monday" SelectedDatesChanged="calendarEnd_SelectedDatesChanged">
+                    </Calendar>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Button Margin="10" Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
         </StackPanel>
 
     </Grid>
