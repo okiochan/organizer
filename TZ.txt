@@ -1,9 +1,12 @@
 WARNINGS
 FolderLook repaints all pages! active, done, recycle
 
+PageClock
+    -add class Cursor and remember cursor position
+
 TaskWindow
-    add noteLook
-    add delete
+    when task moved to "TODO" should be opened DAT
+    make note as page
 
 FolderLook
     - folder that doesn't start yet should be gray
