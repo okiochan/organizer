@@ -1,8 +1,11 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
+using organizer.Events;
+using organizer.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace organizer {
@@ -14,6 +17,7 @@ namespace organizer {
         private Priority prio;
         private TaskFolder tf;
         private DateTime? dateStart, dateEnd;
+        private PageClock pageClock;
 
         public DialogAddTask(TaskFolder tf)
         {
@@ -21,14 +25,32 @@ namespace organizer {
 
             prio = Priority.LOW;
             this.tf = tf;
+
+            pageClock = new PageClock();
+            pageClock.HandlerSetTime += EventSetClockTime;
+            frameClock.Navigate(pageClock);
         }
 
+        //HANDLER
         public event EventHandler HandlerButApplyClick;
         protected virtual void EventOnButtonClicked(EventArgs e) {
             EventHandler handler = HandlerButApplyClick;
             if (handler != null) {
                 handler(this, e);
             }
+        }
+
+        //EVENT set time
+        private void EventSetClockTime(object sender, TimeEventArgs e) {
+            string H = e.getH;
+            string M = e.getM;
+            if(H.Length < 2) {
+                H = "0" + H;
+            }
+            btnH.Content = "H: "+H;
+            btnM.Content = "M: "+M;
+
+            //DINASH add time to DB
         }
 
         //init task properties
@@ -81,8 +103,26 @@ namespace organizer {
             dateStart = calendarStart.SelectedDate;
         }
 
+        private void btnClockClick(object sender, RoutedEventArgs e) {
+
+            Button btn = (Button)sender;
+            switch (btn.Name) {
+                case "btnH":
+                    pageClock.setDrawH(true);
+                    break;
+                case "btnM":
+                    pageClock.setDrawH(false);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void calendarEnd_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
             dateEnd = calendarEnd.SelectedDate;
         }
+
+        //clock
+
     }
 }

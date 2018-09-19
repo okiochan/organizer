@@ -45,7 +45,6 @@ namespace organizer.Views {
 
                 labe.Background = Brushes.AliceBlue;
                 labe.BorderBrush = Brushes.DarkGray;
-                butR.Content = "<--";
                 panel.Children.Remove(butTime);
 
                 int time = t.timeSpent;
@@ -74,16 +73,6 @@ namespace organizer.Views {
 
             private void Page_Loaded(object sender, RoutedEventArgs e) {
             repaint();
-        }
-        
-        private void butR_Click(object sender, RoutedEventArgs e) {
-            if(t.status == Status.TODO) {
-                t.status = Status.DONE;
-            } else {
-                t.status = Status.TODO;
-            }
-            DatabaseTask.UpdateTask(t);
-            EventRepaint(EventArgs.Empty);
         }
 
         private void butTime_Click(object sender, RoutedEventArgs e) {

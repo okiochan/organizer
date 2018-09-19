@@ -59,6 +59,8 @@
     <Compile Include="Codes\Database\DatabaseTask.cs" />
     <Compile Include="Codes\Database\DatabaseTaskFolder.cs" />
     <Compile Include="Codes\Database\DateTimeHelper.cs" />
+    <Compile Include="Events\ClockButtonEventArgs.cs" />
+    <Compile Include="Events\TimeEventArgs.cs" />
     <Compile Include="Views\PageActive.xaml.cs">
       <DependentUpon>PageActive.xaml</DependentUpon>
     </Compile>
@@ -74,6 +76,9 @@
     </Compile>
     <Compile Include="Views\DialogAddTask.xaml.cs">
       <DependentUpon>DialogAddTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageClock.xaml.cs">
+      <DependentUpon>PageClock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageDone.xaml.cs">
       <DependentUpon>PageDone.xaml</DependentUpon>
@@ -118,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DialogAddTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

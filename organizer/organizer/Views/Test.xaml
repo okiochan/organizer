@@ -5,18 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer.Views"
         mc:Ignorable="d" Loaded="Window_Loaded"
-        Title="Test" Height="500" Width="500">
+        Title="Test" Height="400" Width="400">
     <Grid>
 
-        <StackPanel Name="panel">
+        <Canvas Name="canv" Width="350" Height="350" >
+            <Ellipse Name="el1" Fill="Bisque" Canvas.Top="60" Canvas.Left="60"  Width="320" Height="320" />
+            <Ellipse Name="el2" Fill="LightSkyBlue" Canvas.Top="50"  Canvas.Left="50" Width="320" Height="320" />
+            <Ellipse Name="el3" Fill="GhostWhite" Canvas.Top="60"  Canvas.Left="60" Width="320" Height="320" />
+            <Ellipse Name="el4" Fill="LightSkyBlue"   Canvas.Top="225" Canvas.Left="225" Width="20" Height="20" />
 
-        </StackPanel>
-
-        <Canvas Name="canv" Width="500" Height="500" >
-            <Ellipse Fill="Gainsboro" Canvas.Top="50" Width="350" Height="350" Canvas.Left="80" />
-            
-            <Rectangle Fill="LightBlue" Canvas.Left="240" Canvas.Top="210" Width="30" Height="30" />
-            <Rectangle Fill="LightPink" Canvas.Left="240" Canvas.Top="50" Width="30" Height="30" />
+            <Ellipse Name="circChoosen" Fill="LightPink"  Width="40" Height="40" Canvas.Top="225" Canvas.Left="225" Visibility="Hidden" />
+            <Line  Name="lineChoosen" X1="235" Y1="235"  X2="235" Y2="60" Stroke="LightPink" StrokeThickness="4" Visibility="Hidden" />
             
         </Canvas>
 
