@@ -60,7 +60,7 @@ namespace organizer {
 
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
-            DialogAddFolderTask wind = new DialogAddFolderTask();
+            DialogAddFolderTask wind = new DialogAddFolderTask(null);
             wind.HandlerButApplyClick += EventButApplyClicked;
 
             if (wind.ShowDialog() != true) {
