@@ -9,8 +9,8 @@
 
     <Grid>
         <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Margin="108,197,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <TextBox x:Name="hoursBox" HorizontalAlignment="Left" Height="23" Margin="77,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39"/>
-        <TextBox x:Name="minutesBox" HorizontalAlignment="Left" Height="23" Margin="174,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="hoursBox" HorizontalAlignment="Left" Height="23" Margin="77,126,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="39" />
+        <TextBox x:Name="minutesBox" HorizontalAlignment="Left" Height="23" Margin="174,126,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="42"/>
         <Label x:Name="label" Content="Hours" HorizontalAlignment="Left" Margin="77,98,0,0" VerticalAlignment="Top" Height="23"/>
         <Label x:Name="label_Copy" Content="Minutes" HorizontalAlignment="Left" Margin="168,98,0,0" VerticalAlignment="Top" Height="23"/>
 
