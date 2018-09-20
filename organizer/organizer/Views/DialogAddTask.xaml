@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="DialogAddTask" Height="800" Width="410">
+        Title="DialogAddTask" Height="850" Width="410"  WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="89*"/>

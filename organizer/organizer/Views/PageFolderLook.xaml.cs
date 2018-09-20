@@ -26,6 +26,9 @@ namespace organizer {
             TaskWindow win2 = new TaskWindow(tf);
             win2.HandlerAddTask += EventButApplyClicked;
             win2.Show();
+            Window owner = Window.GetWindow(this);
+            owner.Hide();
+            win2.Closing += (s, ev) => owner.Show();
         }
 
         private void butDone_Click(object sender, RoutedEventArgs e) {
