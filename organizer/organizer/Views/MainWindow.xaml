@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1600" Name="mainWindow">
+        Title="MainWindow" Height="600" Width="1600" Name="mainWindow" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid  Background="Bisque">

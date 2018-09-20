@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer.Views"
         mc:Ignorable="d"
-        Title="AddNote" Height="150" Width="300">
+        Title="AddNote" Height="150" Width="300"  WindowStartupLocation="CenterScreen">
     
     <Grid Background="LightGoldenrodYellow">
         <StackPanel Orientation="Vertical">

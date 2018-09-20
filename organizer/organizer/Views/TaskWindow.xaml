@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="TaskWindow" Height="540" Width="1300" Loaded="Window_Loaded">
+        Title="TaskWindow" Height="540" Width="1300" Loaded="Window_Loaded"  WindowStartupLocation="CenterScreen">
 
     <Grid Background="PapayaWhip">
         <Grid.RowDefinitions>
