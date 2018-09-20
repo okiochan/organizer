@@ -60,12 +60,19 @@ namespace organizer.Views {
 
                 panel.Children.Add(butTime);
                 panel.Children.Add(butDelete);
-                if (t.prio == Priority.MID) {
-                    labe.Background = Brushes.SandyBrown;
-                } else if (t.prio == Priority.HIGH) {
+
+                TimeSpan deadlineDiff = t.deadline - DateTime.Now;
+                TimeSpan startdateDiff = t.startdate - DateTime.Now;
+                TimeSpan twoDays = new TimeSpan(2, 0, 0, 0);
+
+                if (startdateDiff > TimeSpan.Zero) {        // not started yet
+                    labe.Background = Brushes.LightGray;
+                } else if (deadlineDiff < TimeSpan.Zero) {  // already ended
+                    labe.Background = Brushes.Red;
+                } else if (deadlineDiff < twoDays) {        // due to end in 2 days
                     labe.Background = Brushes.Salmon;
-                } else {
-                    labe.Background = Brushes.PapayaWhip;
+                } else {                                    // default    
+                    labe.Background = Brushes.SandyBrown;
                 }
             }
             

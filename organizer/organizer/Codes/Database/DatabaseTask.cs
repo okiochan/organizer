@@ -7,7 +7,7 @@ using System.Text;
 namespace organizer.Codes.Database {
     public class DatabaseTask {
 
-        public static void CreateNewTask(string text, Priority prio, Status status, DateTime deadline, DateTime startdate, TaskFolder owner) {
+        public static void CreateNewTask(string text, Priority prio, Status status, DateTime startdate, DateTime deadline, TaskFolder owner) {
             Database db = Database.GetInstance();
             db.OpenIfClosed();
 
