@@ -39,7 +39,7 @@ namespace organizer.Views {
             //clear
             panel.Children.Remove(txtTime);
             panel.Children.Remove(butTime);
-            panel.Children.Remove(butDelete);
+            panel.Children.Remove(btnNotifList);
 
             if (t.status == Status.DONE) { //DONE
 
@@ -59,7 +59,7 @@ namespace organizer.Views {
             } else { //TODO
 
                 panel.Children.Add(butTime);
-                panel.Children.Add(butDelete);
+                panel.Children.Add(btnNotifList);
 
                 TimeSpan deadlineDiff = t.deadline - DateTime.Now;
                 TimeSpan startdateDiff = t.startdate - DateTime.Now;
@@ -73,9 +73,17 @@ namespace organizer.Views {
                     labe.Background = Brushes.Salmon;
                 } else {                                    // default    
                     labe.Background = Brushes.SandyBrown;
+
+                    if (t.prio == Priority.MID) {
+                        labe.Background = Brushes.PeachPuff;
+                    } else if (t.prio == Priority.HIGH) {
+                        labe.Background = Brushes.LightSalmon;
+                    } else {
+                        labe.Background = Brushes.PapayaWhip;
+                    }
                 }
+
             }
-            
         }
 
             private void Page_Loaded(object sender, RoutedEventArgs e) {
@@ -112,24 +120,12 @@ namespace organizer.Views {
             e.Handled = true;
         }
 
-        private void butDelete_Click(object sender, RoutedEventArgs e) {
-            // Configure the message box to be displayed
-            string messageBoxText = "Do you want to delete task?";
-            string caption = "Dialog window";
-            MessageBoxButton button = MessageBoxButton.YesNo;
-            MessageBoxImage icon = MessageBoxImage.Warning;
-            // Display message box
-            MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+        private void btnNotifList_Click(object sender, RoutedEventArgs e) {
 
-            // Process message box results
-            switch (result) {
-                case MessageBoxResult.Yes:
-                    DatabaseTask.DeleteTask(t);
-                    break;
-                case MessageBoxResult.No:
-                    break;
+            TaskNotificationListWindow d = new TaskNotificationListWindow();
+            if (d.ShowDialog() == true) {
+            } else {
             }
-            EventRepaint(EventArgs.Empty);
         }
     }
 }

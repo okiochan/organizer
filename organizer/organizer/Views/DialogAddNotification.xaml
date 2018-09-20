@@ -1,0 +1,43 @@
+﻿<Window x:Class="organizer.Views.DialogAddNotification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:organizer.Views"
+        mc:Ignorable="d"
+        Title="DialogAddNotification"  Height="820" Width="410">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Fill these fields to add notification" FontWeight="Bold" Margin="0 5 " TextAlignment="Center" Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Row="1" Background="Beige" Grid.ColumnSpan="2">
+
+            <TextBlock Text="choose day" TextAlignment="Center" FontSize="15"/>
+            <Calendar x:Name="calendar" FirstDayOfWeek="Monday" >
+            </Calendar>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="choose time" FontSize="15" TextAlignment="Center"/>
+
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Width="50" Name="btnH" Margin="10 0" Background="WhiteSmoke" Click="btnClockClick">H: 00</Button>
+                    <Button Width="50" Name="btnM" Margin="10 0" Background="WhiteSmoke" Click="btnClockClick">M: 00</Button>
+                </StackPanel>
+
+                <Frame Name="frameClock" Margin="5"></Frame>
+            </StackPanel>
+
+            <TextBlock Text="add note" TextAlignment="Center" FontSize="15"/>
+            <TextBox Margin="5" Height="60" Name="txtBoxTitle" FontSize="15" ></TextBox>
+
+            <Button Margin="10" Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
+        </StackPanel>
+
+    </Grid>
+    
+</Window>
