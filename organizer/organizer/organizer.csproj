@@ -61,6 +61,9 @@
     <Compile Include="Codes\Database\DateTimeHelper.cs" />
     <Compile Include="Events\ClockButtonEventArgs.cs" />
     <Compile Include="Events\TimeEventArgs.cs" />
+    <Compile Include="Views\DialogAddNotification.xaml.cs">
+      <DependentUpon>DialogAddNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageActive.xaml.cs">
       <DependentUpon>PageActive.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,9 @@
     <Compile Include="Codes\Status.cs" />
     <Compile Include="Codes\Task.cs" />
     <Compile Include="Codes\TaskFolder.cs" />
+    <Compile Include="Views\TaskNotificationListWindow.xaml.cs">
+      <DependentUpon>TaskNotificationListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TaskViewWindow.xaml.cs">
       <DependentUpon>TaskViewWindow.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,10 @@
     <Compile Include="Views\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\DialogAddNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PageActive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PageRecycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskNotificationListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

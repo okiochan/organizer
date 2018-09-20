@@ -145,7 +145,6 @@ namespace organizer {
                 EventRepaintAP(EventArgs.Empty);
                 repaint();
             } else {
-                MessageBox.Show("Info not saved =(");
             }
         }
 

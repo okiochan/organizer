@@ -6,11 +6,8 @@
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
         Title="DialogAddTask" Height="850" Width="410"  WindowStartupLocation="CenterScreen">
+    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="89*"/>
-            <ColumnDefinition Width="92*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -46,18 +43,7 @@
 
             </StackPanel>
 
-            <StackPanel Margin="10">
-                <TextBlock Text="alarm clock" FontSize="15" TextAlignment="Center"/>
-
-                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Width="50" Name="btnH" Margin="10 0" Background="WhiteSmoke" Click="btnClockClick">H: 00</Button>
-                    <Button Width="50" Name="btnM" Margin="10 0" Background="WhiteSmoke" Click="btnClockClick">M: 00</Button>
-                </StackPanel>
-                
-                <Frame Name="frameClock" Margin="5"></Frame>
-            </StackPanel>
-
-            
+            <Button Margin="10" Width="100" Name="butAddNotification" Background="LightGray" Click="butAddNotification_Click">add notification</Button>
 
             <Button Margin="10" Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
         </StackPanel>
