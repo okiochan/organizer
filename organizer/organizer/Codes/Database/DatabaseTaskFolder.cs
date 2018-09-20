@@ -39,14 +39,14 @@ namespace organizer.Codes.Database {
             db.CloseIfOpened();
         }
 
-        public static void UpdateTaskFolder(TaskFolder taskFolder, string newText, Status newStatus) {
+        public static void UpdateTaskFolder(TaskFolder taskFolder) {
             Database db = Database.GetInstance();
             db.OpenIfClosed();
 
             string query = "UPDATE `TaskFolder` SET `text`=@text,`status`=@status WHERE `id`=@id";
             SQLiteCommand command = new SQLiteCommand(query, db.GetConnection());
-            command.Parameters.AddWithValue("@text", newText);
-            command.Parameters.AddWithValue("@status", (int)newStatus);
+            command.Parameters.AddWithValue("@text", taskFolder.text);
+            command.Parameters.AddWithValue("@status", (int)taskFolder.status);
             command.Parameters.AddWithValue("@id", taskFolder.id);
             command.ExecuteNonQuery();
 

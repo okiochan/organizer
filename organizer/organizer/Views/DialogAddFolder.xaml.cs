@@ -9,10 +9,11 @@ namespace organizer {
     /// </summary>
     public partial class DialogAddFolderTask : Window {
 
-        
-
-        public DialogAddFolderTask() {
+        // if task folder is null we create a new one
+        // otherwise we edit the given task folder
+        public DialogAddFolderTask(TaskFolder toEdit) {
             InitializeComponent();
+            this.toEdit = toEdit;
         }
 
         public event EventHandler HandlerButApplyClick;
@@ -24,18 +25,23 @@ namespace organizer {
         }
 
         private void butApply_Click(object sender, RoutedEventArgs e) {
-            String title = txtBoxTitle.Text;
+            string title = txtBoxTitle.Text;
             if(title == "") {
                 title = "unnown title";
             }
 
             //Dinash add Start End date to folder
 
-            DatabaseTaskFolder.CreateNewTaskFolder(title);
+            if(toEdit == null) {
+                DatabaseTaskFolder.CreateNewTaskFolder(title);
+            } else {
+                toEdit.text = title;
+                DatabaseTaskFolder.UpdateTaskFolder(toEdit) ;
+            }
             EventOnButtonClicked(EventArgs.Empty);
-            this.DialogResult = true;
+            DialogResult = true;
         }
 
-
+        private TaskFolder toEdit = null;
     }
 }

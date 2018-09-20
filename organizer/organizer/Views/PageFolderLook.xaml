@@ -23,7 +23,7 @@
             <Button Margin="5" Background="LightPink" Name="butDelete" Click="butDelete_Click">delete</Button>
         </StackPanel>
 
-        <TextBox Name="txtBoxTitle" Grid.Row="1" Background="Bisque" FontSize="20" Height="40" Width="250" TextWrapping="Wrap" > Title of the task....</TextBox>
+        <TextBlock  Name="txtBoxTitle" Grid.Row="1" Background="Bisque" FontSize="20" Height="40" Width="250" TextWrapping="Wrap" Margin="10 10 10 10" > Title of the task....</TextBlock>
     </Grid>
     
 </Page>

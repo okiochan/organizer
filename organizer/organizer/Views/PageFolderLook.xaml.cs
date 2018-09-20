@@ -32,7 +32,8 @@ namespace organizer {
         }
 
         private void butDone_Click(object sender, RoutedEventArgs e) {
-            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.DONE);
+            tf.status = Status.DONE;
+            DatabaseTaskFolder.UpdateTaskFolder(tf);
             EventRepaintPages(EventArgs.Empty);
         }
 
@@ -46,12 +47,13 @@ namespace organizer {
         }
 
         private void butRestore_Click(object sender, RoutedEventArgs e) {
-            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.TODO);
+            tf.status = Status.TODO;
+            DatabaseTaskFolder.UpdateTaskFolder(tf);
             EventRepaintPages(EventArgs.Empty);
         }
 
         private void butRestoreD_Click(object sender, RoutedEventArgs e) {
-            DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.DONE);
+            tf.status = Status.DONE;
             EventRepaintPages(EventArgs.Empty);
         }
 
@@ -91,7 +93,8 @@ namespace organizer {
             if(tf.status == Status.TRASH) {
                 DatabaseTaskFolder.DeleteTaskFolder(tf);
             } else {
-                DatabaseTaskFolder.UpdateTaskFolder(tf, tf.text, Status.TRASH);
+                tf.status = Status.TRASH;
+                DatabaseTaskFolder.UpdateTaskFolder(tf);
             }
             EventRepaintPages(EventArgs.Empty);
         }
@@ -108,9 +111,9 @@ namespace organizer {
 
         private void DoubleClickOpen(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             if (e.ClickCount == 2) {
-                TaskWindow win2 = new TaskWindow(tf);
-                win2.HandlerAddTask += EventButApplyClicked;
-                win2.Show();
+                DialogAddFolderTask win2 = new DialogAddFolderTask(tf);
+                win2.ShowDialog();
+                repaint();
             }
         }
     }
