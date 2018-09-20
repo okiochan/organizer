@@ -101,17 +101,21 @@ namespace organizer {
             //}
 
             foreach (var n in tf.notes) {
-                TextBox tb = new TextBox();
+                Border border = new Border();
+                border.BorderThickness = new Thickness(2);
+                border.BorderBrush = Brushes.DarkKhaki;
+                border.Margin = new Thickness(10, 10, 10, 10);
+
+                TextBlock tb = new TextBlock();
                 tb.TextWrapping = TextWrapping.Wrap;
                 tb.Name = "txtBox" + cnt.ToString();
                 tb.Text = n.text;
                 tb.Background = Brushes.SeaShell;
-                tb.BorderThickness = new Thickness(2);
-                tb.BorderBrush = Brushes.DarkKhaki;
-                tb.Margin = new Thickness(10, 10, 10, 10);
                 tb.Height = 50;
-                panelRight.Children.Add(tb);
                 cnt++;
+
+                border.Child = tb;
+                panelRight.Children.Add(border);
             }
         }
 
