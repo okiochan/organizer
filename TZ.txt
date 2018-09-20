@@ -1,6 +1,9 @@
 WARNINGS
 FolderLook repaints all pages! active, done, recycle
 
+ALWAYS SAVE THIS
+D:\YandexDisk\PROJECTS\vs\organizer\organizer\db
+
 PageClock
     -add class Cursor and remember cursor position
 

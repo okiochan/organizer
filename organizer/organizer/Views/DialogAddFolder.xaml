@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
         mc:Ignorable="d"
-        Title="DialogAddFolderTask" Height="185" Width="405">
+        Title="DialogAddFolderTask" Height="190" Width="405">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
