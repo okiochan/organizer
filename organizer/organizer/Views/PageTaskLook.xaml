@@ -12,6 +12,7 @@
         <Label Name="labe" Content="hello" BorderThickness="2" BorderBrush="DarkSalmon" Width="300" ></Label>
         <Button Name="butTime" Margin="5" Background="LightBlue" Click="butTime_Click">time+</Button>
         <Button Name="btnNotifList" Margin="5" Background="LightCyan" Click="btnNotifList_Click">NotifList</Button>
+        <Button Name="btnChange" Margin="5" Background="LightCyan" Click="btnChange_Click">change</Button>
         <TextBlock Name="txtTime" Text="Spent: D:19 H:10 M:15" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
     </StackPanel>
     

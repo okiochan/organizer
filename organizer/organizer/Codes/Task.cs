@@ -12,11 +12,11 @@ namespace organizer.Codes {
 
         public Task() {
             id = -1;
-            text = "";
+            text = "title...";
             prio = Priority.LOW;
             status = Status.TODO;
-            deadline = DateTime.MinValue;
-            startdate = DateTime.MinValue;
+            deadline = DateTime.MaxValue;
+            startdate = DateTime.Now;
             timeSpent = 0;
         }
     }
