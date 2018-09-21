@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:organizer"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Loaded="Window_Loaded"
         Title="DialogAddTask" Height="850" Width="410"  WindowStartupLocation="CenterScreen">
     
     <Grid>
@@ -31,13 +31,13 @@
 
                 <StackPanel Margin="10 0">
                     <TextBlock Text="begin data" TextAlignment="Center"/>
-                    <Calendar x:Name="calendarStart" FirstDayOfWeek="Monday" SelectedDatesChanged="calendarStart_SelectedDatesChanged">
+                    <Calendar x:Name="calendarStart" FirstDayOfWeek="Monday" >
                     </Calendar>
                 </StackPanel>
 
                 <StackPanel  Margin="10 0">
                     <TextBlock Text="end data" TextAlignment="Center"/>
-                    <Calendar x:Name="calendarEnd"  FirstDayOfWeek="Monday" SelectedDatesChanged="calendarEnd_SelectedDatesChanged">
+                    <Calendar x:Name="calendarEnd"  FirstDayOfWeek="Monday" >
                     </Calendar>
                 </StackPanel>
 

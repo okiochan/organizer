@@ -28,9 +28,9 @@ namespace organizer.Views {
         }
 
         //Handler
-        public event EventHandler HandlerButClicked;
+        public event EventHandler HandlerRepaint;
         protected virtual void EventRepaint(EventArgs e) {
-            HandlerButClicked?.Invoke(this, e);
+            HandlerRepaint?.Invoke(this, e);
         }
 
         private void repaint() {
@@ -40,6 +40,7 @@ namespace organizer.Views {
             panel.Children.Remove(txtTime);
             panel.Children.Remove(butTime);
             panel.Children.Remove(btnNotifList);
+            panel.Children.Remove(btnChange);
 
             if (t.status == Status.DONE) { //DONE
 
@@ -60,6 +61,7 @@ namespace organizer.Views {
 
                 panel.Children.Add(butTime);
                 panel.Children.Add(btnNotifList);
+                panel.Children.Add(btnChange);
 
                 TimeSpan deadlineDiff = t.deadline - DateTime.Now;
                 TimeSpan startdateDiff = t.startdate - DateTime.Now;
@@ -121,9 +123,18 @@ namespace organizer.Views {
         }
 
         private void btnNotifList_Click(object sender, RoutedEventArgs e) {
-
             TaskNotificationListWindow d = new TaskNotificationListWindow();
             if (d.ShowDialog() == true) {
+            } else {
+            }
+        }
+
+        private void btnChange_Click(object sender, RoutedEventArgs e) {
+            DialogAddTask d = new DialogAddTask(t);
+            if (d.ShowDialog() == true) {
+                DatabaseTask.UpdateTask(t);
+                //repaint taskwindow
+                EventRepaint(EventArgs.Empty);
             } else {
             }
         }

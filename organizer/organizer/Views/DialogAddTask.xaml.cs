@@ -14,75 +14,39 @@ namespace organizer {
     /// </summary>
     public partial class DialogAddTask : Window
     {
-        private Priority prio;
-        private TaskFolder tf;
-        private DateTime? dateStart, dateEnd;
-
-
-        public DialogAddTask(TaskFolder tf)
+        private Task task;
+        public DialogAddTask(Task task)
         {
             InitializeComponent();
-            prio = Priority.LOW;
-            this.tf = tf;
-        }
-
-        //HANDLER
-        public event EventHandler HandlerButApplyClick;
-        protected virtual void EventOnButtonClicked(EventArgs e) {
-            EventHandler handler = HandlerButApplyClick;
-            if (handler != null) {
-                handler(this, e);
-            }
+            this.task = task;
         }
        
         //init task properties
         private void butApply_Click(object sender, RoutedEventArgs e) {
 
-            String text = "unnown title";
-            if (txtBoxTitle.Text != "") {
-                text = txtBoxTitle.Text;
-            }
-
-            DateTime start = DateTime.Now;
+            task.text = txtBoxTitle.Text;
             if(calendarStart.SelectedDate.HasValue) {
-                start = calendarStart.SelectedDate.Value;
+                task.startdate = calendarStart.SelectedDate.Value;
             }
-            DateTime end = DateTime.Now;
             if (calendarEnd.SelectedDate.HasValue) {
-                end = calendarEnd.SelectedDate.Value;
+                task.deadline = calendarEnd.SelectedDate.Value;
             }
-
-            DatabaseTask.CreateNewTask(text, prio, Status.TODO, start, end, tf);
+            
             //repaint
-            EventOnButtonClicked(EventArgs.Empty);
             this.DialogResult = true;
         }
 
 
         private void butLow_Click(object sender, RoutedEventArgs e) {
-            prio = Priority.LOW;
-            butLow.Background = Brushes.Yellow;
-            butMid.Background = Brushes.Gray;
-            butHight.Background = Brushes.Gray;
+            setPrioL();
         }
 
         private void butMid_Click(object sender, RoutedEventArgs e) {
-            prio = Priority.MID;
-            butLow.Background = Brushes.Gray;
-            butMid.Background = Brushes.Orange;
-            butHight.Background = Brushes.Gray;
+            setPrioM();
         }
 
         private void butHight_Click(object sender, RoutedEventArgs e) {
-            prio = Priority.HIGH;
-            butLow.Background = Brushes.Gray;
-            butMid.Background = Brushes.Gray;
-            butHight.Background = Brushes.Red;
-        }
-
-        //calendar
-        private void calendarStart_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
-            dateStart = calendarStart.SelectedDate;
+            setPrioH();
         }
         
         private void butAddNotification_Click(object sender, RoutedEventArgs e) {
@@ -92,8 +56,35 @@ namespace organizer {
             }
         }
 
-        private void calendarEnd_SelectedDatesChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e) {
-            dateEnd = calendarEnd.SelectedDate;
+        private void setPrioL() {
+            task.prio = Priority.LOW;
+            butLow.Background = Brushes.Yellow;
+            butMid.Background = Brushes.Gray;
+            butHight.Background = Brushes.Gray;
+        }
+        private void setPrioM() {
+            task.prio = Priority.MID;
+            butLow.Background = Brushes.Gray;
+            butMid.Background = Brushes.Orange;
+            butHight.Background = Brushes.Gray;
+        }
+        private void setPrioH() {
+            task.prio = Priority.HIGH;
+            butLow.Background = Brushes.Gray;
+            butMid.Background = Brushes.Gray;
+            butHight.Background = Brushes.Red;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            txtBoxTitle.Text = task.text;
+
+            if (task.prio == Priority.HIGH) {
+                setPrioH();
+            } else if (task.prio == Priority.MID) {
+                setPrioM();
+            } else {
+                setPrioL();
+            }
         }
     }
 }

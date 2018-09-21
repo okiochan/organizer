@@ -23,16 +23,7 @@ namespace organizer {
             InitializeComponent();
             this.tf = tf;
         }
-
-        //HANDLER
-        public event EventHandler HandlerAddTask;
-        protected virtual void EventRepaintAP(EventArgs e) {
-            EventHandler handler = HandlerAddTask;
-            if (handler != null) {
-                handler(this, e);
-            }
-        }
-
+        
         //EVENT
         private void EventRepaint(object sender, EventArgs e) {
             repaint();
@@ -52,7 +43,7 @@ namespace organizer {
 
                 PageTaskLook taskLook = new PageTaskLook(t);
                 //EVENT ADD
-                taskLook.HandlerButClicked += EventRepaint;
+                taskLook.HandlerRepaint += EventRepaint;
                 
                 Frame myFrame = new Frame();
                 myFrame.Margin = new Thickness(10, 10, 10, 10);
@@ -65,40 +56,6 @@ namespace organizer {
                 }
                 cnt++;
             }
-
-
-            //old version
-            //foreach (var t in tf.tasks) {
-            //    Label labe = new Label();
-            //    labe.Content = t.text;
-            //    labe.Name = "labe" + cnt.ToString();
-
-            //    if(t.prio == Priority.MID) {
-            //        labe.Background = Brushes.SandyBrown;
-            //    } else if(t.prio == Priority.HIGH) {
-            //        labe.Background = Brushes.Salmon;
-            //    } else {
-            //        labe.Background = Brushes.PapayaWhip;
-            //    }
-
-            //    labe.BorderBrush = Brushes.DarkSalmon;
-            //    labe.BorderThickness = new Thickness(2);
-            //    labe.Margin = new Thickness(10);
-            //    labe.Height = 30;
-
-            //    //labe.Drop += Button_Drop;
-            //    //labe.MouseDown += Button_MouseDown;
-            //    //labe.AllowDrop = true;
-
-            //    if (t.status == Status.DONE) {
-            //        labe.Background = Brushes.AliceBlue;
-            //        labe.BorderBrush = Brushes.DarkGray;
-            //        panelMiddle.Children.Add(labe);
-            //    } else {
-            //        panelLeft.Children.Add(labe);
-            //    }
-            //    cnt++;
-            //}
 
             foreach (var n in tf.notes) {
                 Border border = new Border();
@@ -137,12 +94,12 @@ namespace organizer {
 
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             
-            DialogAddTask d = new DialogAddTask(tf);
-            d.HandlerButApplyClick += EventRepaint;
+            Task t = new Task();
+            DialogAddTask d = new DialogAddTask(t);
             
             if (d.ShowDialog() == true) {
                 //repaint all
-                EventRepaintAP(EventArgs.Empty);
+                DatabaseTask.CreateNewTask(t.text, t.prio, Status.TODO, t.startdate, t.deadline, tf);
                 repaint();
             } else {
             }
@@ -158,10 +115,8 @@ namespace organizer {
 
             if (an.ShowDialog() == true) {
                 //repaint all
-                EventRepaintAP(EventArgs.Empty);
                 repaint();
             } else {
-                MessageBox.Show("Info not saved =(");
             }
         }
 
@@ -184,11 +139,18 @@ namespace organizer {
             // If the DataObject contains string data, extract it.
             if (e.Data.GetDataPresent("Task")) {
                 Task task = (Task)e.Data.GetData("Task");
-                task.status = Status.WIP;
-                DatabaseTask.UpdateTask(task);
+                task.status = Status.TODO;
+
+                DialogAddTask an = new DialogAddTask(task);
+                if (an.ShowDialog() == true) {
+                    //repaint all
+                    e.Handled = true;
+                    repaint();
+                    DatabaseTask.UpdateTask(task);
+
+                } else {
+                }
             }
-            e.Handled = true;
-            repaint();
         }
 
         private void DeleteItem(object sender, DragEventArgs e) {

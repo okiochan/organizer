@@ -7,10 +7,6 @@ D:\YandexDisk\PROJECTS\vs\organizer\organizer\db
 PageClock
     -add class Cursor and remember cursor position
 
-TaskWindow
-    when task moved to "TODO" should be opened DAT
-    make note as page
-
 FolderLook
     - folder that doesn't start yet should be gray
 

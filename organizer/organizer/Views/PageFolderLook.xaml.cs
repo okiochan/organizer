@@ -24,7 +24,6 @@ namespace organizer {
 
         private void butGoTo_Click(object sender, RoutedEventArgs e) {
             TaskWindow win2 = new TaskWindow(tf);
-            win2.HandlerAddTask += EventButApplyClicked;
             win2.Show();
             Window owner = Window.GetWindow(this);
             owner.Hide();
@@ -54,6 +53,7 @@ namespace organizer {
 
         private void butRestoreD_Click(object sender, RoutedEventArgs e) {
             tf.status = Status.DONE;
+            DatabaseTaskFolder.UpdateTaskFolder(tf);
             EventRepaintPages(EventArgs.Empty);
         }
 
@@ -82,12 +82,7 @@ namespace organizer {
                 panel.Children.Add(butDelete);
             }
         }
-
-        //all in
-        private void EventButApplyClicked(object sender, EventArgs e) {
-            EventRepaintPages(EventArgs.Empty);
-        }
-
+        
         //all in
         private void butDelete_Click(object sender, RoutedEventArgs e) {
             if(tf.status == Status.TRASH) {
