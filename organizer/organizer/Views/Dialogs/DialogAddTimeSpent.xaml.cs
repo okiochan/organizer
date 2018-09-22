@@ -1,26 +1,16 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace organizer.Views {
+namespace organizer.Views.Dialogs {
     /// <summary>
     /// Interaction logic for AddTimeSpentWindow.xaml
     /// </summary>
-    public partial class AddTimeSpentWindow : Window {
+    public partial class DialogAddTimeSpent : Window {
         Task task;
 
-        public AddTimeSpentWindow(Task task) {
+        public DialogAddTimeSpent(Task task) {
             InitializeComponent();
             this.task = task;
         }

@@ -1,29 +1,31 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
+using organizer.Views.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace organizer {
+namespace organizer.Views.Pages {
     /// <summary>
     /// Interaction logic for ActivePage.xaml
     /// </summary>
     public partial class PageActive : Page {
 
-        private List<StackPanel> spList;
-        private int tasksCnt = 0;
+        private List<StackPanel> stackPanels;
+        private int tasksCnt;
 
         public PageActive() {
             InitializeComponent();
-            spList = new List<StackPanel>();
+            stackPanels = new List<StackPanel>();
+            tasksCnt = 0;
         }
         
         private void Repaint() {
-            foreach (var sp in spList) {
+            foreach (var sp in stackPanels) {
                 sp.Children.Clear();
             }
-            spList.Clear();
+            stackPanels.Clear();
             tasksCnt = 0;
             List<TaskFolder> allFolders = DatabaseTaskFolder.ReadAll();
             foreach (var tf in allFolders) {
@@ -38,7 +40,7 @@ namespace organizer {
 
             PageFolderLook pageFL = new PageFolderLook(tf);
             //EVENT ADD
-            pageFL.HandlerRepaint += EventButApplyClicked;
+            pageFL.AnyChange += EventButApplyClicked;
 
             //delete event
             //pageFL.ButtonClickedHandler -= ButtonClickedEvent;
@@ -51,17 +53,17 @@ namespace organizer {
             if (tasksCnt % 5 == 0) {
                 StackPanel sp = new StackPanel();
                 sp.Orientation = Orientation.Horizontal;
-                spList.Add(sp);
+                stackPanels.Add(sp);
                 panelTasks.Children.Add(sp);
             }
-            spList[spList.Count - 1].Children.Add(myFrame);
+            stackPanels[stackPanels.Count - 1].Children.Add(myFrame);
             tasksCnt++;
         }
 
         //masha add
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
             DialogAddFolderTask wind = new DialogAddFolderTask(null);
-            wind.HandlerButApplyClick += EventButApplyClicked;
+            wind.ApplyClicked += EventButApplyClicked;
 
             if (wind.ShowDialog() != true) {
                 MessageBox.Show("Info not saved =(");
@@ -72,8 +74,6 @@ namespace organizer {
         private void activePage_Loaded(object sender, RoutedEventArgs e) {
             Repaint();
         }
-
-        //EVENTS------------------------------
 
         private void EventButApplyClicked(object sender, EventArgs e) {
             Repaint();

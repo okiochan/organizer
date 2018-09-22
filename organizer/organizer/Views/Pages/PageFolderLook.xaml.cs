@@ -1,29 +1,27 @@
 using organizer.Codes;
 using organizer.Codes.Database;
-using organizer.Views;
+using organizer.Views.Dialogs;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace organizer {
+namespace organizer.Views.Pages {
     /// <summary>
     /// Interaction logic for FolderLook.xaml
     /// </summary>
     ///
-
     public partial class PageFolderLook : Page
     {
-        private TaskFolder tf;
+        private TaskFolder taskFolder;
 
         public PageFolderLook(TaskFolder tf)
         {
             InitializeComponent();
-            this.tf = tf;
+            this.taskFolder = tf;
         }
 
         private void butGoTo_Click(object sender, RoutedEventArgs e) {
-            TaskWindow win2 = new TaskWindow(tf);
+            TaskView win2 = new TaskView(taskFolder);
             win2.Show();
             Window owner = Window.GetWindow(this);
             owner.Hide();
@@ -31,9 +29,9 @@ namespace organizer {
         }
 
         private void butDone_Click(object sender, RoutedEventArgs e) {
-            tf.status = Status.DONE;
-            DatabaseTaskFolder.UpdateTaskFolder(tf);
-            EventRepaintPages(EventArgs.Empty);
+            taskFolder.status = Status.DONE;
+            DatabaseTaskFolder.UpdateTaskFolder(taskFolder);
+            OnAnyChange(EventArgs.Empty);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
@@ -41,25 +39,25 @@ namespace organizer {
         }
 
         private void butView_Click(object sender, RoutedEventArgs e) {
-            TaskViewWindow tv = new TaskViewWindow(tf);
+            TaskView tv = new TaskView(taskFolder);
             tv.Show();
         }
 
         private void butRestore_Click(object sender, RoutedEventArgs e) {
-            tf.status = Status.TODO;
-            DatabaseTaskFolder.UpdateTaskFolder(tf);
-            EventRepaintPages(EventArgs.Empty);
+            taskFolder.status = Status.TODO;
+            DatabaseTaskFolder.UpdateTaskFolder(taskFolder);
+            OnAnyChange(EventArgs.Empty);
         }
 
         private void butRestoreD_Click(object sender, RoutedEventArgs e) {
-            tf.status = Status.DONE;
-            DatabaseTaskFolder.UpdateTaskFolder(tf);
-            EventRepaintPages(EventArgs.Empty);
+            taskFolder.status = Status.DONE;
+            DatabaseTaskFolder.UpdateTaskFolder(taskFolder);
+            OnAnyChange(EventArgs.Empty);
         }
 
         //all in
         private void repaint() {
-            txtBoxTitle.Text = tf.text;
+            txtBoxTitle.Text = taskFolder.text;
 
             //clear
             panel.Children.Remove(butGoTo);
@@ -69,11 +67,11 @@ namespace organizer {
             panel.Children.Remove(butDone);
             panel.Children.Remove(butDelete);
 
-            if (tf.status == Status.TODO) {
+            if (taskFolder.status == Status.TODO) {
                 panel.Children.Add(butDone);
                 panel.Children.Add(butGoTo);
                 panel.Children.Add(butDelete);
-            } else if(tf.status == Status.DONE) {
+            } else if(taskFolder.status == Status.DONE) {
                 panel.Children.Add(butView);
                 panel.Children.Add(butDelete);
             } else { //recycle
@@ -85,28 +83,24 @@ namespace organizer {
         
         //all in
         private void butDelete_Click(object sender, RoutedEventArgs e) {
-            if(tf.status == Status.TRASH) {
-                DatabaseTaskFolder.DeleteTaskFolder(tf);
+            if(taskFolder.status == Status.TRASH) {
+                DatabaseTaskFolder.DeleteTaskFolder(taskFolder);
             } else {
-                tf.status = Status.TRASH;
-                DatabaseTaskFolder.UpdateTaskFolder(tf);
+                taskFolder.status = Status.TRASH;
+                DatabaseTaskFolder.UpdateTaskFolder(taskFolder);
             }
-            EventRepaintPages(EventArgs.Empty);
+            OnAnyChange(EventArgs.Empty);
         }
         
-        //EVENTS--------------------------
 
-        public event EventHandler HandlerRepaint;
-        protected virtual void EventRepaintPages(EventArgs e) {
-            EventHandler handler = HandlerRepaint;
-            if (handler != null) {
-                handler(this, e);
-            }
+        public event EventHandler AnyChange;
+        protected virtual void OnAnyChange(EventArgs e) {
+            AnyChange?.Invoke(this, e);
         }
 
         private void DoubleClickOpen(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             if (e.ClickCount == 2) {
-                DialogAddFolderTask win2 = new DialogAddFolderTask(tf);
+                DialogAddFolderTask win2 = new DialogAddFolderTask(taskFolder);
                 win2.ShowDialog();
                 repaint();
             }
