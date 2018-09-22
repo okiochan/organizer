@@ -67,11 +67,11 @@ namespace organizer.Views {
                 TimeSpan startdateDiff = t.startdate - DateTime.Now;
                 TimeSpan twoDays = new TimeSpan(2, 0, 0, 0);
 
-                if (startdateDiff > TimeSpan.Zero) {        // not started yet
+                if (!DateTime.MinValue.Equals(t.startdate) && startdateDiff > TimeSpan.Zero) {        // not started yet
                     labe.Background = Brushes.LightGray;
-                } else if (deadlineDiff < TimeSpan.Zero) {  // already ended
+                } else if (!DateTime.MinValue.Equals(t.deadline) && deadlineDiff < TimeSpan.Zero) {  // already ended
                     labe.Background = Brushes.Red;
-                } else if (deadlineDiff < twoDays) {        // due to end in 2 days
+                } else if (!DateTime.MinValue.Equals(t.deadline) && deadlineDiff < twoDays) {        // due to end in 2 days
                     labe.Background = Brushes.Salmon;
                 } else {                                    // default    
                     labe.Background = Brushes.SandyBrown;
