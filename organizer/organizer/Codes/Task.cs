@@ -15,8 +15,8 @@ namespace organizer.Codes {
             text = "title...";
             prio = Priority.LOW;
             status = Status.TODO;
-            deadline = DateTime.MaxValue;
-            startdate = DateTime.Now;
+            deadline = DateTime.MinValue;
+            startdate = DateTime.MinValue;
             timeSpent = 0;
         }
     }

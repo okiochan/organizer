@@ -27,9 +27,16 @@ namespace organizer {
             task.text = txtBoxTitle.Text;
             if(calendarStart.SelectedDate.HasValue) {
                 task.startdate = calendarStart.SelectedDate.Value;
+            } else {
+                task.startdate = DateTime.MinValue;
             }
+
             if (calendarEnd.SelectedDate.HasValue) {
                 task.deadline = calendarEnd.SelectedDate.Value;
+                TimeSpan oneDay = new TimeSpan(1, 0, 0, 0);
+                task.deadline += oneDay;
+            } else {
+                task.deadline = DateTime.MinValue;
             }
             
             //repaint
@@ -77,6 +84,13 @@ namespace organizer {
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             txtBoxTitle.Text = task.text;
+            if (!task.startdate.Equals(DateTime.MinValue)) {
+                calendarStart.SelectedDate = task.startdate;
+            }
+            if (!task.deadline.Equals(DateTime.MinValue)) {
+                TimeSpan oneDay = new TimeSpan(1, 0, 0, 0);
+                calendarEnd.SelectedDate = task.deadline - oneDay;
+            }
 
             if (task.prio == Priority.HIGH) {
                 setPrioH();
