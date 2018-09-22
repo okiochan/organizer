@@ -1,27 +1,18 @@
 ﻿using organizer.Codes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace organizer.Views {
     /// <summary>
     /// Interaction logic for TaskView.xaml
     /// </summary>
-    public partial class TaskViewWindow : Window {
+    public partial class DoneTaskView : Window {
 
         private TaskFolder tf;
         private int cnt = 0;
 
-        public TaskViewWindow(TaskFolder tf) {
+        public DoneTaskView(TaskFolder tf) {
             InitializeComponent();
             this.tf = tf;
         }

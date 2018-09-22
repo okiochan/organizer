@@ -1,54 +1,22 @@
 ﻿using organizer.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace organizer.Views {
+namespace organizer.Views.Pages {
     /// <summary>
     /// Interaction logic for PageClock.xaml
     /// </summary>
     public partial class PageClock : Page {
 
-        //----------------classes
-
-        class pt {
-            public double x, y;
-            public pt(double x, double y) {
-                this.x = x; this.y = y;
-            }
-
-            //convert to original coord
-            public double toX(double W) {
-                return W / 2 * x + W / 2;
-            }
-            public double toY(double H) {
-                return -H / 2 * y + H / 2; ;
-            }
-
-            public void rotateAng(double ang) {
-                double nx = x * Math.Cos(ang) + y * Math.Sin(ang);
-                double ny = -x * Math.Sin(ang) + y * Math.Cos(ang);
-                x = nx; y = ny;
-            }
-        };
-
         class button {
-            Button btn;
             string id;
             double X, Y;
+            Button btn;
             Canvas canv;
 
-            public button(string id, pt coord, Canvas canv, double X, double Y) {
+            public button(string id, Point coord, Canvas canv, double X, double Y) {
                 this.id = id;
                 this.canv = canv;
                 this.X = X;
@@ -61,7 +29,7 @@ namespace organizer.Views {
                     Name = "btn" + (id).ToString(),
                     Background = Brushes.GhostWhite
                 };
-                btn.Click += btn_Click;
+                btn.Click += ButtonClicked;
 
                 // Add to a canvas
                 canv.Children.Add(btn);
@@ -71,23 +39,23 @@ namespace organizer.Views {
 
 
             //HANDLER
-            public event EventHandler<ClockButtonEventArgs> HandlerEventRepaintCirc;
-            protected virtual void EventRepaintCirc(ClockButtonEventArgs e) {
-                EventHandler<ClockButtonEventArgs> handler = HandlerEventRepaintCirc;
+            public event EventHandler<ClockButtonEventArgs> Click;
+            protected virtual void OnButtonClick(ClockButtonEventArgs e) {
+                EventHandler<ClockButtonEventArgs> handler = Click;
                 if (handler != null) {
                     handler(this, e);
                 }
             }
 
-            private void btn_Click(object sender, EventArgs e) {
-                EventRepaintCirc(new ClockButtonEventArgs(X, Y, id ));
+            private void ButtonClicked(object sender, EventArgs e) {
+                OnButtonClick(new ClockButtonEventArgs(X, Y, id ));
             }
         }
         
         //----------------classes end
 
         private bool drawH;
-        private String hour, min;
+        private string hour, min;
 
         public PageClock() {
             InitializeComponent();
@@ -103,27 +71,26 @@ namespace organizer.Views {
             return min;
         }
 
-        private void Page_Loaded(object sender, RoutedEventArgs e) {
-            repaint();
+        private void OnLoaded(object sender, RoutedEventArgs e) {
+            Repaint();
         }
 
         public void setDrawH(bool H) {
             drawH = H;
-            repaint();
+            Repaint();
         }
 
         //HANDLER
-        public event EventHandler<TimeEventArgs> HandlerSetTime;
-        protected virtual void EventSetTime(TimeEventArgs e) {
-            EventHandler<TimeEventArgs> handler = HandlerSetTime;
+        public event EventHandler<TimeEventArgs> TimeChanged;
+        protected virtual void OnTimeChanged(TimeEventArgs e) {
+            EventHandler<TimeEventArgs> handler = TimeChanged;
             if (handler != null) {
                 handler(this, e);
             }
         }
 
-
         //EVENT clicked
-        private void EventBtnClicked(object sender, ClockButtonEventArgs e) {
+        private void ButtonClicked(object sender, ClockButtonEventArgs e) {
 
             double x = e.getX - circChoosen.Width / 2;
             double y = e.getY - circChoosen.Height / 2;
@@ -146,11 +113,10 @@ namespace organizer.Views {
                 min = e.getContent;
             }
 
-            EventSetTime( new TimeEventArgs(hour, min) );
+            OnTimeChanged(new TimeEventArgs(hour, min));
         }
 
-        private void repaint() {
-
+        private void Repaint() {
             canv.Children.Clear();
 
             canv.Children.Add(el1);
@@ -162,7 +128,7 @@ namespace organizer.Views {
             circChoosen.Visibility = Visibility.Hidden;
             lineChoosen.Visibility = Visibility.Hidden;
 
-            pt p = new pt(0, 0);
+            Point p = new Point(0, 0);
             double w = canv.Width;
             double h = canv.Height;
             double xc = p.toX(w);
@@ -183,40 +149,63 @@ namespace organizer.Views {
             if(drawH == true) {
 
                 //make inner circle
-                p = new pt(0, .5);
-                p.rotateAng(-30 * Math.PI / 180);
+                p = new Point(0, .5);
+                p = p.Rotate(-30 * Math.PI / 180);
                 for (int i = 0; i < 13; i++) {
-                    p.rotateAng(30 * Math.PI / 180);
+                    p = p.Rotate(30 * Math.PI / 180);
                     string id = "" + i;
                     button btn = new button(id, p, canv, p.toX(w), p.toY(h));
-                    btn.HandlerEventRepaintCirc += EventBtnClicked;
+                    btn.Click += ButtonClicked;
                 }
 
                 //make outer circle
-                p = new pt(0, .8);
-                p.rotateAng(-30 * Math.PI / 180);
+                p = new Point(0, .8);
+                p = p.Rotate(-30 * Math.PI / 180);
                 for (int i = 0; i < 13; i++) {
-                    p.rotateAng(30 * Math.PI / 180);
+                    p = p.Rotate(30 * Math.PI / 180);
                     string id = "" + (i+12);
                     if(i+12 == 24) { id = "00"; }
                     button btn = new button(id, p, canv, p.toX(w), p.toY(h));
-                    btn.HandlerEventRepaintCirc += EventBtnClicked;
+                    btn.Click += ButtonClicked;
                 }
             } else {
 
                 //make outer circle
-                p = new pt(0, .8);
-                p.rotateAng(-30 * Math.PI / 180);
+                p = new Point(0, .8);
+                p = p.Rotate(-30 * Math.PI / 180);
                 for (int i = 0; i < 13; i++) {
-                    p.rotateAng(30 * Math.PI / 180);
+                    p = p.Rotate(30 * Math.PI / 180);
                     string id = "" + (i * 5);
                     if (i * 5 == 60) { id = "00"; }
                     if(i * 5 == 5) { id = "05"; }
                     button btn = new button(id, p, canv, p.toX(w), p.toY(h));
-                    btn.HandlerEventRepaintCirc += EventBtnClicked;
+                    btn.Click += ButtonClicked;
                 }
             }
 
+        }
+
+        private class Point {
+            public double x, y;
+            public Point(double x, double y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            //convert to original coord
+            public double toX(double W) {
+                return W / 2 * x + W / 2;
+            }
+
+            public double toY(double H) {
+                return -H / 2 * y + H / 2; ;
+            }
+
+            public Point Rotate(double ang) {
+                double nx = x * Math.Cos(ang) + y * Math.Sin(ang);
+                double ny = -x * Math.Sin(ang) + y * Math.Cos(ang);
+                return new Point(nx, ny);
+            }
         }
     }
 }

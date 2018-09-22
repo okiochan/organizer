@@ -6,16 +6,16 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace organizer {
+namespace organizer.Views.Pages {
     /// <summary>
-    /// Interaction logic for DonePage.xaml
+    /// Interaction logic for RecyclePage.xaml
     /// </summary>
-    public partial class PageDone : Page {
+    public partial class PageRecycle : Page {
 
         private List<StackPanel> spList;
         private int tasksCnt = 0;
 
-        public PageDone() {
+        public PageRecycle() {
             InitializeComponent();
             spList = new List<StackPanel>();
         }
@@ -29,20 +29,17 @@ namespace organizer {
 
             List<TaskFolder> allfolders = DatabaseTaskFolder.ReadAll();
             foreach (var tf in allfolders) {
-                if (tf.status == Status.DONE) {
+                if (tf.status == Status.TRASH) {
                     addTaskFolder(tf);
                 }
             }
         }
-
+        
         //TaskFolder preparation
         private void addTaskFolder(TaskFolder tf) {
 
             PageFolderLook pageFL = new PageFolderLook(tf);
-            pageFL.HandlerRepaint += EventRepaint;
-            
-            //pageFLD.ButtonClickedHandler += EventButApplyClicked;
-
+            pageFL.AnyChange += EventRepaint;
 
             Frame myFrame = new Frame();
             myFrame.Margin = new Thickness(10, 10, 10, 10);
@@ -52,14 +49,13 @@ namespace organizer {
                 StackPanel sp = new StackPanel();
                 sp.Orientation = Orientation.Horizontal;
                 spList.Add(sp);
-                panelDoneTasks.Children.Add(sp);
+                panelRecycle.Children.Add(sp);
             }
             spList[spList.Count - 1].Children.Add(myFrame);
             tasksCnt++;
         }
 
-
-        private void Page_Loaded(object sender, RoutedEventArgs e) {
+        private void Page_Loaded(object sender, System.Windows.RoutedEventArgs e) {
             repaint();
         }
 
@@ -68,6 +64,6 @@ namespace organizer {
         private void EventRepaint(object sender, EventArgs e) {
             repaint();
         }
-
+        
     }
 }

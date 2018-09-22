@@ -1,20 +1,17 @@
-﻿using organizer.Codes;
-using System;
-using System.Collections.Generic;
+﻿using organizer.Views.Pages;
 using System.Windows;
-using System.Windows.Controls;
 
-namespace organizer {
+namespace organizer.Views {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TaskFolderView : Window
     {
         private PageActive ap;
         private PageDone dp;
         private PageRecycle rp;
 
-        public MainWindow() {
+        public TaskFolderView() {
             InitializeComponent();
             mainFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             ap = new PageActive();

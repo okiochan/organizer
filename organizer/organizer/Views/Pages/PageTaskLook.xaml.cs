@@ -1,20 +1,13 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
+using organizer.Views.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace organizer.Views {
+namespace organizer.Views.Pages {
     /// <summary>
     /// Interaction logic for PageTaskLook.xaml
     /// </summary>
@@ -93,7 +86,7 @@ namespace organizer.Views {
         }
 
         private void butTime_Click(object sender, RoutedEventArgs e) {
-            AddTimeSpentWindow wnd = new AddTimeSpentWindow(t);
+            DialogAddTimeSpent wnd = new DialogAddTimeSpent(t);
             wnd.Show();
         }
 

@@ -1,14 +1,8 @@
 ﻿using organizer.Codes;
-using organizer.Codes.Database;
-using organizer.Events;
-using organizer.Views;
-using System;
-using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace organizer {
+namespace organizer.Views.Dialogs {
     /// <summary>
     /// Interaction logic for DialogAddTask.xaml
     /// </summary>
