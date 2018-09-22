@@ -1,8 +1,8 @@
 ﻿using organizer.Codes;
 using organizer.Codes.Database;
-using organizer.Views;
+using organizer.Views.Dialogs;
+using organizer.Views.Pages;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,32 +14,33 @@ namespace organizer {
     /// </summary>
     /// 
 
-    public partial class TaskWindow : Window {
+    public partial class TaskView : Window {
 
-        private TaskFolder tf;
-        private int cnt=0;
+        private TaskFolder TaskFolder;
+        private int cnt;
 
-        public TaskWindow(TaskFolder tf) {
+        public TaskView(TaskFolder tf) {
             InitializeComponent();
-            this.tf = tf;
+            this.TaskFolder = tf;
+            cnt = 0;
         }
         
         //EVENT
         private void EventRepaint(object sender, EventArgs e) {
-            repaint();
+            Repaint();
         }
 
-        private void repaint() {
+        private void Repaint() {
 
             panelMiddle.Children.Clear();
             panelLeft.Children.Clear();
             panelRight.Children.Clear();
             cnt = 0;
 
-            DatabaseTaskFolder.ReloadTaskFolder(tf);
-            tf.SortTasksByPriority();
+            DatabaseTaskFolder.ReloadTaskFolder(TaskFolder);
+            TaskFolder.SortTasksByPriority();
 
-            foreach (var t in tf.tasks) {
+            foreach (var t in TaskFolder.tasks) {
 
                 PageTaskLook taskLook = new PageTaskLook(t);
                 //EVENT ADD
@@ -57,7 +58,7 @@ namespace organizer {
                 cnt++;
             }
 
-            foreach (var n in tf.notes) {
+            foreach (var n in TaskFolder.notes) {
                 Border border = new Border();
                 border.BorderThickness = new Thickness(2);
                 border.BorderBrush = Brushes.DarkKhaki;
@@ -99,23 +100,23 @@ namespace organizer {
             
             if (d.ShowDialog() == true) {
                 //repaint all
-                DatabaseTask.CreateNewTask(t.text, t.prio, Status.TODO, t.startdate, t.deadline, tf);
-                repaint();
+                DatabaseTask.CreateNewTask(t.text, t.prio, Status.TODO, t.startdate, t.deadline, TaskFolder);
+                Repaint();
             } else {
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            repaint();
+            Repaint();
         }
 
         private void butAddNote_Click(object sender, RoutedEventArgs e) {
-            DialogAddNote an = new DialogAddNote(tf);
-            an.HandlerButApplyClick += EventRepaint;
+            DialogAddNote an = new DialogAddNote(TaskFolder);
+            an.ApplyClick += EventRepaint;
 
             if (an.ShowDialog() == true) {
                 //repaint all
-                repaint();
+                Repaint();
             } else {
             }
         }
@@ -130,7 +131,7 @@ namespace organizer {
                 DatabaseTask.UpdateTask(task);
             }
             e.Handled = true;
-            repaint();
+            Repaint();
         }
 
         private void panelLeft_Drop(object sender, DragEventArgs e) {
@@ -145,7 +146,7 @@ namespace organizer {
                 if (an.ShowDialog() == true) {
                     //repaint all
                     e.Handled = true;
-                    repaint();
+                    Repaint();
                     DatabaseTask.UpdateTask(task);
 
                 } else {
@@ -178,7 +179,7 @@ namespace organizer {
                     case MessageBoxResult.No:
                         break;
                 }
-                repaint();
+                Repaint();
 
             }
             e.Handled = true;

@@ -3,7 +3,7 @@ using organizer.Codes.Database;
 using System;
 using System.Windows;
 
-namespace organizer {
+namespace organizer.Views.Dialogs {
     /// <summary>
     /// Interaction logic for DialogAddFolderTask.xaml
     /// </summary>
@@ -16,12 +16,9 @@ namespace organizer {
             this.toEdit = toEdit;
         }
 
-        public event EventHandler HandlerButApplyClick;
-        protected virtual void EventOnButtonClicked(EventArgs e) {
-            EventHandler handler = HandlerButApplyClick;
-            if (handler != null) {
-                handler(this, e);
-            }
+        public event EventHandler ApplyClicked;
+        protected virtual void OnApplyButtonClicked(EventArgs e) {
+            ApplyClicked?.Invoke(this, e);
         }
 
         private void butApply_Click(object sender, RoutedEventArgs e) {
@@ -38,7 +35,7 @@ namespace organizer {
                 toEdit.text = title;
                 DatabaseTaskFolder.UpdateTaskFolder(toEdit) ;
             }
-            EventOnButtonClicked(EventArgs.Empty);
+            OnApplyButtonClicked(EventArgs.Empty);
             DialogResult = true;
         }
 

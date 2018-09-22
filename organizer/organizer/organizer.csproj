@@ -61,40 +61,40 @@
     <Compile Include="Codes\Database\DateTimeHelper.cs" />
     <Compile Include="Events\ClockButtonEventArgs.cs" />
     <Compile Include="Events\TimeEventArgs.cs" />
-    <Compile Include="Views\DialogAddNotification.xaml.cs">
+    <Compile Include="Views\Dialogs\DialogAddNotification.xaml.cs">
       <DependentUpon>DialogAddNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageActive.xaml.cs">
+    <Compile Include="Views\Pages\PageActive.xaml.cs">
       <DependentUpon>PageActive.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Database\Database.cs" />
-    <Compile Include="Views\DialogAddNote.xaml.cs">
+    <Compile Include="Views\Dialogs\DialogAddNote.xaml.cs">
       <DependentUpon>DialogAddNote.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddTimeSpentWindow.xaml.cs">
-      <DependentUpon>AddTimeSpentWindow.xaml</DependentUpon>
+    <Compile Include="Views\Dialogs\DialogAddTimeSpent.xaml.cs">
+      <DependentUpon>DialogAddTimeSpent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DialogAddFolder.xaml.cs">
+    <Compile Include="Views\Dialogs\DialogAddFolder.xaml.cs">
       <DependentUpon>DialogAddFolder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DialogAddTask.xaml.cs">
+    <Compile Include="Views\Dialogs\DialogAddTask.xaml.cs">
       <DependentUpon>DialogAddTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageClock.xaml.cs">
+    <Compile Include="Views\Pages\PageClock.xaml.cs">
       <DependentUpon>PageClock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageDone.xaml.cs">
+    <Compile Include="Views\Pages\PageDone.xaml.cs">
       <DependentUpon>PageDone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageFolderLook.xaml.cs">
+    <Compile Include="Views\Pages\PageFolderLook.xaml.cs">
       <DependentUpon>PageFolderLook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Note.cs" />
     <Compile Include="Codes\Priority.cs" />
-    <Compile Include="Views\PageTaskLook.xaml.cs">
+    <Compile Include="Views\Pages\PageTaskLook.xaml.cs">
       <DependentUpon>PageTaskLook.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageRecycle.xaml.cs">
+    <Compile Include="Views\Pages\PageRecycle.xaml.cs">
       <DependentUpon>PageRecycle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Status.cs" />
@@ -103,52 +103,49 @@
     <Compile Include="Views\TaskNotificationListWindow.xaml.cs">
       <DependentUpon>TaskNotificationListWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaskViewWindow.xaml.cs">
-      <DependentUpon>TaskViewWindow.xaml</DependentUpon>
+    <Compile Include="Views\DoneTaskView.xaml.cs">
+      <DependentUpon>DoneTaskView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaskWindow.xaml.cs">
-      <DependentUpon>TaskWindow.xaml</DependentUpon>
+    <Compile Include="Views\TaskView.xaml.cs">
+      <DependentUpon>TaskView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Test.xaml.cs">
-      <DependentUpon>Test.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Views\DialogAddNotification.xaml">
+    <Page Include="Views\Dialogs\DialogAddNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageActive.xaml">
+    <Page Include="Views\Pages\PageActive.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddNote.xaml">
+    <Page Include="Views\Dialogs\DialogAddNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AddTimeSpentWindow.xaml">
+    <Page Include="Views\Dialogs\DialogAddTimeSpent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddFolder.xaml">
+    <Page Include="Views\Dialogs\DialogAddFolder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DialogAddTask.xaml">
+    <Page Include="Views\Dialogs\DialogAddTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageClock.xaml">
+    <Page Include="Views\Pages\PageClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageDone.xaml">
+    <Page Include="Views\Pages\PageDone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageFolderLook.xaml">
+    <Page Include="Views\Pages\PageFolderLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Views\TaskFolderView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -156,15 +153,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\TaskFolderView.xaml.cs">
+      <DependentUpon>TaskFolderView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PageTaskLook.xaml">
+    <Page Include="Views\Pages\PageTaskLook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageRecycle.xaml">
+    <Page Include="Views\Pages\PageRecycle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,15 +169,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskViewWindow.xaml">
+    <Page Include="Views\DoneTaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Test.xaml">
+    <Page Include="Views\TaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,18 +1,10 @@
 ﻿using organizer.Events;
+using organizer.Views.Pages;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace organizer.Views {
+namespace organizer.Views.Dialogs {
     /// <summary>
     /// Interaction logic for DialogAddNotification.xaml
     /// </summary>
@@ -24,7 +16,7 @@ namespace organizer.Views {
             InitializeComponent();
 
             pageClock = new PageClock();
-            pageClock.HandlerSetTime += EventSetClockTime;
+            pageClock.TimeChanged += EventSetClockTime;
             frameClock.Navigate(pageClock);
         }
 
@@ -41,7 +33,7 @@ namespace organizer.Views {
             //DINASH add time to DB
         }
 
-        private void btnClockClick(object sender, RoutedEventArgs e) {
+        private void btnChangeClockType_Click(object sender, RoutedEventArgs e) {
 
             Button btn = (Button)sender;
             switch (btn.Name) {
@@ -68,7 +60,7 @@ namespace organizer.Views {
             }
 
            //add here to DB
-            this.DialogResult = true;
+            DialogResult = true;
         }
     }
 }
