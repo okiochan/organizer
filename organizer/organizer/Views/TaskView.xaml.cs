@@ -146,9 +146,8 @@ namespace organizer {
                 if (an.ShowDialog() == true) {
                     //repaint all
                     e.Handled = true;
-                    Repaint();
                     DatabaseTask.UpdateTask(task);
-
+                    Repaint();
                 } else {
                 }
             }
