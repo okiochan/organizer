@@ -18,12 +18,12 @@
             <Button Margin="10 5" Background="LightGreen" Width="20" Name="btnAddNotif" Click="btnAddNotif_Click">+</Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Background="Beige" Grid.ColumnSpan="2">
-            
-            <TextBox Margin="10" Height="30" Name="txtBoxTitle" FontSize="15" > Example</TextBox>
-
-            <Button Margin="10" Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
-        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel Background="Beige" Grid.ColumnSpan="2">
+                <TextBox Margin="10" Height="30" Name="txtBoxTitle" FontSize="15" >Example</TextBox>
+                <Button Margin="10" Width="50" Name="butApply" Background="LightGreen" Click="butApply_Click">apply</Button>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 
