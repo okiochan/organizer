@@ -91,6 +91,9 @@
     </Compile>
     <Compile Include="Codes\Note.cs" />
     <Compile Include="Codes\Priority.cs" />
+    <Compile Include="Views\Pages\PageNote.xaml.cs">
+      <DependentUpon>PageNote.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\PageTaskLook.xaml.cs">
       <DependentUpon>PageTaskLook.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\PageFolderLook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PageNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
