@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:organizer.Views"
       mc:Ignorable="d" 
       d:DesignHeight="30" d:DesignWidth="260" Loaded="Page_Loaded"
-      Title="PageTaskLook">
+      Title="PageTaskLook" MouseLeftButtonDown="DoubleClickEdit">
 
     <StackPanel Name="panel" Orientation="Horizontal" Margin="0,0,-271,0">
         <Label Name="labe" Content="hello" BorderThickness="2" BorderBrush="DarkSalmon" Width="300" ></Label>

@@ -128,7 +128,12 @@ namespace organizer.Views.Pages {
                 DatabaseTask.UpdateTask(t);
                 //repaint taskwindow
                 EventRepaint(EventArgs.Empty);
-            } else {
+            }
+        }
+
+        private void DoubleClickEdit(object sender, MouseButtonEventArgs e) {
+            if(e.ClickCount==2) {
+                btnChange_Click(sender, e);
             }
         }
     }
