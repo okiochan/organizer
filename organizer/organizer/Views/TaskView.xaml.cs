@@ -59,38 +59,17 @@ namespace organizer {
             }
 
             foreach (var n in TaskFolder.notes) {
-                Border border = new Border();
-                border.BorderThickness = new Thickness(2);
-                border.BorderBrush = Brushes.DarkKhaki;
-                border.Margin = new Thickness(10, 10, 10, 10);
+                PageNote note = new PageNote(n);
 
-                TextBlock tb = new TextBlock();
-                tb.TextWrapping = TextWrapping.Wrap;
-                tb.Name = "txtBox" + cnt.ToString();
-                tb.Text = n.text;
-                tb.Background = Brushes.SeaShell;
-                tb.Height = 50;
-                cnt++;
-
-                border.Child = tb;
-                panelRight.Children.Add(border);
+                Frame noteFrame = new Frame();
+                noteFrame.Navigate(note);
+                panelRight.Children.Add(noteFrame);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
             TextBlock btn = (TextBlock)sender;
             DragDrop.DoDragDrop(btn, btn, DragDropEffects.Copy);
-        }
-
-        private void Button_Drop(object sender, DragEventArgs e) {
-            Label lbl = (Label)sender;
-            String text = (String)e.Data.GetData(DataFormats.Text);
-            lbl.Content = text;
-        }
-
-        private void Button_MouseDown(object sender, MouseButtonEventArgs e) {
-            Label src = (Label)sender;
-            DragDrop.DoDragDrop(src, src.Content, DragDropEffects.Copy);
         }
 
         private void butAddTask_Click(object sender, RoutedEventArgs e) {
@@ -155,20 +134,16 @@ namespace organizer {
         }
 
         private void DeleteItem(object sender, DragEventArgs e) {
-
             base.OnDrop(e);
 
-            // If the DataObject contains string data, extract it.
-            if (e.Data.GetDataPresent("Task")) {
+            if (e.Data.GetDataPresent("Task")) { // task deletion
                 Task task = (Task)e.Data.GetData("Task");
-
-
-                // Configure the message box to be displayed
+                
+                // Process message box results
                 string messageBoxText = "Do you want to delete task?";
                 string caption = "Dialog window";
                 MessageBoxButton button = MessageBoxButton.YesNo;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                // Display message box
                 MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
 
                 // Process message box results
@@ -181,6 +156,24 @@ namespace organizer {
                 }
                 Repaint();
 
+            } else if (e.Data.GetDataPresent("Note")) { // note deletion
+                Note note = (Note)e.Data.GetData("Note");
+
+                // confirmation
+                string messageBoxText = "Do you want to delete the note?";
+                string caption = "Dialog window";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+                switch (result) {
+                    case MessageBoxResult.Yes:
+                        DatabaseNote.DeleteNote(note);
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+                Repaint();
             }
             e.Handled = true;
         }

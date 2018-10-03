@@ -95,7 +95,7 @@ namespace organizer.Views.Pages {
             if (e.LeftButton == MouseButtonState.Pressed) {
                 // Package the data.
                 DataObject data = new DataObject();
-                data.SetData("Task", this.t);
+                data.SetData("Task", t);
 
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
